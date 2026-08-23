@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="木白推荐的学习平台与工具 - 收录编程学习、学术检索、开发工具等资源，助力高效学习与创造。">
+    <meta property="og:title" content="学习平台/工具 - 木白">
+    <meta property="og:description" content="收录编程学习、学术检索、开发工具等资源，助力高效学习与创造。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mubai.net.cn/learning-tools/">
+    <meta property="og:image" content="https://mubai.net.cn/avatar.jpg">
+    <link rel="canonical" href="https://mubai.net.cn/learning-tools/">
+    <link rel="icon" href="../avatar.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="../avatar.jpg">
+    <title>学习平台/工具 - 木白</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #4f6d7a;
+            --primary-light: #7a9eab;
+            --accent: #e8a87c;
+            --bg-dark: #2c3e50;
+            --bg-light: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --text-muted: #7f8c8d;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --learning-color: #0a9e6e;
+            --learning-dark: #067a52;
+            --learning-light: #4ecdc4;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 导航栏 */
+        nav:not(.page-toc) {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 2rem;
+        }
+        nav .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        nav .back-btn { text-decoration: none; color: var(--primary); font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
+        nav .back-btn:hover { color: var(--accent); }
+
+        /* Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #0a9e6e 100%);
+            color: var(--text-light);
+            padding: 7rem 2rem 4rem;
+            text-align: center;
+        }
+        .page-hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .page-hero p { font-size: 1.1rem; color: rgba(255, 255, 255, 0.85); max-width: 600px; margin: 0 auto; }
+
+        /* 内容区 */
+        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 分类区块 */
+        .category-section { margin-bottom: 3rem; }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid rgba(10, 158, 110, 0.15);
+        }
+        .category-header .cat-icon {
+            font-size: 1.5rem;
+        }
+        .category-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--learning-dark);
+        }
+        .category-header .cat-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(10, 158, 110, 0.1);
+            padding: 0.15rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        /* 工具卡片网格 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--learning-color);
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(10, 158, 110, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+            transition: var(--transition);
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-top-color: var(--learning-dark);
+        }
+        .tool-card:hover::before {
+            transform: translate(20%, -20%) scale(1.5);
+        }
+
+        .tool-card .tool-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1;
+        }
+
+        .tool-card .tool-badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            background: rgba(10, 158, 110, 0.12);
+            color: var(--learning-dark);
+        }
+        .tool-card .tool-badge.free { background: rgba(46, 204, 113, 0.15); color: #27ae60; }
+        .tool-card .tool-badge.paid { background: rgba(232, 168, 124, 0.15); color: #c8895f; }
+        .tool-card .tool-badge.local { background: rgba(79, 109, 122, 0.15); color: var(--primary); }
+
+        .tool-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .tool-card .tool-desc {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .tool-card .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .tool-card .tool-tags span {
+            background: var(--bg-light);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .tool-card .tool-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.88rem;
+            color: var(--learning-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .tool-card:hover .tool-link {
+            color: var(--learning-dark);
+            gap: 0.5rem;
+        }
+
+        /* 返回按钮 */
+        .back-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            background: var(--primary);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+        footer p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            nav:not(.page-toc) { padding: 0.8rem 1rem; }
+            .page-hero { padding: 6rem 1.5rem 3rem; }
+            .page-hero h1 { font-size: 1.8rem; }
+            .container { padding: 2rem 1rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== 左侧目录导航 ========== */
+        .page-toc {
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #f8f9fa;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            padding: 20px 16px;
+            z-index: 200;
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+        .page-toc .toc-header {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+        }
+        .page-toc ul { display: block; list-style: none; padding: 0; margin: 0; }
+        .page-toc li { margin-bottom: 2px; }
+        .page-toc a {
+            display: block;
+            padding: 8px 12px;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            line-height: 1.4;
+        }
+        .page-toc a:hover { background: #e8f5ee; color: var(--learning-dark); }
+        .page-toc a.active { background: var(--learning-color); color: #fff; }
+        .toc-toggle {
+            display: none;
+            position: fixed;
+            left: 16px;
+            bottom: 80px;
+            z-index: 201;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--learning-color);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .toc-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 199;
+        }
+        @media (min-width: 1025px) { body.toc-enabled { padding-left: 240px; } }
+        @media (max-width: 1024px) {
+            .page-toc { transform: translateX(-100%); box-shadow: 2px 0 20px rgba(0,0,0,0.15); }
+            .page-toc.open { transform: translateX(0); }
+            .toc-toggle { display: flex; }
+            .toc-overlay.show { display: block; }
+        }
+        .page-toc .toc-home {
+            display: block;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            color: var(--learning-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            background: #e8f5ee;
+            transition: all 0.2s;
+        }
+        .page-toc .toc-home:hover { background: var(--learning-color); color: #fff; }
+        @media (min-width: 1025px) { .page-toc { padding-top: 24px; } }
+    </style>
+</head>
+<body class="toc-enabled">
+    <!-- 左侧目录 -->
+    <nav class="page-toc">
+        <div class="toc-header">页面目录</div>
+        <a class="toc-home" href="../index.html">← 返回首页</a>
+        <ul>
+            <li><a href="#online-learning">在线学习平台</a></li>
+            <li><a href="#academic">学术文献检索</a></li>
+            <li><a href="#dev-community">开发者社区</a></li>
+            <li><a href="#online-tools">在线工具</a></li>
+            <li><a href="#local-software">本地软件</a></li>
+        </ul>
+    </nav>
+    <button class="toc-toggle" aria-label="目录">☰</button>
+    <div class="toc-overlay"></div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <a href="../index.html" class="logo">木白</a>
+        <a href="../index.html" class="back-btn">← 返回首页</a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <h1>📚 学习平台/工具</h1>
+        <p>工欲善其事，必先利其器。这里收录了我日常使用的在线学习平台、学术资源、开发工具和建模软件，涵盖从编程入门到硬件开发的完整工具链。</p>
+    </header>
+
+    <!-- 内容区 -->
+    <div class="container">
+
+        <!-- 在线学习平台 -->
+        <section class="category-section" id="online-learning">
+            <div class="category-header">
+                <span class="cat-icon">🌐</span>
+                <h2>在线学习平台</h2>
+                <span class="cat-count">3 个</span>
+            </div>
+            <div class="tools-grid">
+
+                <a href="https://lastminuteengineers.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">🔧</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>Last Minute Engineers</h3>
+                    <p class="tool-desc">专注于 Arduino 和 ESP32 系列硬件教程的英文网站，图文并茂、讲解清晰，涵盖传感器、通信模块、显示模块等实战项目，是硬件入门的优质资源。</p>
+                    <div class="tool-tags">
+                        <span>Arduino</span>
+                        <span>ESP32</span>
+                        <span>硬件教程</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+                <a href="https://www.jyshare.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">📖</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>菜鸟教程</h3>
+                    <p class="tool-desc">国内最受欢迎的编程入门教程网站之一，涵盖 Python、C/C++、Java、HTML/CSS、JavaScript、SQL 等数十种编程语言和技术，配有在线运行环境，边学边练。</p>
+                    <div class="tool-tags">
+                        <span>编程入门</span>
+                        <span>多语言</span>
+                        <span>在线运行</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+                <a href="https://www.hmcst.com/tool" target="_blank" class="tool-card">
+                    <div class="tool-icon">🧰</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>HMCST 在线工具</h3>
+                    <p class="tool-desc">面向开发者的在线工具箱集合，提供各类实用小工具，方便日常开发和学习中的快速计算、转换与查询需求。</p>
+                    <div class="tool-tags">
+                        <span>在线工具</span>
+                        <span>开发者</span>
+                        <span>效率工具</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 学术文献检索 -->
+        <section class="category-section" id="academic">
+            <div class="category-header">
+                <span class="cat-icon">🎓</span>
+                <h2>学术文献检索</h2>
+                <span class="cat-count">2 个</span>
+            </div>
+            <div class="tools-grid">
+
+                <a href="https://www.cnki.net/" target="_blank" class="tool-card">
+                    <div class="tool-icon">📑</div>
+                    <span class="tool-badge">部分付费</span>
+                    <h3>中国知网 CNKI</h3>
+                    <p class="tool-desc">中国最大的学术文献数据库，收录期刊论文、学位论文、会议论文等海量中文学术资源，是撰写论文、课题调研和文献综述的首选平台。</p>
+                    <div class="tool-tags">
+                        <span>中文文献</span>
+                        <span>期刊论文</span>
+                        <span>学位论文</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+                <a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank" class="tool-card">
+                    <div class="tool-icon">📐</div>
+                    <span class="tool-badge">部分付费</span>
+                    <h3>IEEE Xplore</h3>
+                    <p class="tool-desc">全球工程技术领域最权威的学术文献数据库，收录 IEEE 旗下期刊、会议论文和技术标准，涵盖电子电气、计算机科学、人工智能等前沿研究方向。</p>
+                    <div class="tool-tags">
+                        <span>英文文献</span>
+                        <span>工程技术</span>
+                        <span>顶级期刊</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 开发者社区 -->
+        <section class="category-section" id="dev-community">
+            <div class="category-header">
+                <span class="cat-icon">💻</span>
+                <h2>开发者社区</h2>
+                <span class="cat-count">2 个</span>
+            </div>
+            <div class="tools-grid">
+
+                <a href="https://www.csdn.net/" target="_blank" class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>CSDN</h3>
+                    <p class="tool-desc">中国最大的开发者技术社区，汇聚海量技术博客、教程和问答资源。无论遇到什么编程问题，几乎都能在这里找到中文解决方案和经验分享。</p>
+                    <div class="tool-tags">
+                        <span>技术博客</span>
+                        <span>中文社区</span>
+                        <span>问答</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+                <a href="https://github.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">🐙</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>GitHub</h3>
+                    <p class="tool-desc">全球最大的代码托管平台和开源社区，汇聚数千万开源项目。可以托管代码、协作开发、学习优秀开源项目，是每位开发者必备的核心工具。</p>
+                    <div class="tool-tags">
+                        <span>代码托管</span>
+                        <span>开源社区</span>
+                        <span>版本控制</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 在线工具 -->
+        <section class="category-section" id="online-tools">
+            <div class="category-header">
+                <span class="cat-icon">⚡</span>
+                <h2>在线工具</h2>
+                <span class="cat-count">2 个</span>
+            </div>
+            <div class="tools-grid">
+
+                <a href="https://www.tinkercad.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">🔌</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>Tinkercad</h3>
+                    <p class="tool-desc">Autodesk 出品的免费在线工具，支持 Arduino 电路仿真、3D 建模和代码编程。无需安装任何软件，浏览器中即可完成电路设计与仿真测试，非常适合教学和快速原型验证。</p>
+                    <div class="tool-tags">
+                        <span>电路仿真</span>
+                        <span>Arduino</span>
+                        <span>3D建模</span>
+                        <span>在线</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+                <a href="https://xiaozhi.me/" target="_blank" class="tool-card">
+                    <div class="tool-icon">🤖</div>
+                    <span class="tool-badge free">免费</span>
+                    <h3>小智 AI</h3>
+                    <p class="tool-desc">开源 AI 对话助手平台，支持语音交互和智能对话。可用于学习 AI 大模型的应用方式，也支持接入自建硬件项目（如 AI 机器狗），探索 AIoT 的更多可能。</p>
+                    <div class="tool-tags">
+                        <span>AI对话</span>
+                        <span>语音交互</span>
+                        <span>开源</span>
+                        <span>AIoT</span>
+                    </div>
+                    <span class="tool-link">访问网站 →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 本地软件 -->
+        <section class="category-section" id="local-software">
+            <div class="category-header">
+                <span class="cat-icon">⚙️</span>
+                <h2>本地软件</h2>
+                <span class="cat-count">4 个</span>
+            </div>
+            <div class="tools-grid">
+
+                <a href="https://www.autodesk.com/products/fusion-360/overview" target="_blank" class="tool-card">
+                    <div class="tool-icon">🧊</div>
+                    <span class="tool-badge paid">免费(教育版)</span>
+                    <h3>Fusion 360</h3>
+                    <p class="tool-desc">Autodesk 出品的云端 3D CAD/CAM 建模工具，集参数化建模、装配体设计、渲染和加工于一体。对学生和教育者免费，是机械设计、3D 打印和创客项目的首选建模软件。</p>
+                    <div class="tool-tags">
+                        <span>3D建模</span>
+                        <span>CAD</span>
+                        <span>参数化设计</span>
+                        <span>3D打印</span>
+                    </div>
+                    <span class="tool-link">了解更多 →</span>
+                </a>
+
+                <a href="https://www.solidworks.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">📐</div>
+                    <span class="tool-badge paid">商业软件</span>
+                    <h3>SolidWorks</h3>
+                    <p class="tool-desc">业界领先的 3D 机械设计软件，广泛应用于工业设计和工程制造领域。强大的零件建模、装配体和工程图功能，是专业机械工程师的标配工具，适合复杂产品开发。</p>
+                    <div class="tool-tags">
+                        <span>3D建模</span>
+                        <span>机械设计</span>
+                        <span>工程图</span>
+                        <span>工业级</span>
+                    </div>
+                    <span class="tool-link">了解更多 →</span>
+                </a>
+
+                <a href="https://www.arduino.cc/en/software" target="_blank" class="tool-card">
+                    <div class="tool-icon">🌿</div>
+                    <span class="tool-badge free">免费开源</span>
+                    <h3>Arduino IDE</h3>
+                    <p class="tool-desc">Arduino 官方开发环境，用于编写和上传代码到 Arduino 开发板及各类兼容硬件。界面简洁、上手容易，内置丰富示例和库管理器，是嵌入式开发和硬件编程的入门必备工具。</p>
+                    <div class="tool-tags">
+                        <span>嵌入式开发</span>
+                        <span>C/C++</span>
+                        <span>硬件编程</span>
+                        <span>开源</span>
+                    </div>
+                    <span class="tool-link">下载软件 →</span>
+                </a>
+
+                <a href="https://code.visualstudio.com/" target="_blank" class="tool-card">
+                    <div class="tool-icon">🔵</div>
+                    <span class="tool-badge free">免费开源</span>
+                    <h3>VS Code</h3>
+                    <p class="tool-desc">微软出品的轻量级代码编辑器，凭借强大的插件生态成为全球最流行的开发工具。支持几乎所有编程语言，集成终端、Git 版本控制和调试功能，适合从入门到专业的全阶段开发者。</p>
+                    <div class="tool-tags">
+                        <span>代码编辑器</span>
+                        <span>多语言</span>
+                        <span>插件丰富</span>
+                        <span>Git</span>
+                    </div>
+                    <span class="tool-link">下载软件 →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- 返回首页 -->
+        <div class="back-section">
+            <a href="../index.html" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2026 木白 · 工欲善其事，必先利其器</p>
+    </footer>
+
+<script>
+// 左侧目录导航
+(function() {
+    var tocLinks = document.querySelectorAll('.page-toc a[href^="#"]');
+    var sections = [];
+    tocLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            var target = document.getElementById(href.substring(1));
+            if (target) sections.push({ el: target, link: link });
+        }
+    });
+
+    function updateActive() {
+        var scrollPos = window.scrollY + 120;
+        var current = null;
+        sections.forEach(function(s) {
+            if (s.el.offsetTop <= scrollPos) current = s;
+        });
+        tocLinks.forEach(function(l) { l.classList.remove('active'); });
+        if (current) current.link.classList.add('active');
+    }
+    window.addEventListener('scroll', updateActive);
+    updateActive();
+
+    var toggle = document.querySelector('.toc-toggle');
+    var toc = document.querySelector('.page-toc');
+    var overlay = document.querySelector('.toc-overlay');
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            toc.classList.toggle('open');
+            overlay.classList.toggle('show');
+        });
+    }
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            toc.classList.remove('open');
+            overlay.classList.remove('show');
+        });
+    }
+    tocLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                toc.classList.remove('open');
+                overlay.classList.remove('show');
+            }
+        });
+    });
+})();
+</script>
+</body></html>
