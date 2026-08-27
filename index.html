@@ -648,19 +648,22 @@
             background: var(--bg-dark);
         }
 
-        .comment-list {
+        .comment-success {
             max-width: 600px;
-            margin: 2rem auto 0;
-        }
-
-        .comment-item {
+            margin: 0 auto;
             background: var(--card-bg);
             border-radius: var(--border-radius);
-            padding: 1.2rem 1.5rem;
-            margin-bottom: 1rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
-            border-left: 4px solid var(--accent);
+            text-align: center;
+            border-left: 4px solid #4CAF50;
             animation: fadeInUp 0.4s ease;
+        }
+
+        .comment-success p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin: 0;
         }
 
         @keyframes fadeInUp {
@@ -672,52 +675,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        .comment-item .comment-author {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-
-        .comment-item .comment-time {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .comment-item .comment-text {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .comment-item .like-btn {
-            margin-top: 0.6rem;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .comment-item .like-btn:hover {
-            color: var(--accent);
-        }
-
-        .comment-item .like-btn.liked {
-            color: var(--accent);
-        }
-
-        .no-comments {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            padding: 2rem;
         }
 
         /* ========== 页脚 ========== */
@@ -1141,7 +1098,7 @@
             <a href="tech-innovation/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #E8A87C;">
                 <span class="status status-idea">🛠️ 科创</span>
                 <h3>科创模块</h3>
-                <p>涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块，完整经历科创项目从设计、制作、调试到成果展示的全流程。点击查看 →</p>
+                <p>融合 STEAM 教育理念与 PBL 项目式教学，涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块，完整经历科创项目从设计、制作、调试到成果展示的全流程。点击查看 →</p>
             </a>
             <a href="inspirations/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #6C5CE7;">
                 <span class="status status-open">🚀 上线</span>
@@ -1182,7 +1139,7 @@
     <!-- 留言区 -->
     <section id="contact">
         <h2 class="section-title">给我留言</h2>
-        <p class="section-subtitle">说点什么吧，我会看到的</p>
+        <p class="section-subtitle">说点什么吧，我会看到的（留言仅我可见）</p>
 
         <form class="comment-form" id="commentForm">
             <div class="form-group">
@@ -1196,8 +1153,8 @@
             <button type="submit">发送留言</button>
         </form>
 
-        <div class="comment-list" id="commentList">
-            <div class="no-comments" id="noComments">还没有留言，来第一个吧！</div>
+        <div class="comment-success" id="commentSuccess" style="display:none;">
+            <p>✅ 感谢你的留言！我会认真阅读的。</p>
         </div>
     </section>
 
@@ -1259,127 +1216,11 @@
             console.error('Supabase 初始化失败:', err);
         }
 
-        // ========== 留言功能（云端 + 本地回退） ==========
+        // ========== 留言功能（仅存储，不公开展示） ==========
         const commentForm = document.getElementById('commentForm');
-        const commentList = document.getElementById('commentList');
-        const noComments = document.getElementById('noComments');
+        const commentSuccess = document.getElementById('commentSuccess');
 
-        // 转义 HTML 防注入
-        function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
-
-        // 添加留言到页面
-        function addCommentToDOM(id, name, text, time, likes, isNew) {
-            const div = document.createElement('div');
-            div.className = 'comment-item';
-            div.dataset.id = id;
-            div.innerHTML = `
-                <div class="comment-author">${escapeHtml(name)}</div>
-                <div class="comment-time">${time}</div>
-                <div class="comment-text">${escapeHtml(text)}</div>
-                <button class="like-btn" onclick="toggleLike(this, ${id})">
-                    <span>👍</span>
-                    <span class="like-count">${likes}</span>
-                </button>
-            `;
-            if (isNew) {
-                commentList.insertBefore(div, commentList.firstChild);
-            } else {
-                commentList.appendChild(div);
-            }
-        }
-
-        // 格式化时间
-        function formatTime(dateStr) {
-            const d = new Date(dateStr);
-            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-        }
-
-        // 从云端加载留言
-        async function loadComments() {
-            if (!supabaseReady) {
-                // 本地回退模式
-                const saved = localStorage.getItem('mubai_comments');
-                if (saved) {
-                    const comments = JSON.parse(saved);
-                    if (comments.length > 0) {
-                        noComments.style.display = 'none';
-                        comments.forEach(c => addCommentToDOM(c.id || Date.now(), c.name, c.text, c.time, c.likes || 0, false));
-                    }
-                }
-                return;
-            }
-
-            try {
-                const { data, error } = await supabaseClient
-                    .from('comments')
-                    .select('*')
-                    .order('created_at', { ascending: false });
-
-                if (error) throw error;
-
-                if (data && data.length > 0) {
-                    noComments.style.display = 'none';
-                    data.forEach(c => {
-                        addCommentToDOM(c.id, c.name, c.message, formatTime(c.created_at), c.likes || 0, false);
-                    });
-                }
-            } catch (err) {
-                console.error('加载留言失败:', err);
-                noComments.textContent = '留言加载失败，请稍后刷新重试';
-            }
-        }
-
-        // 点赞功能
-        async function toggleLike(btn, commentId) {
-            const countSpan = btn.querySelector('.like-count');
-            let count = parseInt(countSpan.textContent);
-
-            if (btn.classList.contains('liked')) {
-                btn.classList.remove('liked');
-                count--;
-            } else {
-                btn.classList.add('liked');
-                count++;
-            }
-            countSpan.textContent = count;
-
-            // 通过安全函数更新点赞（不直接修改数据）
-            if (supabaseReady) {
-                try {
-                    if (btn.classList.contains('liked')) {
-                        await supabaseClient.rpc('increment_like', { comment_id: commentId });
-                    } else {
-                        await supabaseClient.rpc('decrement_like', { comment_id: commentId });
-                    }
-                } catch (err) {
-                    console.error('点赞更新失败:', err);
-                }
-            } else {
-                saveCommentsLocal();
-            }
-        }
-
-        // 本地存储（回退模式）
-        function saveCommentsLocal() {
-            const items = document.querySelectorAll('.comment-item');
-            const comments = [];
-            items.forEach(item => {
-                comments.push({
-                    id: parseInt(item.dataset.id),
-                    name: item.querySelector('.comment-author').textContent,
-                    text: item.querySelector('.comment-text').textContent,
-                    time: item.querySelector('.comment-time').textContent,
-                    likes: parseInt(item.querySelector('.like-count').textContent)
-                });
-            });
-            localStorage.setItem('mubai_comments', JSON.stringify(comments));
-        }
-
-        // 表单提交
+        // 表单提交：留言存入数据库，但不公开展示
         commentForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
@@ -1393,18 +1234,11 @@
 
             if (supabaseReady) {
                 try {
-                    const { data, error } = await supabaseClient
+                    const { error } = await supabaseClient
                         .from('comments')
-                        .insert({ name: name, message: text, likes: 0 })
-                        .select();
+                        .insert({ name: name, message: text, likes: 0 });
 
                     if (error) throw error;
-
-                    if (data && data.length > 0) {
-                        const c = data[0];
-                        noComments.style.display = 'none';
-                        addCommentToDOM(c.id, c.name, c.message, formatTime(c.created_at), 0, true);
-                    }
                 } catch (err) {
                     console.error('发送留言失败:', err);
                     alert('留言发送失败，请稍后重试');
@@ -1413,22 +1247,26 @@
                     return;
                 }
             } else {
-                // 本地回退模式
-                const now = new Date();
-                const time = formatTime(now.toISOString());
-                const id = Date.now();
-                noComments.style.display = 'none';
-                addCommentToDOM(id, name, text, time, 0, true);
-                saveCommentsLocal();
+                // 本地回退模式：存到 localStorage，仅站长本机可查
+                const saved = localStorage.getItem('mubai_comments');
+                const comments = saved ? JSON.parse(saved) : [];
+                comments.push({ id: Date.now(), name, text, time: new Date().toISOString() });
+                localStorage.setItem('mubai_comments', JSON.stringify(comments));
             }
 
-            commentForm.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
+            // 显示成功提示，隐藏表单
+            commentForm.style.display = 'none';
+            commentSuccess.style.display = 'block';
 
-        // 页面加载时读取留言
-        loadComments();
+            // 5 秒后恢复表单（方便继续留言）
+            setTimeout(() => {
+                commentForm.reset();
+                commentForm.style.display = '';
+                commentSuccess.style.display = 'none';
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 5000);
+        });
     </script>
 
     <!-- 微信二维码弹窗 -->

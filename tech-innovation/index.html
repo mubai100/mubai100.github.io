@@ -2,15 +2,15 @@
 <html lang="zh-CN"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="木白的科创模块 - 涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
+    <meta name="description" content="木白的科创模块 - 融合 STEAM 教育理念与 PBL 项目式教学，涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
     <meta property="og:title" content="科创模块 - 木白">
-    <meta property="og:description" content="木白的科创模块 - 涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
+    <meta property="og:description" content="木白的科创模块 - 融合 STEAM 教育理念与 PBL 项目式教学，涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mubai.net.cn/tech-innovation/">
     <meta property="og:image" content="https://mubai.net.cn/avatar.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="科创模块 - 木白">
-    <meta name="twitter:description" content="木白的科创模块 - 涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
+    <meta name="twitter:description" content="木白的科创模块 - 融合 STEAM 教育理念与 PBL 项目式教学，涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块。">
     <meta name="twitter:image" content="https://mubai.net.cn/avatar.jpg">
     <link rel="canonical" href="https://mubai.net.cn/tech-innovation/">
     <link rel="icon" href="../avatar.jpg" type="image/jpeg">
@@ -413,6 +413,210 @@
             }
         }
 
+        /* ========== STEAM 教育理念 ========== */
+        .steam-intro {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+            color: #555;
+            font-size: 0.98rem;
+        }
+        .steam-intro p { margin-bottom: 0.8rem; }
+        .steam-intro p:last-child { margin-bottom: 0; }
+        .steam-intro .hl { color: var(--accent-dark); font-weight: 600; }
+        .steam-intro a { color: var(--accent-dark); text-decoration: none; font-weight: 500; border-bottom: 1px dashed var(--accent-dark); }
+        .steam-intro a:hover { opacity: 0.7; }
+
+        .steam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .steam-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1.2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--card-color, var(--module-color));
+        }
+        .steam-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .steam-card .steam-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            font-size: 1.5rem; font-weight: 700;
+            color: #fff;
+            background: var(--card-color, var(--module-color));
+            margin-bottom: 0.8rem;
+        }
+        .steam-card .steam-name { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .steam-card .steam-en { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+        .steam-card .steam-map { font-size: 0.82rem; color: #555; line-height: 1.6; }
+        .steam-card .steam-map strong { color: var(--card-color, var(--accent-dark)); }
+
+        /* ========== PBL 项目式教学 ========== */
+        .pbl-intro {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+            color: #555;
+            font-size: 0.98rem;
+        }
+        .pbl-intro p { margin-bottom: 0.8rem; }
+        .pbl-intro p:last-child { margin-bottom: 0; }
+        .pbl-intro .hl { color: var(--accent-dark); font-weight: 600; }
+        .pbl-intro a { color: var(--accent-dark); text-decoration: none; font-weight: 500; border-bottom: 1px dashed var(--accent-dark); }
+        .pbl-intro a:hover { opacity: 0.7; }
+
+        .pbl-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 2.5rem;
+        }
+        .pbl-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            position: relative;
+            padding: 1.2rem 0;
+        }
+        .pbl-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 68px;
+            bottom: -12px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--module-color), rgba(232,168,124,0.2));
+        }
+        .pbl-step-num {
+            flex-shrink: 0;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; font-weight: 700; color: #fff;
+            background: var(--module-color);
+            box-shadow: 0 2px 10px rgba(232,168,124,0.3);
+        }
+        .pbl-step-body { flex: 1; }
+        .pbl-step-body h4 { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .pbl-step-body p { font-size: 0.88rem; color: #555; line-height: 1.7; }
+        .pbl-step-body .pbl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+        .pbl-step-body .pbl-tags span {
+            background: rgba(232,168,124,0.1);
+            color: var(--accent-dark);
+            font-size: 0.72rem; font-weight: 500;
+            padding: 0.15rem 0.6rem; border-radius: 4px;
+        }
+
+        /* ========== 项目案例 ========== */
+        .case-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--module-color);
+        }
+        .case-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .case-header .case-icon { font-size: 2rem; }
+        .case-header h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
+        .case-header .case-sub { font-size: 0.82rem; color: var(--text-muted); }
+        .case-desc { font-size: 0.95rem; color: #555; line-height: 1.9; margin-bottom: 1.8rem; }
+        .case-desc .hl { color: var(--accent-dark); font-weight: 600; }
+        .case-desc a { color: var(--accent-dark); text-decoration: none; font-weight: 500; border-bottom: 1px dashed var(--accent-dark); }
+        .case-desc a:hover { opacity: 0.7; }
+
+        .case-steam-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; }
+        .case-steam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .case-steam-item {
+            display: flex; align-items: flex-start; gap: 0.8rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .case-steam-item:hover { box-shadow: var(--shadow); }
+        .case-steam-item .csi-letter {
+            flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; font-weight: 700; color: #fff;
+        }
+        .case-steam-item .csi-body { flex: 1; }
+        .case-steam-item .csi-body strong { font-size: 0.85rem; color: var(--text-dark); display: block; margin-bottom: 0.2rem; }
+        .case-steam-item .csi-body span { font-size: 0.8rem; color: #666; line-height: 1.6; }
+
+        .case-pbl-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; }
+        .case-pbl-flow { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+        .case-pbl-step {
+            flex: 1; min-width: 140px;
+            padding: 0.8rem 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 3px solid var(--module-color);
+            font-size: 0.82rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .case-pbl-step strong { display: block; color: var(--text-dark); font-size: 0.85rem; margin-bottom: 0.2rem; }
+
+        .case-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.6rem 1.5rem;
+            background: var(--module-color);
+            color: #fff; text-decoration: none;
+            border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .case-link:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(232,168,124,0.4); }
+
+        /* ========== 科创价值与升学链接 ========== */
+        .value-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #4f6d7a 100%);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        .value-section h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+        .value-section p { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 1.5rem; }
+        .value-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+        .value-link-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: var(--transition);
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        .value-link-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-3px); }
+        .value-link-card .vlc-icon { font-size: 1.5rem; }
+        .value-link-card .vlc-text strong { display: block; font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .value-link-card .vlc-text span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+        @media (max-width: 768px) {
+            .steam-grid { grid-template-columns: repeat(2, 1fr); }
+            .case-steam-grid { grid-template-columns: 1fr; }
+            .case-pbl-flow { flex-direction: column; }
+            .value-links { grid-template-columns: 1fr; }
+            .steam-intro, .pbl-intro { padding: 1.5rem; }
+            .case-card { padding: 1.5rem; }
+            .value-section { padding: 1.5rem; }
+        }
+
         /* ========== 微信弹窗 ========== */
         .wechat-modal {
             display: none;
@@ -475,6 +679,10 @@
         <div class="toc-header">页面目录</div>
         <a class="toc-home" href="../index.html">← 返回首页</a>
         <ul>
+            <li><a href="#steam-section">STEAM 教育理念</a></li>
+            <li><a href="#pbl-section">PBL 项目式教学</a></li>
+            <li><a href="#project-case">教学案例：智慧校园气象站</a></li>
+            <li><a href="#value-section">科创与升学</a></li>
             <li><a href="#module-1">一、科创工程设计</a></li>
             <li><a href="#module-2">二、机械基础与三维建模</a></li>
             <li><a href="#module-3">三、编程基础与嵌入式开发</a></li>
@@ -494,11 +702,227 @@
     <!-- Hero -->
     <header class="page-hero">
         <h1>🛠️ 科创模块</h1>
-        <p>从赛事立项到成果路演，五大模块完整覆盖科创项目全流程，系统培养工程思维与动手能力。</p>
+        <p>融合 STEAM 教育理念与 PBL 项目式教学，五大模块完整覆盖科创项目全流程，系统培养工程思维与动手能力。</p>
     </header>
 
     <!-- 模块列表 -->
     <div class="container">
+
+        <!-- ========== STEAM 教育理念 ========== -->
+        <section id="steam-section">
+            <h2 class="section-title">STEAM 教育理念</h2>
+            <p class="section-subtitle">科学 · 技术 · 工程 · 艺术 · 数学，五维融合跨学科培养</p>
+
+            <div class="steam-intro">
+                <p>STEAM 是一种将<span class="hl">科学（S）、技术（T）、工程（E）、艺术（A）、数学（M）</span>深度融合的跨学科教育理念。它打破了传统学科壁垒，让学生在真实情境中综合运用多领域知识解决实际问题。</p>
+                <p>我的科创课程体系正是基于 STEAM 理念设计——每个模块都不是孤立的学科训练，而是多维度能力的协同培养。学生在做一个校园气象站的过程中，同时学习气象原理（S）、嵌入式编程（T）、结构设计（E）、数据可视化界面设计（A）、采样统计算法（M），这与许多<a href="../whitelist-competitions/whitelist-competitions.html">教育部白名单赛事</a>对参赛作品跨学科创新的要求高度契合。</p>
+            </div>
+
+            <div class="steam-grid">
+                <div class="steam-card" style="--card-color:#2196F3;">
+                    <div class="steam-letter">S</div>
+                    <div class="steam-name">科学</div>
+                    <div class="steam-en">Science</div>
+                    <div class="steam-map">模块四 · <strong>电学基础</strong>：电压、电流、电阻原理，传感器工作原理，电路分析</div>
+                </div>
+                <div class="steam-card" style="--card-color:#00BC9C;">
+                    <div class="steam-letter">T</div>
+                    <div class="steam-name">技术</div>
+                    <div class="steam-en">Technology</div>
+                    <div class="steam-map">模块三 · <strong>编程与嵌入式</strong>：C++/Python 编程，Arduino 开发，AI 辅助编程</div>
+                </div>
+                <div class="steam-card" style="--card-color:#FF7043;">
+                    <div class="steam-letter">E</div>
+                    <div class="steam-name">工程</div>
+                    <div class="steam-en">Engineering</div>
+                    <div class="steam-map">模块一二 · <strong>设计 + 建模</strong>：项目立项设计，机械传动，Fusion 三维建模，3D 打印</div>
+                </div>
+                <div class="steam-card" style="--card-color:#9C27B0;">
+                    <div class="steam-letter">A</div>
+                    <div class="steam-name">艺术</div>
+                    <div class="steam-en">Arts</div>
+                    <div class="steam-map">模块五 · <strong>设计与表达</strong>：产品外观打磨，OLED 表情设计，路演演讲与展示</div>
+                </div>
+                <div class="steam-card" style="--card-color:#4CAF50;">
+                    <div class="steam-letter">M</div>
+                    <div class="steam-name">数学</div>
+                    <div class="steam-en">Mathematics</div>
+                    <div class="steam-map">模块三四 · <strong>运算与测量</strong>：进制换算，游标卡尺测量，可行性成本核算</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PBL 项目式教学 ========== -->
+        <section id="pbl-section">
+            <h2 class="section-title">PBL 项目式教学</h2>
+            <p class="section-subtitle">从真实问题出发，在项目实践中完成知识建构</p>
+
+            <div class="pbl-intro">
+                <p>PBL（Project-Based Learning，项目式教学）是一种以<span class="hl">真实项目驱动</span>的教学方法。学生围绕一个具有实际意义的项目，经历"发现问题—设计方案—动手制作—迭代优化—成果展示"的完整闭环，在解决真实问题的过程中主动建构知识。</p>
+                <p>我的五大课程模块本身就构成一个完整的 PBL 闭环：模块一负责发现与定义问题，模块二至四提供设计与制作所需的技能工具箱，模块五进入真正的项目落地。这种教学模式被证明能显著提升学生的<span class="hl">自主学习能力、团队协作能力和工程实践能力</span>——也正是科创类<a href="../whitelist-competitions/whitelist-competitions.html">白名单赛事</a>评审中最为看重的核心素养。</p>
+            </div>
+
+            <div class="pbl-flow">
+                <div class="pbl-step">
+                    <div class="pbl-step-num">1</div>
+                    <div class="pbl-step-body">
+                        <h4>发现问题</h4>
+                        <p>从真实生活场景或赛事规则出发，调研社会需求，挖掘痛点，确立具有可行性的参赛课题。</p>
+                        <div class="pbl-tags"><span>需求调研</span><span>课题确立</span><span>可行性分析</span></div>
+                    </div>
+                </div>
+                <div class="pbl-step">
+                    <div class="pbl-step-num">2</div>
+                    <div class="pbl-step-body">
+                        <h4>方案设计</h4>
+                        <p>综合运用机械建模、电路设计、程序架构等技能，完成项目整体方案设计与技术选型。</p>
+                        <div class="pbl-tags"><span>三维建模</span><span>电路仿真</span><span>程序架构</span></div>
+                    </div>
+                </div>
+                <div class="pbl-step">
+                    <div class="pbl-step-num">3</div>
+                    <div class="pbl-step-body">
+                        <h4>动手制作</h4>
+                        <p>3D 打印结构件，搭建电路实物，编写并烧录控制程序，完成作品组装与功能调试。</p>
+                        <div class="pbl-tags"><span>3D 打印</span><span>电路搭建</span><span>编程调试</span></div>
+                    </div>
+                </div>
+                <div class="pbl-step">
+                    <div class="pbl-step-num">4</div>
+                    <div class="pbl-step-body">
+                        <h4>迭代优化</h4>
+                        <p>反复测试整体功能，排查与修复 BUG，迭代优化模型与程序，提升作品稳定性与完成度。</p>
+                        <div class="pbl-tags"><span>功能测试</span><span>BUG 修复</span><span>模型迭代</span></div>
+                    </div>
+                </div>
+                <div class="pbl-step">
+                    <div class="pbl-step-num">5</div>
+                    <div class="pbl-step-body">
+                        <h4>成果展示</h4>
+                        <p>打磨产品外观，准备展示演讲，进行模拟路演与正式评审，完成项目反思与经验总结。</p>
+                        <div class="pbl-tags"><span>路演彩排</span><span>成果展示</span><span>项目反思</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 教学案例：智慧校园气象站 ========== -->
+        <section id="project-case">
+            <h2 class="section-title">教学案例：智慧校园气象站</h2>
+            <p class="section-subtitle">一个项目，串联 STEAM 五维与 PBL 全流程</p>
+
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-icon">🌦️</div>
+                    <div>
+                        <h3>智慧校园气象站</h3>
+                        <div class="case-sub">Arduino 主控 · 多传感器融合 · 数据可视化</div>
+                    </div>
+                </div>
+
+                <p class="case-desc">
+                    这是一个贯穿五大课程模块的典型 PBL 项目。学生以校园环境为真实场景，搭建一座能够实时采集温度、湿度、气压、光照等参数的微型气象站，并在 OLED 屏幕与网页端实现数据可视化。这个项目完整诠释了 STEAM 五维如何在一个作品中融合落地，也经历了 PBL 从发现问题到成果展示的全流程。该项目可作为多个<a href="../whitelist-competitions/whitelist-competitions.html">白名单赛事</a>的参赛作品方向。
+                </p>
+
+                <div class="case-steam-title">STEAM 五维拆解</div>
+                <div class="case-steam-grid">
+                    <div class="case-steam-item">
+                        <div class="csi-letter" style="background:#2196F3;">S</div>
+                        <div class="csi-body">
+                            <strong>科学 · 气象学与电学</strong>
+                            <span>温湿度、气压、光照等气象参数的物理原理，各类传感器的工作原理与电学特性</span>
+                        </div>
+                    </div>
+                    <div class="case-steam-item">
+                        <div class="csi-letter" style="background:#00BC9C;">T</div>
+                        <div class="csi-body">
+                            <strong>技术 · 嵌入式编程</strong>
+                            <span>Arduino IDE 编程，多传感器数据采集，串口通信，WiFi 无线数据传输</span>
+                        </div>
+                    </div>
+                    <div class="case-steam-item">
+                        <div class="csi-letter" style="background:#FF7043;">E</div>
+                        <div class="csi-body">
+                            <strong>工程 · 结构与电路</strong>
+                            <span>Fusion 三维建模设计外壳，面包板电路搭建，传感器布局与整机组装走线</span>
+                        </div>
+                    </div>
+                    <div class="case-steam-item">
+                        <div class="csi-letter" style="background:#9C27B0;">A</div>
+                        <div class="csi-body">
+                            <strong>艺术 · 可视化与造型</strong>
+                            <span>OLED 界面 UI 设计，网页端数据图表配色与排版，气象站外观造型与校园适配</span>
+                        </div>
+                    </div>
+                    <div class="case-steam-item">
+                        <div class="csi-letter" style="background:#4CAF50;">M</div>
+                        <div class="csi-body">
+                            <strong>数学 · 统计与校准</strong>
+                            <span>传感器数据校准公式，采样间隔计算，温度湿度均值与趋势统计算法</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-pbl-title">PBL 全流程</div>
+                <div class="case-pbl-flow">
+                    <div class="case-pbl-step">
+                        <strong>① 发现问题</strong>
+                        校园缺乏实时气象数据，学生无法直观了解天气变化规律
+                    </div>
+                    <div class="case-pbl-step">
+                        <strong>② 方案设计</strong>
+                        选型传感器模块，设计数据采集架构，规划 3D 外壳方案
+                    </div>
+                    <div class="case-pbl-step">
+                        <strong>③ 动手制作</strong>
+                        3D 打印外壳，焊接与搭建电路，编写数据采集与传输程序
+                    </div>
+                    <div class="case-pbl-step">
+                        <strong>④ 迭代优化</strong>
+                        校准传感器数据，优化采集频率，修复数据传输丢包问题
+                    </div>
+                    <div class="case-pbl-step">
+                        <strong>⑤ 成果展示</strong>
+                        数据可视化部署，校园实地展示，向同学和老师路演成果
+                    </div>
+                </div>
+
+                <a href="../whitelist-competitions/whitelist-competitions.html" class="case-link">查看适合参赛的白名单赛事 →</a>
+            </div>
+        </section>
+
+        <!-- ========== 科创与升学价值 ========== -->
+        <section id="value-section">
+            <div class="value-section">
+                <h3>🎯 科创如何赋能升学？</h3>
+                <p>科创赛事成绩是深圳中考自主招生的重要参考依据。通过 STEAM + PBL 系统训练，学生不仅能在白名单赛事中获得奖项，更能培养自主招生面试中展示的工程素养与创新思维——这些恰恰是深圳优质高中科创班、自招通道所看重的核心竞争力。</p>
+                <div class="value-links">
+                    <a href="../shenzhen-high-schools/index.html" class="value-link-card">
+                        <div class="vlc-icon">🏫</div>
+                        <div class="vlc-text">
+                            <strong>深圳高中信息</strong>
+                            <span>100 所高中录取数据与自招政策</span>
+                        </div>
+                    </a>
+                    <a href="../whitelist-competitions/whitelist-competitions.html" class="value-link-card">
+                        <div class="vlc-icon">🏆</div>
+                        <div class="vlc-text">
+                            <strong>白名单赛事</strong>
+                            <span>47 项官方赛事全指南与参赛建议</span>
+                        </div>
+                    </a>
+                    <a href="../opensource-projects/index.html" class="value-link-card">
+                        <div class="vlc-icon">📖</div>
+                        <div class="vlc-text">
+                            <strong>开源项目</strong>
+                            <span>真实项目案例与复刻资源</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 课程模块 ========== -->
         <h2 class="section-title">课程模块</h2>
         <p class="section-subtitle">共 5 个模块，循序渐进，从基础到实战</p>
 
