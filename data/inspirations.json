@@ -2,7 +2,7 @@
   {
     "number": 4,
     "title": "思考AI（二）",
-    "content": "**AI 术语说人话**\n\n<html>\n<body>\n<!--StartFragment--><html><head>\n            \n            <style>\n              table { border-collapse: collapse; width: 100%; }\n              th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }\n            </style>\n          </head>\n          <body>\n专业术语 | 通俗比喻\n-- | --\nAgent 智能体 | AI 员工\nLLM 大模型 | AI 员工的大脑\nAPI 接口 | 大脑的数据线\nToken | AI 员工的工资\nMCP | 对接办公软件的多功能插头\nSkill 技能 | AI 员工的技能\nContext 上下文 | AI 员工的短期记忆\nLTM 长期记忆 | 员工的长期记忆\nRAG 检索增强 | 办公室的档案室\n\n\n        \n      </body></html><!--EndFragment-->\n</body>\n</html>",
+    "content": "**AI 术语说人话**\n\n专业术语 | 通俗比喻\n\nAgent 智能体 | AI 员工\nLLM 大模型 | AI 员工的大脑\nAPI 接口 | 大脑的数据线\nToken | AI 员工的工资\nMCP | 对接办公软件的多功能插头\nSkill 技能 | AI 员工的技能\nContext 上下文 | AI 员工的短期记忆\nLTM 长期记忆 | 员工的长期记忆\nRAG 检索增强 | 办公室的档案室\n",
     "tags": [],
     "date": "2026-08-28T13:14:44Z",
     "state": "OPEN"
