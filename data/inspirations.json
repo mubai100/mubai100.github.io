@@ -1,13 +1,5 @@
 [
   {
-    "number": 4,
-    "title": "思考AI（二）",
-    "content": "**AI 术语说人话**\n\n专业术语 | 通俗比喻\n\nAgent 智能体 | AI 员工\nLLM 大模型 | AI 员工的大脑\nAPI 接口 | 大脑的数据线\nToken | AI 员工的工资\nMCP | 对接办公软件的多功能插头\nSkill 技能 | AI 员工的技能\nContext 上下文 | AI 员工的短期记忆\nLTM 长期记忆 | 员工的长期记忆\nRAG 检索增强 | 办公室的档案室\n",
-    "tags": [],
-    "date": "2026-08-28T13:14:44Z",
-    "state": "OPEN"
-  },
-  {
     "number": 1,
     "title": "思考AI（一）",
     "content": "简单的理解AI，是让机器像人一样思考、工作，有学习的能力。\n那么如果跟上时代的脚步？\n学会使用AI?\n或者\n学会搭建AI?\n我想，是否可以借助AI，学习AI！\n那么，学习python（基础）是必要的\n以此基础上，要把AI对话机器人、AI绘画生成、AI图像识别、Al语音助手等领域做一个初步探索",
