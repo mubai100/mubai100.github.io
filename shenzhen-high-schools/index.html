@@ -515,6 +515,31 @@
     color: var(--text-muted);
   }
 
+  .gallery-placeholder {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    color: var(--text-muted);
+    font-size: 13px;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .gallery-placeholder .placeholder-icon { font-size: 32px; opacity: 0.4; }
+
+  .gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border);
+  }
+  .gallery-empty .empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+
   /* ========== 图片弹窗 ========== */
   .modal-overlay {
     display: none;
@@ -962,7 +987,7 @@
       <div class="result-count">共 <strong id="resultCount">0</strong> 所学校</div>
     </div>
 
-    <div class="table-wrapper collapsible" id="schoolTableWrapper">
+    <div class="table-wrapper" id="schoolTableWrapper">
       <table id="schoolTable">
         <thead>
           <tr>
@@ -980,21 +1005,18 @@
       </table>
     </div>
     <div id="noResult" class="no-result" style="display:none;">未找到匹配的学校，请调整搜索条件</div>
-        <button id="tableToggleBtn" class="collapsible-toggle" onclick="toggleCollapsible(this, 'schoolTableWrapper')">点击显示全部 ▼</button>
   </section>
 
   <!-- 校园实景图片展示区 -->
   <section id="campus-photos" class="section">
     <h2 class="section-title">校园实景图片</h2>
-    <p class="section-desc">展示有图片URL的学校校园图片，图片来自深圳招考网</p>
-    <div class="image-gallery collapsible" id="imageGallery"></div>
-        <button id="galleryToggleBtn" class="collapsible-toggle" onclick="toggleCollapsible(this, 'imageGallery')">点击显示全部 ▼</button>
+    <p class="section-desc">展示有图片的学校校园实景，共 <strong id="galleryCount">0</strong> 所学校</p>
+    <div class="image-gallery" id="imageGallery"></div>
   </section>
 
   <!-- 数据来源区 -->
   <section id="data-sources" class="section">
     <h2 class="section-title">数据来源</h2>
-        <div class="collapsible-content" id="dataSourcesWrapper">
     <p class="section-desc">本报告数据来自以下公开渠道</p>
     <ol class="source-list">
       <li>
@@ -1022,9 +1044,7 @@
         </div>
       </li>
     </ol>
-  
-        </div>
-        <button id="dsToggleBtn" class="collapsible-toggle" onclick="toggleCollapsible(this, 'dataSourcesWrapper')">点击显示全部 ▼</button>
+
     </section>
 
 </div>
@@ -1389,11 +1409,22 @@ document.addEventListener('keydown', function(e) {
 // ========== 图片展示区 ==========
 function renderGallery() {
   const gallery = document.getElementById('imageGallery');
-  const imgSchools = schools.filter(s => s.imgUrl);
+  const countEl = document.getElementById('galleryCount');
+  const imgSchools = schools.filter(s => s.imgUrl && s.imgUrl.trim());
+
+  if (countEl) countEl.textContent = imgSchools.length;
+
+  if (imgSchools.length === 0) {
+    gallery.innerHTML = '<div class="gallery-empty"><div class="empty-icon">🖼️</div><p>暂无校园实景图片</p><p style="font-size:12px;margin-top:6px;opacity:0.7;">后续将持续补充各学校校园图片</p></div>';
+    return;
+  }
 
   gallery.innerHTML = imgSchools.map(s =>
     '<div class="gallery-item" onclick="openModal(\'' + escapeHtml(s.imgUrl) + '\', \'' + escapeHtml(s.name) + '\')">' +
-      '<img src="' + escapeHtml(s.imgUrl) + '" alt="' + escapeHtml(s.name) + ' 校园图片" loading="lazy" onerror="this.parentElement.style.display=\'none\'">' +
+      '<div class="img-wrap">' +
+        '<img src="' + escapeHtml(s.imgUrl) + '" alt="' + escapeHtml(s.name) + ' 校园图片" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+        '<div class="gallery-placeholder" style="display:none;"><span class="placeholder-icon">🖼️</span><span>图片加载中</span></div>' +
+      '</div>' +
       '<div class="gallery-info">' +
         '<div class="gallery-name">' + escapeHtml(s.name) + '</div>' +
         '<div class="gallery-district">' + escapeHtml(s.district) + '</div>' +
