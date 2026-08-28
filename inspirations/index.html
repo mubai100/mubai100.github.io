@@ -110,6 +110,21 @@
         .tag-filter .tag-chip:hover { border-color: var(--inspo-color); color: var(--inspo-color); }
         .tag-filter .tag-chip.active { background: var(--inspo-color); color: #fff; border-color: var(--inspo-color); }
 
+        /* 全部展开/折叠按钮 */
+        .toggle-all-bar { margin-bottom: 1.5rem; }
+        .toggle-all-btn {
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: transparent;
+            color: var(--inspo-color);
+            border: 1px solid var(--inspo-color);
+            transition: var(--transition);
+        }
+        .toggle-all-btn:hover { background: var(--inspo-color); color: #fff; }
+
         /* 灵感卡片 */
         .inspo-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
@@ -121,7 +136,7 @@
             transition: var(--transition);
             border-left: 4px solid var(--inspo-color);
         }
-        .inspo-card:hover { box-shadow: var(--shadow-hover); transform: translateX(4px); }
+        .inspo-card:hover { box-shadow: var(--shadow-hover); }
 
         .inspo-card .inspo-date {
             font-size: 0.8rem;
@@ -161,6 +176,36 @@
             border-radius: 4px;
             font-weight: 500;
         }
+
+        /* 折叠功能 */
+        .inspo-card .inspo-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            user-select: none;
+        }
+        .inspo-card .inspo-header-text { flex: 1; min-width: 0; }
+        .inspo-card .toggle-icon {
+            font-size: 0.85rem;
+            color: var(--inspo-light);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        .inspo-card.collapsed .toggle-icon { transform: rotate(-90deg); }
+        .inspo-card .inspo-body {
+            overflow: hidden;
+            max-height: 2000px;
+            opacity: 1;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+        .inspo-card.collapsed .inspo-body {
+            max-height: 0;
+            opacity: 0;
+        }
+        .inspo-card .inspo-header:hover .toggle-icon { color: var(--inspo-color); }
 
         /* 空状态 */
         .empty-state {
@@ -262,6 +307,10 @@
         </div>
 
         <div class="tag-filter" id="tag-filter"></div>
+
+        <div class="toggle-all-bar">
+            <button class="toggle-all-btn" id="toggle-all-btn">展开全部</button>
+        </div>
 
         <div id="inspirations">
             <div class="loading-state">加载中...</div>
@@ -372,16 +421,33 @@
             var repoUrl = 'https://github.com/mubai100/mubai100.github.io/issues/' + item.number;
             var stateBadge = item.state === 'CLOSED' ? ' ✓ 已完成' : '';
 
-            html += '<div class="inspo-card">' +
-                '<div class="inspo-date">📅 ' + formatDate(item.date) +
-                '<a class="issue-link" href="' + repoUrl + '" target="_blank">#' + item.number + stateBadge + '</a></div>' +
-                '<h3>' + escapeHtml(item.title) + '</h3>' +
-                '<div class="inspo-content">' + escapeHtml(item.content) + '</div>' +
-                (tags ? '<div class="inspo-tags">' + tags + '</div>' : '') +
+            html += '<div class="inspo-card collapsed">' +
+                '<div class="inspo-header">' +
+                    '<div class="inspo-header-text">' +
+                        '<div class="inspo-date">📅 ' + formatDate(item.date) +
+                        '<a class="issue-link" href="' + repoUrl + '" target="_blank">#' + item.number + stateBadge + '</a></div>' +
+                        '<h3>' + escapeHtml(item.title) + '</h3>' +
+                    '</div>' +
+                    '<span class="toggle-icon">▼</span>' +
+                '</div>' +
+                '<div class="inspo-body">' +
+                    '<div class="inspo-content">' + escapeHtml(item.content) + '</div>' +
+                    (tags ? '<div class="inspo-tags">' + tags + '</div>' : '') +
+                '</div>' +
                 '</div>';
         });
         html += '</div>';
         container.innerHTML = html;
+
+        container.querySelectorAll('.inspo-header').forEach(function(header) {
+            header.addEventListener('click', function(e) {
+                if (e.target.closest('.issue-link')) return;
+                header.parentElement.classList.toggle('collapsed');
+            });
+        });
+
+        var btn = document.getElementById('toggle-all-btn');
+        if (btn) btn.textContent = '展开全部';
     }
 
     fetch('../data/inspirations.json')
@@ -416,6 +482,23 @@
     }
     window.addEventListener('scroll', updateActive);
     updateActive();
+
+    // 全部展开/折叠
+    var toggleAllBtn = document.getElementById('toggle-all-btn');
+    if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', function() {
+            var cards = document.querySelectorAll('.inspo-card');
+            var anyCollapsed = false;
+            cards.forEach(function(c) { if (c.classList.contains('collapsed')) anyCollapsed = true; });
+            if (anyCollapsed) {
+                cards.forEach(function(c) { c.classList.remove('collapsed'); });
+                toggleAllBtn.textContent = '折叠全部';
+            } else {
+                cards.forEach(function(c) { c.classList.add('collapsed'); });
+                toggleAllBtn.textContent = '展开全部';
+            }
+        });
+    }
 
     var toggle = document.querySelector('.toc-toggle');
     var toc = document.querySelector('.page-toc');
