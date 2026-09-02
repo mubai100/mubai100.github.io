@@ -600,6 +600,18 @@
     gap: 16px;
   }
 
+  .ref-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 6px;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+
   .detail-item {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -1112,11 +1124,11 @@
       <div class="note-card">
         <h3>关于名额分配控制线</h3>
         <p>
-          2026年完整官方控制线表格未在公开渠道找到。
+          <strong>官方未公布各校具体数值。</strong>2026年官方仅公布了划定规则，未发布按学校列示的完整控制线表格。
           <br><br>
           <strong>官方划定规则：</strong>按该校前三年（2023-2025年）相应招生类别录取分数线（换算为满分630分）的平均值下降20分划定。
           <br><br>
-          表中标注"非官方参考"的数据来自第三方教育平台整理。
+          <strong>本表数据为估算值。</strong>根据上述官方规则，结合近三年录取分数线换算得出，标注为<span class="ref-tag">估算参考</span>，仅供参考，最终以官方公布为准。
         </p>
       </div>
       <div class="note-card">
@@ -1452,8 +1464,8 @@ function renderTable() {
     detailTr.innerHTML = '<td colspan="' + colCount + '"><div class="detail-content"><div class="detail-grid">' +
       detailItem('住宿', school.dormitory) +
       detailItem('创校时间', school.founded) +
-      detailItem('AC类名额分配控制线', school.acCtrl) +
-      detailItem('D类名额分配控制线', school.dCtrl) +
+      '<div class="detail-item"><div class="detail-label">AC类名额分配控制线</div><div class="detail-value">' + escapeHtml(school.acCtrl) + ' <span class="ref-tag">估算参考</span></div></div>' +
+      '<div class="detail-item"><div class="detail-label">D类名额分配控制线</div><div class="detail-value">' + escapeHtml(school.dCtrl) + ' <span class="ref-tag">估算参考</span></div></div>' +
       detailItem('多元化课程', school.courses) +
       detailItem('师资', school.teachers) +
       detailItem('班型', school.classType) +
