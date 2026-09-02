@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="深圳100所高中校园实景图（AI示意图），按录取分数线分为10个梯队，每所学校含校门全景、教室、食堂、宿舍、操场、图书馆等10类图片。">
-<meta property="og:title" content="深圳高中校园实景图 - 木白">
-<meta property="og:description" content="100所高中按梯队分层展示，每所10类校园场景AI示意图。">
+<meta name="description" content="深圳高中校园实景探校系列 - 敬请期待。关注公众号获取深圳100所高中实地探校实拍图文。">
+<meta property="og:title" content="校园实景探校 - 敬请期待 | 木白">
+<meta property="og:description" content="深圳高中校园实景探校系列正在筹备中，关注公众号获取第一手探校实拍图文。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mubai.net.cn/campus-gallery/">
 <meta property="og:image" content="https://mubai.net.cn/avatar.jpg">
 <link rel="canonical" href="https://mubai.net.cn/campus-gallery/">
 <link rel="icon" href="../avatar.jpg" type="image/jpeg">
 <link rel="apple-touch-icon" href="../avatar.jpg">
-<title>深圳高中校园实景图 - 木白</title>
+<title>校园实景探校 - 敬请期待 | 木白</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -20,14 +20,15 @@
     --primary: #4f6d7a;
     --primary-light: #7a9eab;
     --accent: #e8a87c;
+    --accent-dark: #d4956a;
     --bg-light: #f8f9fa;
     --text-dark: #2c3e50;
     --text-light: #ecf0f1;
     --text-muted: #7f8c8d;
     --card-bg: #ffffff;
-    --border-radius: 12px;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --border-radius: 16px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
     --transition: all 0.3s ease;
 }
 
@@ -38,6 +39,9 @@ body {
     background: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 nav {
@@ -57,265 +61,232 @@ nav .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); text-dec
 nav .back-btn { text-decoration: none; color: var(--primary); font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
 nav .back-btn:hover { color: var(--accent); }
 
-.page-hero {
-    background: linear-gradient(135deg, #1f4d5c 0%, #4f6d7a 55%, #7a9eab 100%);
-    color: var(--text-light);
-    padding: 4.5rem 2rem 3rem;
-    text-align: center;
-}
-.page-hero h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.6rem; }
-.page-hero p { font-size: 1.05rem; color: rgba(255, 255, 255, 0.88); max-width: 720px; margin: 0 auto; }
-.hero-note {
-    display: inline-block;
-    margin-top: 1.2rem;
-    padding: 0.5rem 1.2rem;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 999px;
-    font-size: 0.85rem;
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
-
-.tier-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-bottom: 2.2rem;
-}
-.tier-nav a {
-    padding: 0.45rem 1rem;
-    background: var(--card-bg);
-    border: 1px solid #e3e8ea;
-    border-radius: 999px;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition: var(--transition);
-}
-.tier-nav a:hover { background: var(--primary); color: #fff; }
-
-.tier-section { margin-bottom: 2.5rem; }
-
-.tier-header {
+.main-content {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 2px solid #e3e8ea;
-}
-.tier-badge {
-    padding: 0.3rem 0.9rem;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1rem;
-}
-.tier-1 .tier-badge { background: linear-gradient(135deg, #c9a227, #e8c15a); }
-.tier-2 .tier-badge { background: linear-gradient(135deg, #8a99a8, #b8c4cf); }
-.tier-3 .tier-badge { background: linear-gradient(135deg, #b07a4a, #d3a06c); }
-.tier-badge.tier-default { background: linear-gradient(135deg, #4f6d7a, #7a9eab); }
-.tier-range { font-size: 0.9rem; color: var(--text-muted); }
-.tier-actions { margin-left: auto; display: flex; gap: 0.5rem; }
-.tier-actions button {
-    padding: 0.3rem 0.8rem;
-    border: 1px solid #d5dcdf;
-    background: #fff;
-    border-radius: 6px;
-    color: var(--primary);
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-.tier-actions button:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-.school-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.2rem;
+    justify-content: center;
+    padding: 3rem 1.5rem;
 }
 
-.school-card {
+.coming-soon-card {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    padding: 3.5rem 3rem;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    position: relative;
     overflow: hidden;
-    transition: var(--transition);
 }
-.school-card:hover { box-shadow: var(--shadow-hover); }
 
-.school-head {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 1rem 1.1rem;
-    cursor: pointer;
-    user-select: none;
+.coming-soon-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary-light));
 }
-.rank-badge {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
+
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.1;
-}
-.rank-badge .rk-num { font-size: 1.05rem; font-weight: 700; }
-.rank-badge .rk-label { font-size: 0.6rem; opacity: 0.85; }
-.school-meta { flex: 1; min-width: 0; }
-.school-name {
-    font-size: 1rem;
-    font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.school-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
-.expand-arrow {
-    flex-shrink: 0;
+    border-radius: 999px;
     font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.coming-soon-card h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.coming-soon-card .subtitle {
+    font-size: 1.05rem;
     color: var(--text-muted);
-    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+    line-height: 1.7;
 }
-.school-card.open .expand-arrow { transform: rotate(180deg); }
 
-.school-body {
-    display: none;
-    padding: 0 1.1rem 1.1rem;
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 0 auto 2rem;
 }
-.school-card.open .school-body { display: block; }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.7rem;
+.series-intro {
+    background: linear-gradient(135deg, #fef7f0 0%, #fff5eb 100%);
+    border: 1px solid #f5e0c8;
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: left;
 }
-.photo-item { border-radius: 8px; overflow: hidden; background: #eef1f3; }
-.photo-frame {
+
+.series-intro h3 {
+    font-size: 1.15rem;
+    color: var(--accent-dark);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.series-intro h3::before {
+    content: '📝';
+    font-size: 1.2rem;
+}
+
+.series-intro p {
+    font-size: 0.95rem;
+    color: #7a6c5d;
+    line-height: 1.8;
+    margin-bottom: 0.6rem;
+}
+
+.series-intro ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.8rem;
+}
+
+.series-intro li {
+    font-size: 0.9rem;
+    color: #7a6c5d;
+    padding: 0.3rem 0 0.3rem 1.5rem;
     position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: #eef1f3;
 }
-.photo-frame.wide { aspect-ratio: 16 / 9; }
-.photo-frame img {
+
+.series-intro li::before {
+    content: '✓';
     position: absolute;
-    inset: 0;
+    left: 0;
+    color: var(--accent-dark);
+    font-weight: 700;
+}
+
+.qr-section {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.qr-section h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.qr-code-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.qr-code-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    cursor: zoom-in;
+    object-fit: contain;
+    border-radius: 8px;
 }
-.photo-loading {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+
+.qr-tip {
+    font-size: 0.9rem;
     color: var(--text-muted);
-    font-size: 0.72rem;
 }
-.spinner {
-    width: 22px;
-    height: 22px;
-    border: 3px solid #d5dcdf;
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-.photo-error {
-    position: absolute;
-    inset: 0;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    text-align: center;
-    padding: 6px;
-}
-.photo-error button {
-    margin-top: 4px;
-    padding: 3px 10px;
-    border: 1px solid #c9d3d8;
-    background: #fff;
-    border-radius: 6px;
-    font-size: 0.72rem;
+
+.qr-tip strong {
     color: var(--primary);
-    cursor: pointer;
-}
-.photo-label {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.78rem;
-    color: var(--text-dark);
-    background: #fff;
-    text-align: center;
+    font-weight: 600;
 }
 
-.ai-note {
-    margin-top: 0.8rem;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-}
-
-/* 灯箱 */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: center;
+.action-buttons {
+    display: flex;
+    gap: 1rem;
     justify-content: center;
-    z-index: 1000;
-    padding: 2rem;
+    flex-wrap: wrap;
 }
-.modal-overlay.active { display: flex; }
-.modal-content { position: relative; max-width: 1000px; width: 100%; text-align: center; }
-.modal-content img { max-width: 100%; max-height: 78vh; border-radius: 10px; }
-.modal-caption { color: #fff; margin-top: 0.8rem; font-size: 0.95rem; }
-.modal-close {
-    position: absolute;
-    top: -14px;
-    right: -8px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: none;
-    background: #fff;
-    color: var(--text-dark);
-    font-size: 1.2rem;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79, 109, 122, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 109, 122, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
 }
 
 .page-footer {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     color: var(--text-muted);
     font-size: 0.85rem;
     border-top: 1px solid #e3e8ea;
 }
 
 @media (max-width: 640px) {
-    .page-hero h1 { font-size: 1.7rem; }
-    .container { padding: 1.5rem 1rem 3rem; }
-    .school-grid { grid-template-columns: 1fr; }
-    .tier-actions { margin-left: 0; }
+    .coming-soon-card {
+        padding: 2.5rem 1.5rem;
+    }
+    .coming-soon-card h1 {
+        font-size: 1.6rem;
+    }
+    .series-intro {
+        padding: 1.2rem;
+    }
+    .qr-section {
+        padding: 1.2rem;
+    }
+    .action-buttons {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 </style>
 </head>
@@ -323,209 +294,49 @@ nav .back-btn:hover { color: var(--accent); }
 
 <nav>
     <a href="../index.html" class="logo">木白</a>
-    <a href="../index.html" class="back-btn">← 返回首页</a>
+    <a href="../shenzhen-high-schools/index.html" class="back-btn">← 返回深圳高中信息</a>
 </nav>
 
-<header class="page-hero">
-    <h1>深圳高中校园实景图</h1>
-    <p>覆盖深圳100所高中，按2026年AC类录取分数线分为10个梯队。点击学校卡片展开查看10类校园场景图片。</p>
-    <span class="hero-note">说明：以下图片均为 AI 生成示意图，非学校实景，仅供直观感受参考</span>
-</header>
+<main class="main-content">
+    <div class="coming-soon-card">
+        <span class="badge">🚧 暂未开发</span>
+        <h1>校园实景探校系列</h1>
+        <p class="subtitle">正在紧锣密鼓地筹备中，敬请期待！</p>
+        <div class="divider"></div>
 
-<div class="container">
-    <div class="tier-nav" id="tierNav"></div>
-    <div id="tierContainer"></div>
-</div>
+        <div class="series-intro">
+            <h3>关于探校系列</h3>
+            <p>我正在筹备一个<strong>深圳高中探校实景</strong>系列文章，计划走进深圳100所高中，用镜头记录最真实的校园风貌。</p>
+            <ul>
+                <li>实地探访，实拍校园环境</li>
+                <li>校门、教室、食堂、宿舍、操场全场景覆盖</li>
+                <li>配套文字解读各校特色与办学理念</li>
+                <li>持续更新，覆盖全部100所高中</li>
+            </ul>
+        </div>
 
-<div class="modal-overlay" id="imageModal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="closeModal()">×</button>
-        <img id="modalImg" src="" alt="">
-        <div class="modal-caption" id="modalCaption"></div>
+        <div class="qr-section">
+            <h3>📱 关注公众号，第一时间看探校</h3>
+            <div class="qr-code-wrapper">
+                <img src="../wechat-qrcode.jpg" alt="微信公众号二维码">
+            </div>
+            <p class="qr-tip">微信扫码关注公众号 <strong>「木白」</strong><br>探校系列首发，不错过每一篇</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="../shenzhen-high-schools/index.html" class="btn btn-primary">
+                🏫 查看深圳高中信息
+            </a>
+            <a href="../index.html" class="btn btn-outline">
+                返回首页
+            </a>
+        </div>
     </div>
-</div>
+</main>
 
 <footer class="page-footer">
-    排名依据：2026年深圳中考AC类录取分数线（来源：深圳招考网） · 图片为AI示意图，非实景
+    探校系列正在筹备中 · 关注公众号获取最新动态
 </footer>
 
-<script>
-const SCHOOLS = [
-["深圳中学","罗湖区",592],["深圳实验学校（高中部）","福田区",590],["深圳外国语学校","盐田区",587],["深圳市高级中学中心校区","福田区",587],["红岭中学（红岭教育集团）高中部","福田区",584],["育才中学","南山区",583],["宝安中学（集团）高中部","宝安区",583],["深圳大学附属中学中心校区","南山区",582],["北京师范大学南山附属学校","南山区",581],["南山外国语学校（集团）高级中学","南山区",579],
-["深圳科学高中","龙岗区",579],["翠园中学（爱国路校区）","罗湖区",579],["龙城高级中学","龙岗区",576],["南方科技大学附属中学","宝安区",576],["深圳市第二高级中学","南山区",575],["深圳市第二实验学校","罗湖区",574],["龙华高级中学","龙华区",574],["人大附中深圳学校","大鹏新区",573],["育才一中","南山区",572],["翠园中学（东门北路校区）","罗湖区",571],
-["深圳实验学校（光明高中部）","光明区",571],["新安中学（集团）高中部","宝安区",570],["深圳外国语学校龙华高中部","龙华区",569],["深圳科学高中龙岗分校","龙岗区",567],["南头中学","南山区",567],["深圳市高级中学东校区","坪山区",567],["中国科学院深圳理工大学附属实验高级中学","光明区",566],["广东实验中学深圳学校","龙岗区",565],["深圳大学附属实验中学","南山区",565],["深圳北理莫斯科大学附属实验中学","龙岗区",563],
-["香港中文大学（深圳）附属明德高级中学","福田区",562],["华中师范大学龙岗附属中学","龙岗区",561],["盐田高级中学","盐田区",561],["华侨城高级中学","南山区",561],["东北师范大学附属中学深圳学校","龙岗区",559],["龙岗区实验高级中学","龙岗区",559],["深圳理工大学附属中学","龙岗区",559],["深圳市红山中学","龙华区",559],["罗湖外语学校","罗湖区",558],["松岗中学","宝安区",557],
-["深圳市高级中学创新高中","龙华区",557],["福田中学","福田区",554],["深圳大学附属中学盐田校区","盐田区",553],["深圳市格致中学","龙华区",553],["宝安第一外国语学校","宝安区",553],["深圳市龙津中学","宝安区",552],["深圳技术大学附属中学","坪山区",550],["深圳市高级中学理慧高中","龙华区",550],["深圳第二外国语学校","龙华区",550],["深圳市燕川中学","宝安区",546],
-["深圳市高级中学有为高中","龙华区",546],["罗湖高级中学","罗湖区",546],["深圳外国语学校弘知高中","光明区",545],["深圳市第三高级中学（国内高考班）","龙岗区",544],["西交利物浦大学基础教育集团外国语高级中学","龙华区",543],["平冈中学","龙岗区",540],["深圳市第二高级中学宝安高中部","宝安区",539],["深圳市龙华外国语高级中学","龙华区",538],["红岭教育集团大鹏华侨中学","大鹏新区",538],["西乡中学","宝安区",538],
-["深圳市高级中学文博高中","龙华区",537],["深圳市福海中学","宝安区",535],["光明区高级中学","光明区",533],["北京大学附属中学深圳学校","南山区",533],["深圳市致理中学","龙华区",532],["深圳市第七高级中学","宝安区",530],["深圳实验学校明理高中","坪山区",526],["深圳外国语学校致远高中","光明区",526],["深圳实验学校至臻高中","坪山区",526],["深圳实验学校卓越高中","坪山区",524],
-["石岩外国语学校","宝安区",522],["深圳市龙华科技实验高级中学","龙华区",519],["深圳外国语学校博雅高中","光明区",519],["深圳外国语学校理工高中","光明区",519],["坪山高级中学","坪山区",518],["观澜中学","龙华区",518],["深圳益新中学","南山区",517],["龙华中学","龙华区",517],["深圳市聚龙科学中学","坪山区",516],["光明中学","光明区",516],
-["深圳市第一职业技术学校（综合高中班）","市直属",516],["深圳启元中学","龙岗区",510],["横岗高级中学","龙岗区",510],["沙井中学","宝安区",509],["深圳市盐港中学（综合高中班）","盐田区",508],["深圳市第二实验学校明远高中","罗湖区",507],["深圳实验学校崇文高中","坪山区",506],["平湖外国语学校","龙岗区",506],["深圳市龙岗区第二高级中学","龙岗区",504],["深圳市艺术高中","龙华区",503],
-["深圳市第二高级中学深汕实验学校","深汕合作区",499],["深圳中学科技高中","坪山区",498],["深圳市曙光中学（综合高中）","宝安区",497],["深圳中学实验高中","坪山区",497],["深圳市美术学校","罗湖区",496],["深圳中学数理高中","坪山区",492],["深圳创新高级中学（综合高中）","龙岗区",487],["深圳市行知职业技术学校（综合高中班）","罗湖区",485],["深圳市第三高级中学（国家留学基金会自费出国留学班）","市直属",449],["布吉中学","龙岗区",null]
-];
-
-const PHOTO_TYPES = [
-  { label: "校门全景", desc: "学校正门全景，气派的校门与校名石碑，白天自然光", size: "landscape_16_9" },
-  { label: "教室内部", desc: "教室内部，整齐排列的课桌椅、黑板与多媒体教学设备，明亮采光", size: "landscape_4_3" },
-  { label: "教学楼外观", desc: "教学楼外观，现代化中学校园建筑立面，蓝天白云", size: "landscape_4_3" },
-  { label: "食堂内部", desc: "学生食堂内部，干净整洁的餐桌椅与打饭窗口，明亮灯光", size: "landscape_4_3" },
-  { label: "宿舍内部", desc: "学生宿舍内部，上下铺床铺与储物柜，整洁温馨", size: "landscape_4_3" },
-  { label: "操场跑道", desc: "标准田径操场，红色塑胶跑道与绿色足球场，晴朗天气", size: "landscape_16_9" },
-  { label: "图书馆", desc: "学校图书馆内部，成排书架与阅读桌椅，安静明亮", size: "landscape_4_3" },
-  { label: "实验室", desc: "理科实验室，实验台、显微镜与仪器设备，现代教学环境", size: "landscape_4_3" },
-  { label: "校园广场绿化", desc: "校园中心广场与绿化景观，树木草坪与步道，生机盎然", size: "landscape_4_3" },
-  { label: "校园航拍全景", desc: "校园鸟瞰航拍全景，教学楼、操场、绿化带尽收眼底，黄昏光线", size: "landscape_16_9" }
-];
-
-const API_BASE = "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image";
-
-function buildImageUrl(schoolName, type) {
-    const prompt = "中国深圳" + schoolName + "的" + type.label + "，" + type.desc +
-        "，写实摄影风格，高清细节，真实校园氛围，画面中不出现任何文字水印";
-    return API_BASE + "?prompt=" + encodeURIComponent(prompt) + "&image_size=" + type.size;
-}
-
-function tierName(i) {
-    if (i === 0) return "第一梯队 · 前10名";
-    if (i === 9) return "第十梯队 · 第91-100名";
-    return "第" + ["一","二","三","四","五","六","七","八","九","十"][i] + "梯队 · 第" + (i * 10 + 1) + "-" + (i * 10 + 10) + "名";
-}
-
-function escapeHtml(s) {
-    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-}
-
-function renderTiers() {
-    const nav = document.getElementById("tierNav");
-    const container = document.getElementById("tierContainer");
-    let navHtml = "", bodyHtml = "";
-
-    for (let t = 0; t < 10; t++) {
-        const schools = SCHOOLS.slice(t * 10, t * 10 + 10);
-        const anchor = "tier-" + (t + 1);
-        navHtml += '<a href="#' + anchor + '">' + (t === 0 ? "前10" : "第" + (t * 10 + 1) + "-" + (t * 10 + 10)) + "</a>";
-
-        let cardsHtml = "";
-        schools.forEach(function (s, idx) {
-            const rank = t * 10 + idx + 1;
-            const scoreTxt = s[2] === null ? "分数未公布" : "AC类 " + s[2] + " 分";
-            cardsHtml +=
-                '<div class="school-card" id="school-' + rank + '">' +
-                    '<div class="school-head" onclick="toggleSchool(' + rank + ')">' +
-                        '<div class="rank-badge"><span class="rk-num">' + rank + '</span><span class="rk-label">排名</span></div>' +
-                        '<div class="school-meta">' +
-                            '<div class="school-name" title="' + escapeHtml(s[0]) + '">' + escapeHtml(s[0]) + "</div>" +
-                            '<div class="school-sub">' + escapeHtml(s[1]) + " · " + scoreTxt + "</div>" +
-                        "</div>" +
-                        '<span class="expand-arrow">▼</span>' +
-                    "</div>" +
-                    '<div class="school-body"><div class="photo-grid" data-school="' + rank + '"></div>' +
-                    '<p class="ai-note">以上 10 张图片均为 AI 生成示意图，非学校实景。</p></div>' +
-                "</div>";
-        });
-
-        bodyHtml +=
-            '<section class="tier-section tier-' + (t < 3 ? t + 1 : "default") + '" id="' + anchor + '">' +
-                '<div class="tier-header">' +
-                    '<span class="tier-badge ' + (t >= 3 ? "tier-default" : "") + '">' + tierName(t) + "</span>" +
-                    '<span class="tier-range">' + schools.length + " 所学校</span>" +
-                    '<div class="tier-actions">' +
-                        '<button onclick="setTierOpen(' + t + ', true)">展开全部</button>' +
-                        '<button onclick="setTierOpen(' + t + ', false)">折叠全部</button>' +
-                    "</div>" +
-                "</div>" +
-                '<div class="school-grid">' + cardsHtml + "</div>" +
-            "</section>";
-    }
-
-    nav.innerHTML = navHtml;
-    container.innerHTML = bodyHtml;
-}
-
-function toggleSchool(rank) {
-    const card = document.getElementById("school-" + rank);
-    const isOpen = card.classList.contains("open");
-    if (isOpen) {
-        card.classList.remove("open");
-    } else {
-        card.classList.add("open");
-        loadPhotos(rank);
-    }
-}
-
-function setTierOpen(t, open) {
-    for (let i = 0; i < 10; i++) {
-        const rank = t * 10 + i + 1;
-        if (rank > SCHOOLS.length) break;
-        const card = document.getElementById("school-" + rank);
-        if (open && !card.classList.contains("open")) {
-            card.classList.add("open");
-            loadPhotos(rank, i * 220);
-        } else if (!open) {
-            card.classList.remove("open");
-        }
-    }
-}
-
-function loadPhotos(rank, staggerBase) {
-    const grid = document.querySelector('.photo-grid[data-school="' + rank + '"]');
-    if (grid.dataset.loaded === "1") return;
-    grid.dataset.loaded = "1";
-
-    const school = SCHOOLS[rank - 1];
-    PHOTO_TYPES.forEach(function (type, i) {
-        const item = document.createElement("div");
-        item.className = "photo-item";
-        item.innerHTML =
-            '<div class="photo-frame ' + (type.size === "landscape_16_9" ? "wide" : "") + '">' +
-                '<div class="photo-loading"><div class="spinner"></div><span>AI生成中，约需数秒</span></div>' +
-                '<div class="photo-error"><span>加载失败</span><button type="button">重试</button></div>' +
-            "</div>" +
-            '<div class="photo-label">' + type.label + "</div>";
-        grid.appendChild(item);
-
-        const frame = item.querySelector(".photo-frame");
-        const loading = item.querySelector(".photo-loading");
-        const errorBox = item.querySelector(".photo-error");
-        const retryBtn = item.querySelector(".photo-error button");
-
-        function start(delay) {
-            loading.style.display = "flex";
-            errorBox.style.display = "none";
-            setTimeout(function () {
-                const img = new Image();
-                img.alt = school[0] + " " + type.label + "（AI示意图）";
-                img.onload = function () {
-                    loading.style.display = "none";
-                    frame.appendChild(img);
-                    img.onclick = function () { openModal(img.src, school[0] + " · " + type.label + "（AI示意图，非实景）"); };
-                };
-                img.onerror = function () {
-                    loading.style.display = "none";
-                    errorBox.style.display = "flex";
-                };
-                img.src = buildImageUrl(school[0], type);
-            }, delay);
-        }
-
-        retryBtn.onclick = function () { start(0); };
-        start((staggerBase || 0) + i * 160);
-    });
-}
-
-function openModal(url, caption) {
-    document.getElementById("modalImg").src = url;
-    document.getElementById("modalCaption").textContent = caption;
-    document.getElementById("imageModal").classList.add("active");
-}
-function closeModal() {
-    document.getElementById("imageModal").classList.remove("active");
-}
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeModal();
-});
-
-renderTiers();
-toggleSchool(1);
-</script>
 </body>
 </html>

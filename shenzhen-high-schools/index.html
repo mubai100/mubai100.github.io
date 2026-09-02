@@ -204,6 +204,166 @@
     margin-right: 6px;
   }
 
+  /* ========== 探校实景区 ========== */
+  .tour-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tour-banner::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .tour-banner::after {
+    content: '';
+    position: absolute;
+    right: 40px;
+    bottom: -40px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .tour-banner-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tour-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    backdrop-filter: blur(4px);
+  }
+
+  .tour-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .tour-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: 0.92;
+    margin-bottom: 24px;
+    max-width: 680px;
+  }
+
+  .tour-desc strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .tour-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .tour-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .tour-feature-icon {
+    font-size: 16px;
+  }
+
+  .tour-cta {
+    display: flex;
+    align-items: center;
+  }
+
+  .tour-qr {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(4px);
+  }
+
+  .tour-qr img {
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #fff;
+    padding: 4px;
+  }
+
+  .tour-qr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tour-qr-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .tour-qr-sub {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 640px) {
+    .tour-banner {
+      padding: 24px 20px;
+    }
+    .tour-title {
+      font-size: 20px;
+    }
+    .tour-desc {
+      font-size: 14px;
+    }
+    .tour-features {
+      gap: 10px;
+    }
+    .tour-feature {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+    .tour-qr {
+      flex-direction: column;
+      text-align: center;
+      padding: 16px;
+    }
+    .tour-qr img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
   /* ========== 表格控制区 ========== */
   .table-controls {
     display: flex;
@@ -883,7 +1043,7 @@
         <ul>
                 <li><a href="#data-intro">数据说明</a></li>
                 <li><a href="#school-data">学校数据</a></li>
-                <li><a href="../campus-gallery/index.html">校园实景图（子页面）</a></li>
+                <li><a href="#campus-tour">探校实景</a></li>
                 <li><a href="#data-sources">数据来源</a></li>
         </ul>
     </nav>
@@ -1005,6 +1165,50 @@
       </table>
     </div>
     <div id="noResult" class="no-result" style="display:none;">未找到匹配的学校，请调整搜索条件</div>
+  </section>
+
+  <!-- 探校实景区 -->
+  <section id="campus-tour" class="section">
+    <h2 class="section-title">探校实景</h2>
+    <p class="section-desc">实地探访深圳高中，用镜头记录最真实的校园风貌</p>
+
+    <div class="tour-banner">
+      <div class="tour-banner-content">
+        <div class="tour-badge">📝 系列文章 · 持续更新</div>
+        <h3 class="tour-title">深圳高中探校实景系列</h3>
+        <p class="tour-desc">
+          我正在筹备一个<strong>深圳高中探校实景</strong>系列，计划走进深圳100所高中，
+          实地拍摄校门、教室、食堂、宿舍、操场等校园场景，配套文字解读各校特色与办学理念。
+        </p>
+        <div class="tour-features">
+          <div class="tour-feature">
+            <span class="tour-feature-icon">📷</span>
+            <span>实拍校园环境</span>
+          </div>
+          <div class="tour-feature">
+            <span class="tour-feature-icon">🏫</span>
+            <span>全场景覆盖</span>
+          </div>
+          <div class="tour-feature">
+            <span class="tour-feature-icon">📖</span>
+            <span>深度解读</span>
+          </div>
+          <div class="tour-feature">
+            <span class="tour-feature-icon">🔄</span>
+            <span>持续更新</span>
+          </div>
+        </div>
+        <div class="tour-cta">
+          <div class="tour-qr">
+            <img src="../wechat-qrcode.jpg" alt="微信公众号二维码">
+            <div class="tour-qr-text">
+              <p class="tour-qr-title">扫码关注公众号</p>
+              <p class="tour-qr-sub">探校系列首发 · 不错过每一篇</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- 数据来源区 -->
@@ -1253,8 +1457,8 @@ function renderTable() {
       detailItem('多元化课程', school.courses) +
       detailItem('师资', school.teachers) +
       detailItem('班型', school.classType) +
-      '<div class="detail-item"><div class="detail-label">校园实景图</div><div class="detail-value">' +
-        '<a class="img-link" href="../campus-gallery/index.html" target="_blank" rel="noopener">查看校园实景图（AI示意图）</a>' +
+      '<div class="detail-item"><div class="detail-label">探校实景</div><div class="detail-value">' +
+        '<a class="img-link" href="#campus-tour">查看探校实景系列（公众号连载中）</a>' +
         '</div></div>' +
     '</div></div></td>';
 
