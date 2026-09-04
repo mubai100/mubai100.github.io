@@ -168,6 +168,22 @@
     .gantt-bar:hover {
       opacity: 1;
     }
+    .gantt-deadline {
+      position: absolute;
+      top: 0;
+      height: 24px;
+      border-left: 2px dashed #dc2626;
+      z-index: 3;
+    }
+    .gantt-deadline::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 3px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid #dc2626;
+    }
     @media (max-width: 768px) {
       .gantt-label-col, .gantt-label {
         width: 110px;
@@ -954,7 +970,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年5月6日—5月31日报名；6月—7月选拔赛；8月中下旬决赛</div>
+          <div class="field-value">第九届：2026年5月6日—5月31日报名（第八届为2025年4月30日—5月31日）</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -987,7 +1003,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">信息素养类2026年3月25日—5月9日报名；5月初赛；6—7月地区复赛；8月总决赛（机器人设计类以赛区通知为准）</div>
+          <div class="field-value">信息素养类：2026年3月25日—4月30日（算法赛项）／—5月9日（其余赛项）报名；机器人设计类按省赛分批</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -995,7 +1011,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">官方网站</div>
-          <div class="field-value"><a href="https://ceic.kpcb.org.cn/cms/" target="_blank" rel="noopener">ceic.kpcb.org.cn</a></div>
+          <div class="field-value"><a href="https://contest.cie.org.cn/" target="_blank" rel="noopener">contest.cie.org.cn</a>（总站）／<a href="https://ceic.kpcb.org.cn/cms/" target="_blank" rel="noopener">ceic.kpcb.org.cn</a>（信息素养平台）</div>
         </div>
       </div>
       <div class="comp-suggestion">
@@ -1020,7 +1036,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年3月1日—5月31日报名（各赛区以通知为准）；全国赛暑期举办</div>
+          <div class="field-value">省赛报名一般每年4—6月（各赛区不同）；全国总决赛拟于2026年暑期在天津举行</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1053,7 +1069,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2025年9月—2026年8月（2025—2028学年周期）；3月省级报名，4月省级评选，8月全国决赛</div>
+          <div class="field-value">第二十届（2025）：选拔推荐2月—3月，全国网上申报4月1日—4月30日</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1086,7 +1102,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">预赛2025年10月—12月报名；决赛2026年4月14日—23日报名；5月预赛，决赛在暑期</div>
+          <div class="field-value">2025—2026学年：预赛报名截止2026年3月17日（预赛3月28日），大致每年2—3月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1119,7 +1135,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2025年11月28日—12月17日报名（第19届）</div>
+          <div class="field-value">第十九届（2025—2026）：2025年11月28日—12月17日报名</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://geodoctor.cn/" target="_blank" rel="noopener">geodoctor.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1152,7 +1172,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2025年9月—2026年8月报名；通常3—5月集中报名，下半年评审</div>
+          <div class="field-value">第23届（2025—2026）：各赛区2025年12月—2026年3月报名</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://naturesch.cn/" target="_blank" rel="noopener">naturesch.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1185,7 +1209,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">第一轮2025年12月22日—2026年1月6日；预赛2026年4月1日—5月31日；5月预赛，决赛暑期</div>
+          <div class="field-value">2025—2026学年：学校注册截止2026年1月6日，学生填报2026年1月19日—3月5日（预赛3月）</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://ceso.ssoc.org.cn/" target="_blank" rel="noopener">ceso.ssoc.org.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1218,7 +1246,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">预赛2025年5月—6月报名（各省赛区通知为准）；9月预赛，11月联赛，次年1月CMO决赛</div>
+          <div class="field-value">各赛区4—9月组织报名，学校／赛区统一报名；预赛（高中数学联赛）多在每年9月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1251,7 +1279,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">预赛2025年5月—6月报名（各省赛区通知为准）；9月预赛，10月复赛，11—12月决赛</div>
+          <div class="field-value">各赛区5—9月组织报名，学校统一报名；预赛9月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1284,7 +1312,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">初赛2026年7月7日—26日报名（各省赛区通知为准）；9月初赛，11—12月决赛</div>
+          <div class="field-value">初赛报名多在6—7月（各赛区不同，学校统一报名）；初赛9月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1317,7 +1345,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">联赛2026年3月31日前报名（各省赛区通知为准）；5月联赛，7—8月决赛</div>
+          <div class="field-value">初赛报名各赛区1—4月（学校／教育局组织）；联赛5月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1350,7 +1378,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">NOI 2026报名截止5月17日（各省特派员负责）；CSP-J/S 9—10月认证；NOIP 11月；NOI 7月</div>
+          <div class="field-value">2026年CSP-J/S：学生注册报名2026年7月13日—9月6日；NOIP往年约11月</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1374,20 +1402,24 @@
       </div>
       <div class="comp-tags">
         <span class="tag">科技创新 / 科学研究</span>
-        <span class="tag stage">高中 · 中职</span>
+        <span class="tag stage">15—24岁（青年组／少年组）</span>
       </div>
       <div class="comp-grid">
         <div class="comp-field">
           <div class="field-label">主办单位</div>
-          <div class="field-value">中国科协青少年科技中心</div>
+          <div class="field-value">中国科协</div>
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年5月10日—5月31日报名（第40届，西安）；8月全国现场竞赛</div>
+          <div class="field-value">第40届：2026年5月10日—5月31日12:00申报系统开放</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
           <div class="field-value">发明创造作品、科学研究论文、科技实践活动等。评审含地方初评、全国终评，包括现场答辩和展评<sup><a href="#cite-11">[11]</a></sup></div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">赛制变化</div>
+          <div class="field-value">第40届起面向年龄调整为15—24岁（分青年组／少年组），并改为<strong>由关联赛事推荐产生</strong>，不再开放个人直接报名</div>
         </div>
         <div class="comp-field">
           <div class="field-label">官方网站</div>
@@ -1416,7 +1448,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年3月16日—6月15日报名；5—7月地区赛，8月总决赛</div>
+          <div class="field-value">2026年选拔赛各赛区3—6月报名（如南部赛区4.13—5.31、陕西4.27—6.19）</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1449,7 +1481,7 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年7月1日—9月15日注册报名并提交研究报告</div>
+          <div class="field-value">2026年7月1日—9月15日注册报名，并上传研究报告</div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1482,7 +1514,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年4月4日—6月15日报名；下半年全国赛</div>
+          <div class="field-value">2025—2026学年：2026年4月4日—6月15日报名</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://icc.cffpd.org.cn/" target="_blank" rel="noopener">icc.cffpd.org.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1515,7 +1551,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年4月1日—5月31日报名（参考往年，首届赛事）</div>
+          <div class="field-value">首届（2025—2026）：各赛区自行安排，参考河南赛区截至2026年4月15日</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://aic.cwicp.cn/" target="_blank" rel="noopener">aic.cwicp.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1548,7 +1588,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年4月22日—5月31日报名</div>
+          <div class="field-value">首届：2026年4月22日—5月31日（平台注册及学习）</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://nysec.com.cn/" target="_blank" rel="noopener">nysec.com.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1581,7 +1625,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2025年12月—2026年4月报名（参考往年）</div>
+          <div class="field-value">首届：主赛事2026年4月底—9月初（建模能力赛2025年12月）</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://simcc.bnu.edu.cn/" target="_blank" rel="noopener">simcc.bnu.edu.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1614,7 +1662,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2026年4月2日起开放报名（首届，截止以官网通知为准）</div>
+          <div class="field-value">首届：初赛／复赛2026年3月—6月（长春赛区4月2日起）</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://camh-edu.org.cn/" target="_blank" rel="noopener">camh-edu.org.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -1647,7 +1699,11 @@
         </div>
         <div class="comp-field">
           <div class="field-label">报名时间</div>
-          <div class="field-value">2025年9月—2026年8月（首届赛事周期）</div>
+          <div class="field-value">首届：全国2026年3月31日起报名（河北赛区截至6月15日）</div>
+        </div>
+        <div class="comp-field">
+          <div class="field-label">官方网站</div>
+          <div class="field-value"><a href="https://nyseic.cn/" target="_blank" rel="noopener">nyseic.cn</a></div>
         </div>
         <div class="comp-field">
           <div class="field-label">赛项设置</div>
@@ -2522,12 +2578,13 @@
   <!-- Timeline -->
   <section id="timeline">
     <h2>全年报名日历速查</h2>
-    <p class="intro-text">各赛事2025—2026学年报名时间可视化时间轴，横轴为9月至次年8月（学年），色块表示报名时段。</p>
+    <p class="intro-text">各赛事2025—2026学年<strong>报名</strong>时间可视化时间轴，横轴为9月至次年8月（学年）。色块<strong>仅表示报名时段</strong>，已剔除初赛／复赛／决赛等赛程时间；<span style="color:#dc2626;font-weight:700">▼</span> 标记报名截止日；跨学年的报名期（如7月—9月）拆分为两段显示。</p>
 
     <div class="gantt-legend">
       <span class="gantt-legend-item"><span class="gantt-dot" style="background:#3b82f6"></span>自然科学素养类</span>
       <span class="gantt-legend-item"><span class="gantt-dot" style="background:#f59e0b"></span>人文综合素养类</span>
       <span class="gantt-legend-item"><span class="gantt-dot" style="background:#ec4899"></span>艺术体育类</span>
+      <span class="gantt-legend-item" style="color:#dc2626;font-weight:700">▼ 报名截止日</span>
     </div>
 
       <div class="gantt-chart" id="gantt-natural">
@@ -2541,135 +2598,144 @@
             <div class="gantt-months"><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span>            </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="宋庆龄少年儿童发明奖">4. 宋庆龄少年儿童发明奖</div>
+            <div class="gantt-label" title="&quot;地球小博士&quot;全国地理科普知识大赛">6. &quot;地球小博士&quot;全国地理科普知识大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:0.0%;width:100.0%;background:#3b82f6" title="2025年9月—2026年8月（2025—2028学年周期）；3月省级报名，4月省级评选，8月全国决赛">9/—8/</div>
+              <div class="gantt-bar" style="left:24.17%;width:5.40%;background:#3b82f6" title="第十九届（2025—2026）：2025年11月28日—12月17日报名">11/28—12/17</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛">7. 全国中学生水科技发明比赛暨斯德哥尔…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:0.0%;width:100.0%;background:#3b82f6" title="2025年9月—2026年8月报名；通常3—5月集中报名，下半年评审">9/—8/</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国中学生信息学奥林匹克竞赛（NOI）">13. 全国中学生信息学奥林匹克竞赛（NO…</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:0.0%;width:75.0%;background:#3b82f6" title="NOI 2026报名截止5月17日（各省特派员负责）；CSP-J/S 9—10月认证；NOIP 11月；NOI 7月">2026报名截止5/17</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国青少年安全与应急科普创新大赛">22. 全国青少年安全与应急科普创新大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:0.0%;width:100.0%;background:#3b82f6" title="2025年9月—2026年8月（首届赛事周期）">9/—8/</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国中学生天文知识竞赛">5. 全国中学生天文知识竞赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:8.3%;width:25.0%;background:#3b82f6" title="预赛2025年10月—12月报名；决赛2026年4月14日—23日报名；5月预赛，决赛在暑期">10/—12/</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="" 地球小博士"全国地理科普知识大赛"="">6. "地球小博士"全国地理科普知识大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:16.7%;width:16.7%;background:#3b82f6" title="2025年11月28日—12月17日报名（第19届）">11/28—12/17</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国中学生地球科学奥林匹克竞赛">8. 全国中学生地球科学奥林匹克竞赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:16.7%;background:#3b82f6" title="第一轮2025年12月22日—2026年1月6日；预赛2026年4月1日—5月31日；5月预赛，决赛暑期">12/22—1/6</div>
+              <div class="gantt-bar" style="left:25.00%;width:33.33%;background:#3b82f6" title="第23届（2025—2026）：各赛区2025年12月—2026年3月报名">12月—3月</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年科学探究建模能力大赛">20. 全国青少年科学探究建模能力大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:41.7%;background:#3b82f6" title="2025年12月—2026年4月报名（参考往年）">12/—4/</div>
+              <div class="gantt-bar" style="left:25.00%;width:8.33%;background:#3b82f6" title="首届：主赛事2026年4月底—9月初报名（建模能力赛2025年12月）"></div>
+              <div class="gantt-bar" style="left:65.00%;width:35.00%;background:#3b82f6" title="首届：主赛事2026年4月底—9月初报名（建模能力赛2025年12月）">4月底—9月初</div>
+              <div class="gantt-bar" style="left:0.00%;width:1.39%;background:#3b82f6" title="首届：主赛事2026年4月底—9月初报名（建模能力赛2025年12月）"></div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="世界机器人大会青少年机器人设计与信息素养大赛">2. 世界机器人大会青少年机器人设计与信…</div>
+            <div class="gantt-label" title="全国中学生地球科学奥林匹克竞赛">8. 全国中学生地球科学奥林匹克竞赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:25.0%;background:#3b82f6" title="信息素养类2026年3月25日—5月9日报名；5月初赛；6—7月地区复赛；8月总决赛（机器人设计类以赛区通知为准）">3/25—5/9</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国青少年无人机大赛">3. 全国青少年无人机大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:25.0%;background:#3b82f6" title="2026年3月1日—5月31日报名（各赛区以通知为准）；全国赛暑期举办">3/1—5/31</div>
+              <div class="gantt-bar" style="left:30.65%;width:20.70%;background:#3b82f6" title="2025—2026学年：学校注册截止2026年1月6日，学生填报2026年1月19日—3月5日（预赛3月）">12/22—3/5</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中学生生物学奥林匹克竞赛（CBO）">12. 全国中学生生物学奥林匹克竞赛（CB…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:8.3%;background:#3b82f6" title="联赛2026年3月31日前报名（各省赛区通知为准）；5月联赛，7—8月决赛"></div>
+              <div class="gantt-bar" style="left:33.33%;width:33.33%;background:#3b82f6" title="初赛报名各赛区1—4月（学校／教育局组织）；联赛5月">1月—4月</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="宋庆龄少年儿童发明奖">4. 宋庆龄少年儿童发明奖</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:41.67%;width:25.00%;background:#3b82f6" title="第二十届（2025）：选拔推荐2月—3月，全国网上申报4月1日—4月30日">2月—4/30</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国中学生天文知识竞赛">5. 全国中学生天文知识竞赛</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:41.67%;width:12.90%;background:#3b82f6" title="2025—2026学年：预赛报名截止2026年3月17日（预赛3月28日）；大致每年2—3月">截止3/17</div>
+              <div class="gantt-deadline" style="left:54.57%" title="报名截止 3月17日"></div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年航天创新大赛">15. 全国青少年航天创新大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:33.3%;background:#3b82f6" title="2026年3月16日—6月15日报名；5—7月地区赛，8月总决赛">3/16—6/15</div>
+              <div class="gantt-bar" style="left:50.00%;width:33.33%;background:#3b82f6" title="2026年选拔赛各赛区3—6月报名（如南部赛区4.13—5.31、陕西4.27—6.19）">3月—6月</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="全球发明大会（中国）竞赛活动">17. 全球发明大会（中国）竞赛活动</div>
+            <div class="gantt-label" title="全国青少年心理成长知识与应用创新大赛">21. 全国青少年心理成长知识与应用创新大…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:25.0%;background:#3b82f6" title="2026年4月4日—6月15日报名；下半年全国赛">4/4—6/15</div>
+              <div class="gantt-bar" style="left:50.00%;width:33.33%;background:#3b82f6" title="首届：初赛／复赛2026年3月—6月（长春赛区4月2日起）">3月—6月</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="世界机器人大会青少年机器人设计与信息素养大赛">2. 世界机器人大会青少年机器人设计与信…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:56.45%;width:12.63%;background:#3b82f6" title="信息素养类：2026年3月25日—4月30日（算法赛项）／—5月9日（其余赛项）报名；机器人设计类按省赛分批">3/25—5/9</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国青少年安全与应急科普创新大赛">22. 全国青少年安全与应急科普创新大赛</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:58.06%;width:21.10%;background:#3b82f6" title="首届：全国2026年3月31日起报名（河北赛区截至6月15日）">3/31—6/15</div>
+              <div class="gantt-deadline" style="left:79.17%" title="报名截止 6月15日"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国青少年无人机大赛">3. 全国青少年无人机大赛</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:58.33%;width:25.00%;background:#3b82f6" title="省赛报名一般每年4—6月（各赛区不同）；全国总决赛拟于2026年暑期在天津举行">4月—6月</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国中学生数学奥林匹克竞赛（CMO）">9. 全国中学生数学奥林匹克竞赛（CMO…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:58.33%;width:41.67%;background:#3b82f6" title="各赛区4—9月组织报名，学校／赛区统一报名；预赛（高中数学联赛）多在每年9月">4月—9月</div>
+              <div class="gantt-bar" style="left:0.00%;width:8.33%;background:#3b82f6" title="各赛区4—9月组织报名，学校／赛区统一报名；预赛（高中数学联赛）多在每年9月"></div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年人工智能大赛">18. 全国青少年人工智能大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:16.7%;background:#3b82f6" title="2026年4月1日—5月31日报名（参考往年，首届赛事）">4/1—5/31</div>
+              <div class="gantt-bar" style="left:58.33%;width:4.17%;background:#3b82f6" title="首届（2025—2026）：各赛区自行安排，参考河南赛区截至2026年4月15日">截止4/15</div>
+              <div class="gantt-deadline" style="left:62.50%" title="报名截止 4月15日"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全球发明大会（中国）竞赛活动">17. 全球发明大会（中国）竞赛活动</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:59.17%;width:20.00%;background:#3b82f6" title="2025—2026学年：2026年4月4日—6月15日报名">4/4—6/15</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年科学实验能力大赛">19. 全国青少年科学实验能力大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:16.7%;background:#3b82f6" title="2026年4月22日—5月31日报名">4/22—5/31</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国青少年心理成长知识与应用创新大赛">21. 全国青少年心理成长知识与应用创新大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:41.7%;background:#3b82f6" title="2026年4月2日起开放报名（首届，截止以官网通知为准）">4/2</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国青少年人工智能创新挑战赛">1. 全国青少年人工智能创新挑战赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:66.7%;width:8.3%;background:#3b82f6" title="2026年5月6日—5月31日报名；6月—7月选拔赛；8月中下旬决赛"></div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国中学生数学奥林匹克竞赛（CMO）">9. 全国中学生数学奥林匹克竞赛（CMO）</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:66.7%;width:16.7%;background:#3b82f6" title="预赛2025年5月—6月报名（各省赛区通知为准）；9月预赛，11月联赛，次年1月CMO决赛">5/—6/</div>
+              <div class="gantt-bar" style="left:64.17%;width:10.83%;background:#3b82f6" title="首届：2026年4月22日—5月31日（平台注册及学习）">4/22—5/31</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中学生物理奥林匹克竞赛（CPhO）">10. 全国中学生物理奥林匹克竞赛（CPh…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:66.7%;width:16.7%;background:#3b82f6" title="预赛2025年5月—6月报名（各省赛区通知为准）；9月预赛，10月复赛，11—12月决赛">5/—6/</div>
+              <div class="gantt-bar" style="left:66.67%;width:33.33%;background:#3b82f6" title="各赛区5—9月组织报名，学校统一报名；预赛9月">5月—9月</div>
+              <div class="gantt-bar" style="left:0.00%;width:8.33%;background:#3b82f6" title="各赛区5—9月组织报名，学校统一报名；预赛9月"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国青少年人工智能创新挑战赛">1. 全国青少年人工智能创新挑战赛</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:68.01%;width:6.99%;background:#3b82f6" title="第九届：2026年5月6日—5月31日报名（第八届为2025年4月30日—5月31日）">5/6—5/31</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年科技创新大赛">14. 全国青少年科技创新大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:66.7%;width:8.3%;background:#3b82f6" title="2026年5月10日—5月31日报名（第40届，西安）；8月全国现场竞赛"></div>
+              <div class="gantt-bar" style="left:69.09%;width:5.91%;background:#3b82f6" title="第40届：2026年5月10日—5月31日12:00申报系统开放；第40届起由关联赛事推荐产生，不开放个人直接报名">5/10—5/31</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中学生化学奥林匹克竞赛（CChO）">11. 全国中学生化学奥林匹克竞赛（CCh…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:83.3%;width:8.3%;background:#3b82f6" title="初赛2026年7月7日—26日报名（各省赛区通知为准）；9月初赛，11—12月决赛"></div>
+              <div class="gantt-bar" style="left:75.00%;width:16.67%;background:#3b82f6" title="初赛报名多在6—7月（各赛区不同，学校统一报名）；初赛9月">6月—7月</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="丘成桐中学科学奖">16. 丘成桐中学科学奖</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:83.3%;width:16.7%;background:#3b82f6" title="2026年7月1日—9月15日注册报名并提交研究报告">7/1—9/15注册报名并提交研究报</div><div class="gantt-bar" style="left:0.0%;width:8.3%;background:#3b82f6" title="2026年7月1日—9月15日注册报名并提交研究报告"></div>
+              <div class="gantt-bar" style="left:83.33%;width:16.67%;background:#3b82f6" title="2026年7月1日—9月15日注册报名，并上传研究报告">7/1—9/15</div>
+              <div class="gantt-bar" style="left:0.00%;width:4.17%;background:#3b82f6" title="2026年7月1日—9月15日注册报名，并上传研究报告"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国中学生信息学奥林匹克竞赛（NOI）">13. 全国中学生信息学奥林匹克竞赛（NO…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:86.56%;width:13.44%;background:#3b82f6" title="2026年CSP-J/S：学生注册报名2026年7月13日—9月6日；NOIP往年约11月">7/13—9/6</div>
+              <div class="gantt-bar" style="left:0.00%;width:1.67%;background:#3b82f6" title="2026年CSP-J/S：学生注册报名2026年7月13日—9月6日；NOIP往年约11月"></div>
             </div>
           </div>
         </div>
@@ -2685,75 +2751,76 @@
             <div class="gantt-months"><span>9月</span><span>10月</span><span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span>            </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="中华诗词美育大赛">30. 中华诗词美育大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:0.0%;width:83.3%;background:#f59e0b" title="2025年11月10日—2026年8月（初赛截止2026年6月底）">11/10—8/</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="" 外研社杯"全国中学生外语素养大赛"="">24. "外研社杯"全国中学生外语素养大赛</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:16.7%;width:16.7%;background:#f59e0b" title="2025年11月10日—12月21日报名（第22届，已截止）；7—10月报名及初赛，12月地区决赛，次年1月全国总决赛">11/10—12/21</div>
-            </div>
-          </div>
-          <div class="gantt-row">
             <div class="gantt-label" title="高中生创新能力大赛">25. 高中生创新能力大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:16.7%;width:8.3%;background:#f59e0b" title="2025年11月启动报名（第23届）；9—12月报名，次年3月省级选拔，5月全国决赛"></div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="全国中学生环境保护优秀作文征集活动">26. 全国中学生环境保护优秀作文征集活动</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:16.7%;width:8.3%;background:#f59e0b" title="2025年11月启动，12月31日截止投稿（第七届）；通常10—12月投稿，次年3—4月公布结果"></div>
+              <div class="gantt-bar" style="left:0.00%;width:33.33%;background:#f59e0b" title="第23届：2025年9—12月报名，次年3月省级选拔，5月全国决赛">9月—12月</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年禁毒知识竞赛">29. 全国青少年禁毒知识竞赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:16.7%;width:83.3%;background:#f59e0b" title="2025年11月10日起初赛；9—11月线上答题，12月公布结果">11/10起</div>
+              <div class="gantt-bar" style="left:0.00%;width:25.00%;background:#f59e0b" title="9—11月线上答题（初赛）；12月公布结果">9月—11月</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 美丽中国"全国版图知识竞赛（中小学组）"="">27. "美丽中国"全国版图知识竞赛（中小…</div>
+            <div class="gantt-label" title="全国中学生环境保护优秀作文征集活动">26. 全国中学生环境保护优秀作文征集活动</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:33.3%;background:#f59e0b" title="2025年12月15日—2026年3月30日（第7届）；线上答题">12/15—3/30</div>
+              <div class="gantt-bar" style="left:8.33%;width:25.00%;background:#f59e0b" title="第七届：2025年11月启动，12月31日截止投稿；通常10—12月投稿">10月—12/31</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="全国青少年红色文化传承与实践创新大赛">32. 全国青少年红色文化传承与实践创新大赛</div>
+            <div class="gantt-label" title="&quot;外研社杯&quot;全国中学生外语素养大赛">24. &quot;外研社杯&quot;全国中学生外语素养大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:41.7%;background:#f59e0b" title="2025年12月1日—2026年4月30日报名">12/1—4/30</div>
+              <div class="gantt-bar" style="left:19.17%;width:11.48%;background:#f59e0b" title="第22届：2025年11月10日—12月21日报名">11/10—12/21</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 讲好中国故事"全国中小学语言素养大赛"="">33. "讲好中国故事"全国中小学语言素养…</div>
+            <div class="gantt-label" title="中华诗词美育大赛">30. 中华诗词美育大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:33.3%;width:50.0%;background:#f59e0b" title="即日起至2026年6月30日报名">即日起至6/30</div>
+              <div class="gantt-bar" style="left:19.17%;width:80.83%;background:#f59e0b" title="2025年11月10日—2026年8月；初赛截止2026年6月底">11/10—8月</div>
+              <div class="gantt-deadline" style="left:83.33%" title="报名截止 6月30日"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="全国青少年红色文化传承与实践创新大赛">32. 全国青少年红色文化传承与实践创新大…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:25.00%;width:41.67%;background:#f59e0b" title="2025年12月1日—2026年4月30日报名">12/1—4/30</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="&quot;美丽中国&quot;全国版图知识竞赛（中小学组）">27. &quot;美丽中国&quot;全国版图知识竞赛（中小…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:28.76%;width:29.30%;background:#f59e0b" title="第7届：2025年12月15日—2026年3月30日；线上答题">12/15—3/30</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="&quot;讲好中国故事&quot;全国中小学语言素养大赛">33. &quot;讲好中国故事&quot;全国中小学语言素养…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:33.33%;width:50.00%;background:#f59e0b" title="即日起至2026年6月30日报名">1月—6/30</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="同颂中华·全国青少年志愿文学创作与诵读大赛">34. 同颂中华·全国青少年志愿文学创作与…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:33.3%;width:33.3%;background:#f59e0b" title="2026年1月7日—4月19日报名（首届）">1/7—4/19</div>
+              <div class="gantt-bar" style="left:34.95%;width:28.66%;background:#f59e0b" title="2026年1月7日—4月19日报名（首届）">1/7—4/19</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年劳动技能与智能设计大赛">28. 全国青少年劳动技能与智能设计大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:33.3%;background:#f59e0b" title="2026年3月—6月报名；通常3—5月报名，下半年决赛">3/—6/</div>
+              <div class="gantt-bar" style="left:50.00%;width:33.33%;background:#f59e0b" title="2026年3月—6月报名">3月—6月</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="鲁迅青少年文学大赛">31. 鲁迅青少年文学大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:25.0%;background:#f59e0b" title="2026年3月—5月20日报名（第17届）">3/—5/20</div>
+              <div class="gantt-bar" style="left:50.00%;width:22.04%;background:#f59e0b" title="2026年3月—5月20日报名（第17届）">3月—5/20</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="世界华人学生作文大赛">23. 世界华人学生作文大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:91.7%;width:8.3%;background:#f59e0b" title="2026年8月17日起征稿（第27届）；每年9月—次年4月投稿，7月公布结果"></div>
+              <div class="gantt-bar" style="left:91.67%;width:8.33%;background:#f59e0b" title="第27届：2026年8月17日起征稿；每年9月—次年4月投稿，7月公布结果">8/17起征稿</div>
             </div>
           </div>
         </div>
@@ -2771,79 +2838,79 @@
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年模拟飞行锦标赛">36. 全国青少年模拟飞行锦标赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:8.3%;width:50.0%;background:#ec4899" title="2025年10月1日—2026年3月31日报名">10/1—3/31</div>
+              <div class="gantt-bar" style="left:8.33%;width:50.00%;background:#ec4899" title="2025年10月1日—2026年3月31日报名">10/1—3/31</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 飞向北京·飞向太空"全国青少年航空航天模型教育竞赛活动"="">39. "飞向北京·飞向太空"全国青少年航…</div>
+            <div class="gantt-label" title="&quot;戏剧中国&quot;全国青少年戏剧文化艺术大赛">44. &quot;戏剧中国&quot;全国青少年戏剧文化艺术…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:41.7%;background:#ec4899" title="参考往年12月—4月报名（赛事启动）；总决赛报名截止2026年7月25日前；2月底—6月30日报名，8月地区选拔及全国总决赛">12/—4/</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="" 戏剧中国"全国青少年戏剧文化艺术大赛"="">44. "戏剧中国"全国青少年戏剧文化艺术…</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:50.0%;background:#ec4899" title="2025年12月1日—2026年5月20日报名">12/1—5/20</div>
+              <div class="gantt-bar" style="left:25.00%;width:47.04%;background:#ec4899" title="2025年12月1日—2026年5月20日报名">12/1—5/20</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="学校美育助力行动——青少年视觉艺术传承与创新工作坊展示">46. 学校美育助力行动——青少年视觉艺术…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:25.0%;width:41.7%;background:#ec4899" title="2025年12月1日—2026年4月20日报名">12/1—4/20</div>
-            </div>
-          </div>
-          <div class="gantt-row">
-            <div class="gantt-label" title="" 希望颂"——全国青少年书画艺术大展"="">41. "希望颂"——全国青少年书画艺术大展</div>
-            <div class="gantt-track">
-              <div class="gantt-bar" style="left:41.7%;width:33.3%;background:#ec4899" title="2026年2月22日—5月30日报名（第十届）">2/22—5/30</div>
+              <div class="gantt-bar" style="left:25.00%;width:38.89%;background:#ec4899" title="2025年12月1日—2026年4月20日报名">12/1—4/20</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年国防素养大赛">43. 全国青少年国防素养大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:41.7%;width:25.0%;background:#ec4899" title="2026年2月—4月30日报名">2/—4/30</div>
+              <div class="gantt-bar" style="left:41.67%;width:25.00%;background:#ec4899" title="2026年2月—4月30日报名">2月—4/30</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 驾驭未来"全国青少年车辆模型教育竞赛"="">37. "驾驭未来"全国青少年车辆模型教育…</div>
+            <div class="gantt-label" title="&quot;飞向北京·飞向太空&quot;全国青少年航空航天模型教育竞赛活动">39. &quot;飞向北京·飞向太空&quot;全国青少年航…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:33.3%;background:#ec4899" title="参考往年3月15日—6月15日报名；总决赛报名截止2026年7月5日前；通常4—6月省级选拔，8月全国总决赛">3/15—6/15</div>
+              <div class="gantt-bar" style="left:47.32%;width:36.01%;background:#ec4899" title="参考往年12月—4月报名；2026年2月底—6月30日报名，总决赛报名截止2026年7月25日前">2月底—6/30</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 我爱祖国海疆"全国青少年航海模型教育竞赛"="">38. "我爱祖国海疆"全国青少年航海模型…</div>
+            <div class="gantt-label" title="&quot;希望颂&quot;——全国青少年书画艺术大展">41. &quot;希望颂&quot;——全国青少年书画艺术大…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:33.3%;background:#ec4899" title="2026年3月1日—6月30日报名；4—6月省级选拔，8月全国总决赛">3/1—6/30</div>
+              <div class="gantt-bar" style="left:47.92%;width:26.81%;background:#ec4899" title="2026年2月22日—5月30日报名（第十届）">2/22—5/30</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="&quot;我爱祖国海疆&quot;全国青少年航海模型教育竞赛">38. &quot;我爱祖国海疆&quot;全国青少年航海模型…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:50.00%;width:33.33%;background:#ec4899" title="2026年3月1日—6月30日报名">3/1—6/30</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中小学生海洋文化创意设计大赛">42. 全国中小学生海洋文化创意设计大赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:50.0%;width:33.3%;background:#ec4899" title="2026年3月1日—6月30日报名（第一届）">3/1—6/30</div>
+              <div class="gantt-bar" style="left:50.00%;width:33.33%;background:#ec4899" title="2026年3月1日—6月30日报名（第一届）">3/1—6/30</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label" title="&quot;驾驭未来&quot;全国青少年车辆模型教育竞赛">37. &quot;驾驭未来&quot;全国青少年车辆模型教育…</div>
+            <div class="gantt-track">
+              <div class="gantt-bar" style="left:53.76%;width:25.40%;background:#ec4899" title="参考往年3月15日—6月15日报名；总决赛报名截止2026年7月5日前">3/15—6/15</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国中小学生绘画书法作品比赛">35. 全国中小学生绘画书法作品比赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:25.0%;background:#ec4899" title="2026年4月—6月投稿（第30届）；通常3—5月投稿，7月公布结果">4/—6/投稿</div>
+              <div class="gantt-bar" style="left:58.33%;width:25.00%;background:#ec4899" title="第30届：2026年4月—6月投稿">4月—6月投稿</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年人工智能辅助生成数字艺术创作者大赛">45. 全国青少年人工智能辅助生成数字艺术…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:58.3%;width:33.3%;background:#ec4899" title="参考往年4月—7月报名；2026年4月中旬拟开放报名">4/—7/</div>
+              <div class="gantt-bar" style="left:62.22%;width:29.44%;background:#ec4899" title="参考往年4月—7月报名；2026年4月中旬拟开放报名">4月中—7月</div>
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label" title="" 常青藤"全国青少年校园戏剧创意大赛"="">47. "常青藤"全国青少年校园戏剧创意大赛</div>
+            <div class="gantt-label" title="&quot;常青藤&quot;全国青少年校园戏剧创意大赛">47. &quot;常青藤&quot;全国青少年校园戏剧创意大…</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:66.7%;width:16.7%;background:#ec4899" title="2026年5月1日—6月15日报名（首届）">5/1—6/15</div>
+              <div class="gantt-bar" style="left:66.67%;width:12.50%;background:#ec4899" title="2026年5月1日—6月15日报名（首届）">5/1—6/15</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label" title="全国青少年传统体育项目比赛">40. 全国青少年传统体育项目比赛</div>
             <div class="gantt-track">
-              <div class="gantt-bar" style="left:75.0%;width:8.3%;background:#ec4899" title="2026年6月10日—6月28日报名"></div>
+              <div class="gantt-bar" style="left:77.50%;width:5.28%;background:#ec4899" title="2026年6月10日—6月28日报名">6/10—6/28</div>
             </div>
           </div>
         </div>
