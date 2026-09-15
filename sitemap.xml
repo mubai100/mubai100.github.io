@@ -26,6 +26,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mubai.net.cn/tech-pathway/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mubai.net.cn/articles/shenzhen-zhongkao-zhiyuan-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
