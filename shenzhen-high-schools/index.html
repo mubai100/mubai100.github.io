@@ -1186,7 +1186,7 @@
   <!-- 学校数据表格区 -->
   <section id="school-data" class="section" data-page-node-id="FH1vLtPNooamaD1NPAc9pa">
     <h2 class="section-title" data-page-node-id="Ira2epMcpVg9EBuynKM5aT">学校数据</h2>
-    <p class="section-desc" data-page-node-id="MSJM7kuWwr875bXhA8CrUc">点击表头排序，点击行展开详情，高分数（&gt;570）以黄色背景突出</p>
+    <p class="section-desc" data-page-node-id="MSJM7kuWwr875bXhA8CrUc">点击表头排序，点击行展开详情，高分数（&gt;570）以黄色背景突出；输入「我的模考分 + 考生类别」可快速定位能上的学校</p>
 
     <div class="table-controls" data-page-node-id="wKp1U3gCKXpkIZTBj62f67">
       <div class="search-box" data-page-node-id="0jowR8VXCUGef8pGcTGJ9h">
@@ -1195,8 +1195,15 @@
       <select class="filter-select" id="districtFilter" onchange="filterTable()" data-page-node-id="x3YDXJezFJomDj04lVCDY3">
         <option value="" data-page-node-id="mBk00jPLW8Exl53oe0fJGg">全部区域</option>
       </select>
+      <select class="filter-select" id="scoreCatFilter" onchange="filterTable()" aria-label="考生类别">
+        <option value="AC">AC类考生</option>
+        <option value="D">D类考生</option>
+      </select>
+      <input type="number" class="filter-select" id="scoreInput" placeholder="我的模考分（可选，如550）" min="300" max="630" style="width:200px;cursor:text;" oninput="filterTable()" aria-label="我的模考分数">
       <div class="result-count" data-page-node-id="jQ0HWLUHDkKKEP7V2uQtYs">共 <strong id="resultCount" data-page-node-id="v0WBIdsPMFM997SRwjcQYF">0</strong> 所学校</div>
     </div>
+
+    <p id="scoreHint" style="display:none;margin:-10px 0 18px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--bg);font-size:13px;line-height:1.7;color:var(--text-secondary, #4a5568);"></p>
 
     <div class="table-wrapper" id="schoolTableWrapper" data-page-node-id="lK7nN2Ef74hkL7r9wfm5AZ">
       <table id="schoolTable" data-page-node-id="r8B0vhByK1E773DDTOg3Wd">
@@ -1782,21 +1789,46 @@ function toggleRow(index, event) {
 function filterTable() {
   const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
   const districtVal = document.getElementById('districtFilter').value;
+  const catVal = document.getElementById('scoreCatFilter').value;
+  const scoreVal = parseInt(document.getElementById('scoreInput').value, 10);
+  const scoreActive = !isNaN(scoreVal) && scoreVal >= 300 && scoreVal <= 630;
 
   filteredSchools = schools.filter(s => {
     const matchSearch = !searchTerm ||
       s.name.toLowerCase().indexOf(searchTerm) > -1 ||
       s.district.toLowerCase().indexOf(searchTerm) > -1;
     const matchDistrict = !districtVal || s.district === districtVal;
-    return matchSearch && matchDistrict;
+
+    let matchScore = true;
+    if (scoreActive) {
+      const key = catVal === 'D' ? 'dZs' : 'acZs';
+      const line = s[key];
+      matchScore = (typeof line === 'number') && (line <= scoreVal + 12);
+    }
+    return matchSearch && matchDistrict && matchScore;
   });
 
-  // 保持当前排序
-  if (sortState.col) {
-    applySort();
+  const hint = document.getElementById('scoreHint');
+  if (scoreActive) {
+    // 分数定位：按目标类别住宿分降序（越靠上越接近输入分数）
+    const key = catVal === 'D' ? 'dZs' : 'acZs';
+    filteredSchools.sort((a, b) => (b[key] || 0) - (a[key] || 0));
+    sortState.col = null;
+    updateSortIcons();
+    hint.style.display = 'block';
+    hint.textContent = '已按「' + (catVal === 'D' ? 'D类' : 'AC类') + '住宿分」定位：显示录取线 ≤ ' + (scoreVal + 12) + ' 分（你输入的 ' + scoreVal + ' 分 + 12 分冲刺缓冲）的学校，按分数从高到低排列——越靠上越接近你的水平（≈冲刺），越靠下越稳妥（≈保底）。AC/D 类住宿分是深圳中考最主流的参考口径。';
   } else {
-    renderTable();
+    hint.style.display = 'none';
+    // 保持当前排序
+    if (sortState.col) {
+      applySort();
+    } else {
+      renderTable();
+    }
+    return;
   }
+
+  renderTable();
 }
 
 // ========== 排序 ==========
