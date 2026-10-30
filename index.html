@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="木白 · 深圳中考实时升学工具：实时倒计时、初三全年时间轴、政策通知、深圳中考升学全景、科创升学路径与作品墙。帮家长少焦虑、不踩坑。">
+<meta name="description" content="木白 · 深圳中考实时升学工具：实时倒计时、初三全年时间轴、政策通知、深圳中考升学全景、科创升学路径与作品墙。">
 <title>木白 · 深圳中考实时升学工具</title>
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
@@ -75,6 +75,27 @@ h2{font-size:24px;line-height:1.35;margin:0;letter-spacing:-.02em}
 .node-purpose b{color:var(--green2)}
 .node-badge{position:absolute;top:14px;right:14px;font-size:10px;background:var(--goldsoft);color:var(--gold);border-radius:99px;padding:3px 8px;font-weight:700;display:none}
 .node.current .node-badge{display:block}
+.node{cursor:pointer}
+.node:hover:not(.current){border-color:#b9d3c8}
+.node:focus-visible{outline:2px solid var(--green2);outline-offset:3px}
+.node-more{margin-top:10px;font-size:11.5px;color:var(--green2);font-weight:650;opacity:.8;transition:opacity .2s,transform .2s}
+.node:hover .node-more{opacity:1;transform:translateX(2px)}
+
+/* ===== 时间轴节点详情弹层 ===== */
+.tl-modal{position:fixed;inset:0;z-index:998;background:rgba(12,28,23,.74);display:flex;align-items:center;justify-content:center;padding:20px}
+.tl-modal[hidden]{display:none}
+.tl-modal-inner{background:#fff;border-radius:18px;width:100%;max-width:560px;max-height:82vh;overflow:auto;padding:26px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.38)}
+.tl-modal-month{font-size:12px;color:var(--green2);font-weight:700;letter-spacing:.1em}
+.tl-modal-inner h3{margin:4px 0 16px;font-size:21px;letter-spacing:-.01em}
+.tl-modal-sec{margin-bottom:16px}
+.tl-modal-sec h4{margin:0 0 6px;font-size:13px;color:var(--green);font-weight:700}
+.tl-modal-sec p{margin:0;font-size:14px;color:#33473f;line-height:1.78}
+.tl-modal-sec ul{margin:0;padding-left:18px;font-size:13.5px;color:#41544b;line-height:1.72}
+.tl-modal-sec li{margin:6px 0}
+.tl-modal-purpose{background:var(--soft);border-radius:10px;padding:11px 13px;font-size:13px;color:var(--green);line-height:1.65}
+.tl-modal-note{font-size:11px;color:var(--gold);background:var(--goldsoft);border-radius:8px;padding:7px 10px;margin-top:14px;line-height:1.55}
+.tl-modal-x{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:0;background:var(--soft2);color:var(--green);font-size:15px;display:grid;place-items:center}
+.tl-modal-x:hover{background:var(--soft)}
 
 /* ===== Row 2 ===== */
 .row2{display:grid;grid-template-columns:1fr 1.2fr 1.1fr;gap:16px;align-items:stretch}
@@ -199,7 +220,7 @@ footer .fp{color:#8a9992}
     <div class="hero-grid">
       <div>
         <h1>深圳中考<br>实时升学工具</h1>
-        <p class="lead">打开就知道：离中考还有多久、这个月该准备什么、最近有什么官方通知、深圳中考有哪些升学路径。帮初三家长少焦虑、不踩坑。决策由家长自己做，我们只提供有据可查的建议。</p>
+        <p class="lead">打开就知道：离中考还有多久、这个月该准备什么、最近有什么官方通知、深圳中考有哪些升学路径。决策由家长自己做，我们只提供有据可查的建议。</p>
         <div class="chips">
           <span class="chip">实时倒计时</span>
           <span class="chip">初三月度时间轴</span>
@@ -403,6 +424,19 @@ footer .fp{color:#8a9992}
   <span class="fp">本站为信息整合与建议性质，不替代官方发布，也不替家长做决策。所有数据均标注来源或参考属性；录取、报名、考试时间等以深圳市招生考试办公室、深圳市教育局等官方公告为准。</span>
 </footer>
 
+<!-- 时间轴节点详情弹层 -->
+<div class="tl-modal" id="tlModal" hidden role="dialog" aria-modal="true" aria-labelledby="tlModalTitle">
+  <div class="tl-modal-inner">
+    <button class="tl-modal-x" type="button" id="tlClose" aria-label="关闭详情">✕</button>
+    <div class="tl-modal-month" id="tlModalMonth"></div>
+    <h3 id="tlModalTitle"></h3>
+    <div class="tl-modal-sec"><h4>这个月要做什么</h4><p id="tlModalDetail"></p></div>
+    <div class="tl-modal-sec"><h4>注意这几点</h4><ul id="tlModalTips"></ul></div>
+    <div class="tl-modal-purpose"><b>对中考的用处：</b><span id="tlModalPurpose"></span></div>
+    <div class="tl-modal-note">⚠ 节点时间为参考往年深圳中考节奏整理，非官方日程；具体时间以深圳市招生考试办公室当年发布的通知为准。</div>
+  </div>
+</div>
+
 <!-- 二维码放大弹层 -->
 <div class="qr-modal" id="qrModal" hidden role="dialog" aria-modal="true" aria-label="微信二维码大图">
   <div class="qr-modal-inner">
@@ -433,16 +467,45 @@ tick(); setInterval(tick, 1000);
 
 /* 初三时间轴（参考往年节奏） */
 var NODES = [
-  {date:'2026-09-15', month:'2026.09', title:'初三启航', items:['适应节奏，制定全年规划','了解中考政策与升学路径','建立目标学校清单'], purpose:'明确目标校与路径，避免后期盲目'},
-  {date:'2026-10-15', month:'2026.10', title:'政策窗口', items:['关注报名/指标生/自招政策','准备期中考试','初步了解科创专项校'], purpose:'提前锁定资格，不错过政策节点'},
-  {date:'2026-11-15', month:'2026.11', title:'期中定位', items:['期中成绩定位目标校','物化实验操作备考启动','科创项目 / 竞赛规划'], purpose:'用成绩校准目标，科创开始布局'},
-  {date:'2026-12-15', month:'2026.12', title:'期末冲刺', items:['期末复习','关注学校开放日 / 宣讲','体育考试项目选定'], purpose:'期末是模考前最重要定位'},
-  {date:'2027-01-15', month:'2027.01', title:'一模前夜', items:['期末考试（一模定位）','寒假学习规划','体育日常训练'], purpose:'一模成绩对接指标生与自招参考'},
-  {date:'2027-02-15', month:'2027.02', title:'寒假突破', items:['查漏补缺提分','中考报名材料准备','自招 / 特长意向'], purpose:'假期是提分与材料准备黄金期'},
-  {date:'2027-03-15', month:'2027.03', title:'中考报名', items:['中考报名（参考往年3月中下旬）','体育 / 实验操作备考','志愿填报初步了解'], purpose:'报名信息决定考试与录取资格'},
-  {date:'2027-04-15', month:'2027.04', title:'体考 · 实验', items:['体育中考（参考往年4月）','理化生实验操作考试','自主招生报名启动'], purpose:'体考实验一分不丢，自招通道开启'},
-  {date:'2027-05-15', month:'2027.05', title:'二模冲刺', items:['二模考试','英语听说考试','志愿填报准备 / 高中开放日'], purpose:'二模+听说定档，志愿方案成型'},
-  {date:'2027-06-15', month:'2027.06', title:'中考临门', items:['中考（预计6月下旬）','考后志愿填报','等待录取结果'], purpose:'最终一搏，志愿梯度决定录取'}
+  {date:'2026-09-15', month:'2026.09', title:'初三启航', items:['适应节奏，制定全年规划','了解中考政策与升学路径','建立目标学校清单'], purpose:'明确目标校与路径，避免后期盲目',
+   detail:'开学第一个月，重点是"定方向、建节奏"。先把初三全年的关键考试（一模、二模、体育中考、实验操作、中考）抄进日历，再和孩子一起圈出冲、稳、保各一所目标校。各科做一次摸底，找出真正的薄弱科。',
+   tips:['别一上来就刷难题，先补基础漏洞，否则越刷越挫败','目标校先按梯队圈 3 所，不要锁定单校，等一模再收窄','体育中考项目尽早确定，临时换项来不及练']},
+
+  {date:'2026-10-15', month:'2026.10', title:'政策窗口', items:['关注报名/指标生/自招政策','准备期中考试','初步了解科创专项校'], purpose:'提前锁定资格，不错过政策节点',
+   detail:'这一阶段官方会陆续放出年度通知，重点看两件事：报名条件（尤其非深户的社保、居住证年限）和指标生（名额分配）资格。期中考试是第一次全科定位，用来校准目标，而不是下结论。',
+   tips:['非深户务必提前核对社保与居住证有效期，这类材料补办很慢','指标生通常要求"从初一就在本校连续就读"，转学过的要提前确认','期中成绩只作定位参考，不要据此大改目标']},
+
+  {date:'2026-11-15', month:'2026.11', title:'期中定位', items:['期中成绩定位目标校','物化实验操作备考启动','科创项目 / 竞赛规划'], purpose:'用成绩校准目标，科创开始布局',
+   detail:'期中成绩出来后，把各科分数和目标校参考线做差，锁定"差距最大的两科"作为主攻方向。同时开始理化生实验操作的日常练习——这块属于确定性得分，但每年都有人在这里丢分。',
+   tips:['看排名比看分数更准，试卷难度年年在变','实验操作要动手练，看视频记不住步骤','想走科创自招的话，这个月就要把项目落地，别拖到寒假']},
+
+  {date:'2026-12-15', month:'2026.12', title:'期末冲刺', items:['期末复习','关注学校开放日 / 宣讲','体育考试项目选定'], purpose:'期末是模考前最重要定位',
+   detail:'期末考往往是初三第一次全区统考，成绩常被用作签约、自招初审的参考。同期目标高中会集中办开放日和宣讲会，实地看一次比看宣传册有用得多。',
+   tips:['开放日重点问：住宿条件、分班规则、指标生名额、近三年录取位次','别只盯一所，至少看 3 所不同梯队的学校','期末复习要有取舍，先把必考基础题型吃透']},
+
+  {date:'2027-01-15', month:'2027.01', title:'一模前夜', items:['期末考试（一模定位）','寒假学习规划','体育日常训练'], purpose:'一模成绩对接指标生与自招参考',
+   detail:'期末/一模是全年最重要的定位考之一。考完先别急着对答案，把错题按"知识漏洞 / 审题失误 / 计算粗心"分类统计，看清真正的失分结构，再据此制定寒假计划。',
+   tips:['一模成绩常被用作自招、指标生的参考，要认真对待','错题分类比刷题量重要，同类错误出现 3 次以上就是方法问题','寒假不要排满补习，留出查漏补缺和休息的时间']},
+
+  {date:'2027-02-15', month:'2027.02', title:'寒假突破', items:['查漏补缺提分','中考报名材料准备','自招 / 特长意向'], purpose:'假期是提分与材料准备黄金期',
+   detail:'寒假是全年唯一能自主安排的长假期，用来补短板效率最高。同时开始准备中考报名材料（户口本、身份证、学籍信息等），非深户还要备好社保与居住证材料。',
+   tips:['每年都有家长临到报名才发现缺件，务必提前复印备好','寒假容易松懈，建议固定每天 4-5 小时的学习节奏','意向自招的学校，这个月开始研究招生简章']},
+
+  {date:'2027-03-15', month:'2027.03', title:'中考报名', items:['中考报名（参考往年3月中下旬）','体育 / 实验操作备考','志愿填报初步了解'], purpose:'报名信息决定考试与录取资格',
+   detail:'中考报名通常在 3 月中下旬（参考往年节奏，具体以官方通知为准）。报名信息直接决定考试与录取资格，要逐项核对：姓名、身份证号、户籍类型（AC/D 类）、学籍、联系方式。',
+   tips:['户籍类型填错会直接影响适用哪条分数线，必须核对','报名后一般还有信息更正窗口，但越晚越麻烦','同期体育考试项目要进入冲刺训练']},
+
+  {date:'2027-04-15', month:'2027.04', title:'体考 · 实验', items:['体育中考（参考往年4月）','理化生实验操作考试','自主招生报名启动'], purpose:'体考实验一分不丢，自招通道开启',
+   detail:'体育中考和理化生实验操作考试通常在这个月（参考往年 4 月）。这两项是确定性得分，练到位几乎不丢分。同期自主招生报名陆续启动，要盯紧目标校官网。',
+   tips:['体考有免考、缓考政策，伤病情况要按规定提前申请','实验操作按评分点练，动作规范比结果重要','自招材料（获奖证书、项目说明）提前扫描归档']},
+
+  {date:'2027-05-15', month:'2027.05', title:'二模冲刺', items:['二模考试','英语听说考试','志愿填报准备 / 高中开放日'], purpose:'二模+听说定档，志愿方案成型',
+   detail:'二模是中考前最后一次大考，位次基本定档；英语听说考试也多在这个月。此时应把志愿方案做出初稿：按二模位次，把第一批 12 个志愿按 3:5:4 铺开。',
+   tips:['二模后会出现一波"签约/意向"，注意别打乱正常复习节奏','志愿梯度要拉开，相邻志愿至少差 3-5 分','英语听说多为机考，提前熟悉设备和流程']},
+
+  {date:'2027-06-15', month:'2027.06', title:'中考临门', items:['中考（预计6月下旬）','考后志愿填报','等待录取结果'], purpose:'最终一搏，志愿梯度决定录取',
+   detail:'中考通常在 6 月下旬（以官方公布为准）。考前一周只做三件事：调整作息、过一遍错题本、熟悉考场路线。考后按官方时间填报志愿。',
+   tips:['考前不要突击新知识，容易打击信心','证件、文具提前一晚装好，考场提前踩点一次','志愿填报有截止时间，别拖到最后一天遇上系统拥堵']}
 ];
 var track = document.getElementById('timelineTrack');
 var now = new Date(), currentIdx = 0;
@@ -451,11 +514,15 @@ NODES.forEach(function(n, i){
   if(nd <= now){ currentIdx = i; }
   var el = document.createElement('div');
   el.className = 'node';
+  el.setAttribute('role','button');
+  el.setAttribute('tabindex','0');
+  el.setAttribute('aria-label', n.month+' '+n.title+'，点击查看详情');
   el.innerHTML = '<span class="node-badge">当前阶段</span>'+
     '<div class="node-month">'+n.month+'</div>'+
     '<div class="node-title">'+n.title+'</div>'+
     '<ul>'+n.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
-    '<div class="node-purpose"><b>对中考的用处：</b>'+n.purpose+'</div>';
+    '<div class="node-purpose"><b>对中考的用处：</b>'+n.purpose+'</div>'+
+    '<div class="node-more">展开详情 <span aria-hidden="true">→</span></div>';
   track.appendChild(el);
 });
 var nodeEls = Array.prototype.slice.call(track.children);
@@ -483,6 +550,59 @@ track.addEventListener('mouseleave',function(){paused=false;});
 document.getElementById('tlPrev').addEventListener('click',function(){scrollToIdx(currentIdx-1,true);});
 document.getElementById('tlNext').addEventListener('click',function(){scrollToIdx(currentIdx+1,true);});
 document.getElementById('tlNow').addEventListener('click',function(){scrollToIdx(currentIdx,true);});
+
+/* 时间轴节点：点击展开详情 */
+(function(){
+  var modal = document.getElementById('tlModal');
+  var closeBtn = document.getElementById('tlClose');
+  if(!modal || !closeBtn) return;
+  var mMonth = document.getElementById('tlModalMonth');
+  var mTitle = document.getElementById('tlModalTitle');
+  var mDetail = document.getElementById('tlModalDetail');
+  var mTips = document.getElementById('tlModalTips');
+  var mPurpose = document.getElementById('tlModalPurpose');
+
+  function openNode(i){
+    var n = NODES[i];
+    if(!n) return;
+    mMonth.textContent = n.month;
+    mTitle.textContent = n.title;
+    mDetail.textContent = n.detail || '';
+    mTips.innerHTML = (n.tips || []).map(function(t){ return '<li>'+t+'</li>'; }).join('');
+    mPurpose.textContent = n.purpose || '';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    paused = true;
+    closeBtn.focus();
+  }
+  function closeNode(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    paused = false;
+  }
+
+  track.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('.node') : null;
+    if(!el || !track.contains(el)) return;
+    var i = nodeEls.indexOf(el);
+    if(i < 0) return;
+    scrollToIdx(i, true);
+    openNode(i);
+  });
+  track.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    var el = e.target.closest ? e.target.closest('.node') : null;
+    if(!el) return;
+    e.preventDefault();
+    var i = nodeEls.indexOf(el);
+    if(i >= 0) openNode(i);
+  });
+  closeBtn.addEventListener('click', closeNode);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeNode(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !modal.hidden) closeNode();
+  });
+})();
 
 /* 二维码点击放大 */
 (function(){
