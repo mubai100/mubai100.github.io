@@ -356,13 +356,173 @@
     }
   }
 
-  /* ========== 表格控制区 ========== */
-  .table-controls {
+  /* ========== 表格控制区（两行式筛选面板） ========== */
+  .filter-panel {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+
+  .filter-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
-    margin-bottom: 24px;
+  }
+
+  .filter-row-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+    flex: none;
+  }
+
+  .score-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-strong);
+  }
+
+  .sr-intro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .sr-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 4px;
+    padding: 3px 7px;
+    letter-spacing: .04em;
+    flex: none;
+  }
+
+  .sr-sub {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .sr-fields {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .sr-fields .sr-clear { margin-left: 4px; }
+
+  .sr-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sr-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .sr-input-wrap {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    overflow: hidden;
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .sr-input-wrap:focus-within {
+    border-color: var(--primary-lighter);
+    box-shadow: 0 0 0 3px rgba(49,130,206,0.12);
+  }
+
+  .sr-input-wrap input {
+    width: 88px;
+    border: 0;
+    outline: 0;
+    padding: 9px 2px 9px 12px;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+  }
+
+  .sr-input-wrap input::placeholder { color: #a0aec0; }
+
+  .sr-unit {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding-right: 12px;
+  }
+
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .seg-btn {
+    border: 0;
+    background: transparent;
+    padding: 9px 16px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: background .15s, color .15s;
+  }
+
+  .seg-btn + .seg-btn { border-left: 1px solid var(--border-strong); }
+
+  .seg-btn:hover { background: var(--bg-alt); }
+
+  .seg-btn.is-active {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .sr-clear {
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
+    color: var(--text-muted);
+    font-size: 12.5px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .sr-clear:hover { color: var(--primary); border-color: var(--primary-lighter); }
+
+  .sr-clear[hidden] { display: none; }
+
+  #scoreCatFilter { display: none; }
+
+  .rank-note {
+    display: block;
+    margin-top: 12px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 
   .search-box {
@@ -948,7 +1108,18 @@
     .section { padding: 24px 18px; margin-top: 20px; }
     .section-title { font-size: 18px; }
     .note-cards { grid-template-columns: 1fr; }
-    .table-controls { flex-direction: column; align-items: stretch; }
+    .filter-panel { padding: 14px; }
+    .filter-row { flex-direction: column; align-items: stretch; gap: 10px; }
+    .filter-row-label { display: none; }
+    .score-row { flex-direction: column; align-items: stretch; gap: 12px; }
+    .sr-fields { flex-direction: column; align-items: stretch; gap: 10px; }
+    .sr-field { justify-content: space-between; }
+    .sr-fields .sr-clear { margin-left: 0; }
+    .sr-input-wrap { flex: 1; }
+    .sr-input-wrap input { width: 100%; }
+    .seg { width: 100%; }
+    .seg-btn { flex: 1; }
+    .result-count { text-align: right; }
     .search-box { min-width: 100%; }
     .filter-select { min-width: 100%; }
     .image-gallery { grid-template-columns: 1fr; }
@@ -1131,7 +1302,7 @@
       <div class="note-card" data-page-node-id="50ukOkDxnN11dSYC2t0qD7">
         <h3 data-page-node-id="METTBUiem16Hu35SdIp6pQ">关于"等级和"</h3>
         <p data-page-node-id="xOlSa2JheZktQwKE3FAeyr">
-          这是家长和机构常用的非官方估算工具，不是深圳中考官方录取概念。本表按<strong>总分等级</strong>给学校分档，便于横向比较：
+          本表按<strong>总分等级</strong>给学校分档，便于横向比较：
           <br><br>
           <span class="rank-tag rk-Aplus" data-page-node-id="t8YfVCU37GH1PlqDfUB1qB">A+</span>≥587分<br>
           <span class="rank-tag rk-Atou">A头</span>576-586分<br>
@@ -1141,8 +1312,7 @@
           <span class="rank-tag rk-Bzhong">B+中</span>521-536分<br>
           <span class="rank-tag rk-Bwei">B+尾</span>505-520分<br>
           <span class="rank-tag rk-B">B</span>389-504分
-          <br><br>
-          按此口径，录取线 <strong>≥587 分</strong> 即属 <strong>A+</strong> 梯队——"四大名校"（深圳中学、深圳实验学校、深圳高级中学、深圳外国语学校）均在此列。
+          <span class="rank-note">※ 等级为本站按录取线自行划分的参考分档，非官方录取概念，仅供横向比较。</span>
         </p>
       </div>
 <div class="note-card" data-page-node-id="0sIkTYLDOdzDXuMxV3UiQQ">
@@ -1171,21 +1341,49 @@
   <!-- 学校数据表格区 -->
   <section id="school-data" class="section" data-page-node-id="FH1vLtPNooamaD1NPAc9pa">
     <h2 class="section-title" data-page-node-id="Ira2epMcpVg9EBuynKM5aT">学校数据</h2>
-    <p class="section-desc" data-page-node-id="MSJM7kuWwr875bXhA8CrUc">点击表头排序，点击行展开详情，高分数（&gt;570）以黄色背景突出；输入「我的模考分 + 考生类别」可快速定位能上的学校</p>
+    <p class="section-desc" data-page-node-id="MSJM7kuWwr875bXhA8CrUc">两行各管一件事：<strong>上面</strong>按名字/区域找学校；<strong>下面</strong>按分数看"够得着哪些"。点击表头排序，点击行展开详情，录取分 &gt;570 的行以黄色背景突出。</p>
 
-    <div class="table-controls" data-page-node-id="wKp1U3gCKXpkIZTBj62f67">
-      <div class="search-box" data-page-node-id="0jowR8VXCUGef8pGcTGJ9h">
-        <input type="text" id="searchInput" placeholder="搜索学校名称或区域..." oninput="filterTable()" data-page-node-id="CrECrOvYgv4dJP6wssmyKi">
+    <div class="filter-panel">
+      <!-- 第一行：按名字 / 区域找学校 -->
+      <div class="filter-row" data-page-node-id="wKp1U3gCKXpkIZTBj62f67">
+        <span class="filter-row-label">找学校</span>
+        <div class="search-box" data-page-node-id="0jowR8VXCUGef8pGcTGJ9h">
+          <input type="text" id="searchInput" placeholder="输入学校名称或区域，如 深圳中学 / 福田" oninput="filterTable()" data-page-node-id="CrECrOvYgv4dJP6wssmyKi">
+        </div>
+        <select class="filter-select" id="districtFilter" onchange="filterTable()" data-page-node-id="x3YDXJezFJomDj04lVCDY3">
+          <option value="" data-page-node-id="mBk00jPLW8Exl53oe0fJGg">全部区域</option>
+        </select>
+        <div class="result-count" data-page-node-id="jQ0HWLUHDkKKEP7V2uQtYs">共 <strong id="resultCount" data-page-node-id="v0WBIdsPMFM997SRwjcQYF">0</strong> 所学校</div>
       </div>
-      <select class="filter-select" id="districtFilter" onchange="filterTable()" data-page-node-id="x3YDXJezFJomDj04lVCDY3">
-        <option value="" data-page-node-id="mBk00jPLW8Exl53oe0fJGg">全部区域</option>
-      </select>
-      <select class="filter-select" id="scoreCatFilter" onchange="filterTable()" aria-label="考生类别">
-        <option value="AC">AC类考生</option>
-        <option value="D">D类考生</option>
-      </select>
-      <input type="number" class="filter-select" id="scoreInput" placeholder="我的模考分（可选，如550）" min="300" max="630" style="width:200px;cursor:text;" oninput="filterTable()" aria-label="我的模考分数">
-      <div class="result-count" data-page-node-id="jQ0HWLUHDkKKEP7V2uQtYs">共 <strong id="resultCount" data-page-node-id="v0WBIdsPMFM997SRwjcQYF">0</strong> 所学校</div>
+
+      <!-- 第二行：按分数定位 -->
+      <div class="score-row">
+        <div class="sr-intro">
+          <span class="sr-badge">按分数定位</span>
+          <span class="sr-sub">填模考分 → 只留录取线够得着的学校，从上到下由冲刺到保底</span>
+        </div>
+        <div class="sr-fields">
+          <label class="sr-field">
+            <span class="sr-label">我的模考分</span>
+            <span class="sr-input-wrap">
+              <input type="number" id="scoreInput" placeholder="如 550" min="300" max="630" oninput="filterTable()" aria-label="我的模考分数">
+              <span class="sr-unit">分</span>
+            </span>
+          </label>
+          <div class="sr-field">
+            <span class="sr-label">考生类别</span>
+            <div class="seg" id="catSeg" role="group" aria-label="考生类别">
+              <button type="button" class="seg-btn is-active" data-cat="AC">AC类</button>
+              <button type="button" class="seg-btn" data-cat="D">D类</button>
+            </div>
+          </div>
+          <button type="button" class="sr-clear" id="scoreClear" hidden>清除定位</button>
+        </div>
+        <select id="scoreCatFilter" onchange="filterTable()" aria-label="考生类别（辅助）" tabindex="-1">
+          <option value="AC">AC类考生</option>
+          <option value="D">D类考生</option>
+        </select>
+      </div>
     </div>
 
     <p id="scoreHint" style="display:none;margin:-10px 0 18px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--bg);font-size:13px;line-height:1.7;color:var(--text-secondary, #4a5568);"></p>
@@ -1726,6 +1924,7 @@ function filterTable() {
   const catVal = document.getElementById('scoreCatFilter').value;
   const scoreVal = parseInt(document.getElementById('scoreInput').value, 10);
   const scoreActive = !isNaN(scoreVal) && scoreVal >= 300 && scoreVal <= 630;
+  syncScoreUI(scoreActive);
 
   filteredSchools = schools.filter(s => {
     const matchSearch = !searchTerm ||
@@ -1822,6 +2021,46 @@ function updateSortIcons() {
     }
   }
 }
+
+// ========== 分数定位：分段按钮 + 清除 ==========
+function syncScoreUI(active) {
+  const btn = document.getElementById('scoreClear');
+  if (btn) btn.hidden = !active;
+}
+
+(function initScoreControl() {
+  const seg = document.getElementById('catSeg');
+  const sel = document.getElementById('scoreCatFilter');
+  const clearBtn = document.getElementById('scoreClear');
+  const scoreInput = document.getElementById('scoreInput');
+  if (!seg || !sel) return;
+
+  seg.addEventListener('click', function (e) {
+    const btn = e.target.closest ? e.target.closest('.seg-btn') : null;
+    if (!btn) return;
+    const cat = btn.getAttribute('data-cat');
+    if (!cat || cat === sel.value) return;
+    sel.value = cat;
+    seg.querySelectorAll('.seg-btn').forEach(function (b) {
+      b.classList.toggle('is-active', b === btn);
+      b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+    });
+    filterTable();
+  });
+
+  // 初始化 aria-pressed
+  seg.querySelectorAll('.seg-btn').forEach(function (b) {
+    b.setAttribute('aria-pressed', b.classList.contains('is-active') ? 'true' : 'false');
+  });
+
+  if (clearBtn && scoreInput) {
+    clearBtn.addEventListener('click', function () {
+      scoreInput.value = '';
+      filterTable();
+      scoreInput.focus();
+    });
+  }
+})();
 
 // ========== 初始化 ==========
 initDistrictFilter();
