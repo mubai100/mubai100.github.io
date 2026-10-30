@@ -1,1307 +1,423 @@
-<html lang="zh-CN"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="baidu-site-verification" content="codeva-zYqrWuPNi6">
-    <meta name="google-site-verification" content="A9WaFFEpOrdp64FClz0xmYZwFcOgLW5Zsul8ppPbskk">
-    <meta name="description" content="木白的个人主页 - 前端开发与创意编程爱好者。分享深圳高中中考数据、科创晋升路径与白名单赛事指南、开源硬件项目及个人作品。">
-    <meta property="og:title" content="木白 - 个人主页">
-    <meta property="og:description" content="木白的个人主页 - 前端开发与创意编程爱好者。分享深圳高中中考数据、科创晋升路径与白名单赛事指南、开源硬件项目及个人作品。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mubai.net.cn/">
-    <meta property="og:image" content="https://mubai.net.cn/avatar.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="木白 - 个人主页">
-    <meta name="twitter:description" content="木白的个人主页 - 前端开发与创意编程爱好者。分享深圳高中中考数据、科创晋升路径与白名单赛事指南、开源硬件项目及个人作品。">
-    <meta name="twitter:image" content="https://mubai.net.cn/avatar.jpg">
-    <link rel="canonical" href="https://mubai.net.cn/">
-    <link rel="icon" href="avatar.jpg" type="image/jpeg">
-    <link rel="apple-touch-icon" href="avatar.jpg">
-    <title>木白 - 个人主页</title>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"木白 - 个人主页","url":"https://mubai.net.cn/","description":"木白的个人主页 - 前端开发与创意编程爱好者。分享深圳高中中考数据、科创晋升路径与白名单赛事指南、开源硬件项目及个人作品。","author":{"@type":"Person","name":"木白"}}
-    </script>
-    <style>
-        /* ========== 全局重置 ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #4f6d7a;
-            --primary-light: #7a9eab;
-            --accent: #e8a87c;
-            --bg-dark: #2c3e50;
-            --bg-light: #f8f9fa;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --text-muted: #7f8c8d;
-            --card-bg: #ffffff;
-            --border-radius: 12px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* ========== 导航栏 ========== */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 2rem;
-        }
-
-        nav .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--primary);
-        }
-
-        /* ========== Hero 区域 ========== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #2c3e50 0%, #4f6d7a 50%, #7a9eab 100%);
-            color: var(--text-light);
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(232, 168, 124, 0.1) 0%, transparent 60%);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -30px); }
-        }
-
-        .hero-avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 40px rgba(232, 168, 124, 0.3);
-            margin-bottom: 1.5rem;
-            object-fit: cover;
-            z-index: 1;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            z-index: 1;
-            animation: fadeInDown 0.8s ease 0.2s both;
-        }
-
-        .hero .tagline {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 500px;
-            margin-bottom: 2rem;
-            z-index: 1;
-            animation: fadeInDown 0.8s ease 0.4s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            z-index: 1;
-            animation: fadeInDown 0.8s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #d4956a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(232, 168, 124, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #fff;
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== 通用 Section ========== */
-        section {
-            padding: 5rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        /* ========== 关于我 ========== */
-        #about .about-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        #about .about-content p {
-            margin-bottom: 1rem;
-        }
-
-        #about .about-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .tag {
-            background: rgba(79, 109, 122, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .highlight-card {
-            background: rgba(79, 109, 122, 0.06);
-            border: 1px solid rgba(79, 109, 122, 0.15);
-            border-radius: var(--border-radius);
-            padding: 1.2rem 1rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-            border-color: var(--primary-light);
-        }
-
-        .highlight-card .hl-icon {
-            font-size: 1.6rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .highlight-card .hl-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-dark);
-        }
-
-        .highlight-card .hl-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.2rem;
-        }
-
-        /* ========== 平台链接 ========== */
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .platform-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-decoration: none;
-            color: var(--text-dark);
-            border: 2px solid transparent;
-        }
-
-        .platform-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-light);
-        }
-
-        .platform-card .icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .platform-card .name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .platform-card .desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* ========== 项目想法 ========== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 4px solid var(--primary-light);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .project-card .status {
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .status-idea {
-            background: rgba(232, 168, 124, 0.15);
-            color: #c8895f;
-        }
-
-        .status-progress {
-            background: rgba(79, 109, 122, 0.15);
-            color: var(--primary);
-        }
-
-        .status-done {
-            background: rgba(46, 204, 113, 0.15);
-            color: #27ae60;
-        }
-
-        .status-open {
-            background: rgba(43, 108, 208, 0.15);
-            color: #2B6CD0;
-        }
-
-        /* ========== 开源项目区块 ========== */
-        .opensource-section {
-            margin-top: 2.5rem;
-        }
-
-        .opensource-header {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .opensource-header h3 {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin: 0;
-        }
-
-        .opensource-header .tag-count {
-            background: rgba(43, 108, 208, 0.1);
-            color: #2B6CD0;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.2rem 0.6rem;
-            border-radius: 50px;
-        }
-
-        .opensource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .opensource-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 4px solid #2B6CD0;
-        }
-
-        .opensource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .opensource-card .status {
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .opensource-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .opensource-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .opensource-card .repo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            margin-top: 0.8rem;
-            font-size: 0.85rem;
-            color: #2B6CD0;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .opensource-card .repo-link:hover {
-            color: #1a4a9e;
-        }
-
-        .opensource-card .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.6rem;
-        }
-
-        .opensource-card .tech-stack span {
-            background: var(--bg-light);
-            color: var(--text-muted);
-            font-size: 0.72rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        .project-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* ========== 留言区 ========== */
-        #contact {
-            background: var(--bg-light);
-        }
-
-        /* ========== 微信弹窗 ========== */
-        .wechat-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .wechat-modal-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-hover);
-            max-width: 340px;
-            position: relative;
-        }
-        .wechat-modal-content img {
-            width: 220px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-        .wechat-modal-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-        .wechat-modal-content p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-        .wechat-modal-close {
-            position: absolute;
-            top: 0.8rem;
-            right: 1.2rem;
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            border: none;
-            background: none;
-            line-height: 1;
-        }
-        .wechat-modal-close:hover {
-            color: var(--text-dark);
-        }
-
-        .comment-form {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            transition: var(--transition);
-            background: #fafafa;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-light);
-            background: #fff;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .comment-form button {
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .comment-form button:hover {
-            background: var(--bg-dark);
-        }
-
-        .comment-success {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            text-align: center;
-            border-left: 4px solid #4CAF50;
-            animation: fadeInUp 0.4s ease;
-        }
-
-        .comment-success p {
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ========== 页脚 ========== */
-        footer {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* ========== 回到顶部 ========== */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 48px;
-            height: 48px;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            border: none;
-            font-size: 1.2rem;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--bg-dark);
-            transform: translateY(-3px);
-        }
-
-
-        /* ========== 深圳高中信息入口 ========== */
-        .featured-schools {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            color: var(--text-light);
-            text-decoration: none;
-            display: block;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .featured-schools::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(232, 168, 124, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .featured-schools:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        .featured-schools .featured-badge {
-            display: inline-block;
-            background: rgba(232, 168, 124, 0.2);
-            color: var(--accent);
-            padding: 0.3rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .featured-schools h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        .featured-schools p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        .featured-schools .featured-stats {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        .featured-schools .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        .featured-schools .featured-arrow {
-            position: absolute;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            font-size: 1.5rem;
-            color: var(--accent);
-            transition: var(--transition);
-        }
-        .featured-schools:hover .featured-arrow {
-            transform: translateX(8px);
-        }
-
-        /* ========== 白名单赛事入口 ========== */
-        .featured-competitions {
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            color: var(--text-light);
-            text-decoration: none;
-            display: block;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .featured-competitions::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        .featured-competitions:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        .featured-competitions .featured-badge {
-            display: inline-block;
-            background: rgba(255, 215, 0, 0.2);
-            color: #FFD700;
-            padding: 0.3rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .featured-competitions h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-        .featured-competitions p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        .featured-competitions .featured-stats {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            position: relative;
-        }
-        .featured-competitions .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        .featured-competitions .featured-arrow {
-            position: absolute;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            font-size: 1.5rem;
-            color: #FFD700;
-            transition: var(--transition);
-        }
-        .featured-competitions:hover .featured-arrow {
-            transform: translateX(8px);
-        }
-
-        /* ========== 响应式 ========== */
-        @media (max-width: 768px) {
-            nav {
-                padding: 0.8rem 1rem;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #fff;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                gap: 1rem;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1rem;
-            }
-
-            .hero-avatar {
-                width: 120px;
-                height: 120px;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .back-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        /* ========== 瀛愭ā鍧楃綉鏍?========== */
-        .subsection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .subsection-grid .featured-schools,
-        .subsection-grid .featured-competitions {
-            margin-bottom: 0;
-        }
-        @media (max-width: 768px) {
-            .subsection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ========== 瀛愭ā鍧楃綉鏍?========== */
-        .subsection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .subsection-grid .featured-schools,
-        .subsection-grid .featured-competitions {
-            margin-bottom: 0;
-        }
-        @media (max-width: 768px) {
-            .subsection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-    </style>
-
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="木白 · 深圳中考实时升学工具：实时倒计时、初三全年时间轴、政策通知、深圳中考升学全景、科创升学路径与作品墙。帮家长少焦虑、不踩坑。">
+<title>木白 · 深圳中考实时升学工具</title>
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+:root{
+  --bg:#f4f7f5;--paper:#ffffff;--ink:#172923;--sub:#5b6c65;--line:#dce5df;
+  --green:#0d5c4b;--green2:#17836b;--soft:#e7f2ed;--soft2:#f0f7f3;
+  --gold:#aa7b2f;--goldsoft:#f8f0df;--blue:#35647a;--bluesoft:#eaf2f6;
+  --shadow:0 10px 28px rgba(24,65,49,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+
+/* ===== Hero + countdown ===== */
+.hero{padding:34px 0 8px}
+.hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:26px;align-items:stretch}
+.eyebrow{color:var(--green2);font-size:13px;font-weight:650;letter-spacing:.12em;margin-bottom:12px}
+h1{font-size:clamp(28px,3.8vw,46px);line-height:1.24;letter-spacing:-.03em;margin:0 0 14px;font-weight:720}
+.hero p.lead{color:var(--sub);font-size:15px;margin:0;max-width:560px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font-size:12px;padding:6px 11px;border:1px solid var(--line);border-radius:99px;background:#fff;color:#42564d}
+.count-card{background:linear-gradient(135deg,#0d5c4b,#17836b);color:#fff;border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}
+.count-card .label{font-size:12px;letter-spacing:.1em;color:#b9d9cd}
+.count-card .exam-date{font-size:12.5px;color:#d4e7df;margin-top:4px}
+.countdown{display:flex;gap:10px;margin:16px 0 8px}
+.cd-box{flex:1;background:rgba(255,255,255,.12);border-radius:12px;padding:12px 6px;text-align:center}
+.cd-num{font-size:clamp(24px,4vw,34px);font-weight:760;font-variant-numeric:tabular-nums;line-height:1}
+.cd-unit{font-size:11px;color:#cfe5dc;margin-top:5px}
+.count-foot{font-size:11.5px;color:#cfe5dc;border-top:1px solid rgba(255,255,255,.18);padding-top:10px}
+.count-foot b{color:#fff}
+.disclaimer{font-size:11px;color:var(--gold);background:var(--goldsoft);border-radius:8px;padding:6px 10px;margin-top:10px;line-height:1.5}
+
+/* ===== 小程序低调条 ===== */
+.miniapp-bar{display:flex;align-items:center;gap:14px;margin-top:20px;background:var(--soft2);border:1px solid #d7e9df;border-radius:12px;padding:12px 16px}
+.ma-badge{font-size:11px;font-weight:700;color:#fff;background:var(--green);border-radius:99px;padding:4px 11px;flex:none}
+.ma-text{font-size:13px;color:var(--sub);flex:1}
+.ma-text b{color:var(--ink)}
+.ma-btn{font-size:13px;color:var(--green);font-weight:650;white-space:nowrap}
+.ma-btn:hover{text-decoration:underline}
+
+/* ===== Timeline ===== */
+.section{padding:28px 0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px;flex-wrap:wrap}
+.section-kicker{font-size:12px;color:var(--green2);letter-spacing:.12em;margin-bottom:4px}
+h2{font-size:24px;line-height:1.35;margin:0;letter-spacing:-.02em}
+.section-desc{font-size:13px;color:var(--sub);margin:6px 0 0;max-width:780px}
+.tl-controls{display:flex;gap:8px}
+.tl-controls button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:8px;font-size:13px}
+.tl-controls button:hover{border-color:var(--green2);color:var(--green)}
+.timeline-wrap{position:relative}
+.timeline-wrap:before,.timeline-wrap:after{content:"";position:absolute;top:0;bottom:0;width:46px;z-index:5;pointer-events:none}
+.timeline-wrap:before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.timeline-wrap:after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
+.timeline{display:flex;gap:14px;overflow-x:auto;padding:6px 4px 14px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.timeline::-webkit-scrollbar{height:8px}
+.timeline::-webkit-scrollbar-thumb{background:#c3d3cb;border-radius:99px}
+.node{flex:0 0 248px;scroll-snap-align:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;box-shadow:0 3px 14px rgba(24,65,49,.04);transition:transform .25s,border-color .25s}
+.node:before{content:"";position:absolute;left:16px;right:16px;top:-1px;height:4px;border-radius:0 0 6px 6px;background:var(--line)}
+.node.current{border-color:var(--green2);box-shadow:0 10px 24px rgba(13,92,75,.16);transform:translateY(-4px)}
+.node.current:before{background:var(--green)}
+.node.past{opacity:.62}
+.node-month{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.04em}
+.node-title{font-size:16px;font-weight:700;margin:3px 0 9px}
+.node ul{margin:0;padding-left:16px;font-size:12.5px;color:#41544b}
+.node ul li{margin:4px 0}
+.node-purpose{margin-top:11px;font-size:11.5px;color:var(--green);background:var(--soft);border-radius:8px;padding:7px 9px}
+.node-purpose b{color:var(--green2)}
+.node-badge{position:absolute;top:14px;right:14px;font-size:10px;background:var(--goldsoft);color:var(--gold);border-radius:99px;padding:3px 8px;font-weight:700;display:none}
+.node.current .node-badge{display:block}
+
+/* ===== Row 2 ===== */
+.row2{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:16px;align-items:stretch}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 3px 15px rgba(24,65,49,.03);display:flex;flex-direction:column}
+.panel h3{font-size:18px;margin:0 0 2px}
+.panel .p-sub{font-size:12px;color:var(--sub);margin:0 0 14px}
+.p-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.p-icon{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:16px;flex:none}
+.icon-blue{background:var(--bluesoft);color:var(--blue)}
+.icon-green{background:var(--soft);color:var(--green)}
+.icon-gold{background:var(--goldsoft);color:var(--gold)}
+.doc{border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin-bottom:10px;background:#fcfdfc}
+.doc .doc-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.doc .doc-title{font-size:13.5px;font-weight:650}
+.doc .doc-date{font-size:11px;color:var(--sub);white-space:nowrap}
+.doc .doc-src{font-size:11px;color:var(--blue);margin-top:3px}
+.doc .doc-desc{font-size:12px;color:var(--sub);margin-top:5px}
+.tag-ref{font-size:10px;color:var(--gold);background:var(--goldsoft);border-radius:99px;padding:2px 7px;margin-left:6px;white-space:nowrap}
+.tag-new{font-size:10px;color:#fff;background:var(--green2);border-radius:99px;padding:2px 7px;margin-left:6px;white-space:nowrap}
+.tag-wait{font-size:10px;color:#8a6d3b;background:#f6efe0;border-radius:99px;padding:2px 7px;margin-left:6px;white-space:nowrap}
+.placeholder-note{font-size:11px;color:var(--gold);background:var(--goldsoft);border-radius:8px;padding:7px 10px;margin-top:auto}
+.stat-row{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 12px}
+.stat{flex:1;min-width:76px;background:var(--soft2);border:1px solid #d7e9df;border-radius:10px;padding:10px;text-align:center}
+.stat b{display:block;font-size:18px;color:var(--green)}
+.stat span{font-size:11px;color:var(--sub)}
+.btn-line{display:inline-block;margin-top:6px;font-size:13px;color:var(--green);font-weight:650}
+.btn-line:hover{text-decoration:underline}
+.path-lines{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+.path-line{font-size:11px;background:var(--soft);color:var(--green);border-radius:99px;padding:4px 10px}
+.merge-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.merge-mini div{font-size:11.5px;color:#41544b;background:#fafcfb;border:1px dashed #c7d6ce;border-radius:9px;padding:8px 10px}
+.link-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.link-list a{font-size:12px;border:1px solid var(--line);border-radius:8px;padding:5px 10px;color:var(--green);background:#fff}
+.link-list a:hover{border-color:var(--green2)}
+.smallprints{font-size:10.5px;color:#8a9992;margin-top:auto;padding-top:8px;line-height:1.5}
+
+/* ===== Row 3: find me + wall ===== */
+.row3{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:stretch}
+.about-mini{font-size:13px;color:#41544b;background:var(--soft2);border:1px solid #d7e9df;border-radius:11px;padding:12px 14px;margin-bottom:16px}
+.about-mini b{color:var(--green)}
+.fm-grid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.platforms{display:flex;flex-direction:column;gap:10px}
+.plat{border:1px solid var(--line);border-radius:11px;padding:11px 13px;background:#fff}
+.plat .pname{font-weight:700;font-size:14px}
+.plat .pval{font-size:12px;color:var(--sub);margin-top:2px}
+.qr-side{text-align:center}
+.qr-plain{width:150px;height:150px;object-fit:contain;display:block;margin:0 auto;border:0;border-radius:0;background:transparent;padding:0;box-shadow:none}
+.qr-cap{font-size:12px;color:var(--sub);margin-top:8px;line-height:1.5}
+.wall-empty{border:1px dashed #c7d6ce;border-radius:12px;padding:40px 18px;text-align:center;color:var(--sub);background:#fafcfb}
+.wall-empty .we-icon{font-size:26px;opacity:.5;margin-bottom:8px}
+.wall-empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+.wall-empty span{font-size:12px}
+
+footer{padding:24px 0 40px;color:#7a8a83;font-size:11.5px;line-height:1.8}
+footer .fp{color:#8a9992}
+
+@media(max-width:960px){
+  .hero-grid,.row2,.row3{grid-template-columns:1fr}
+  .fm-grid{grid-template-columns:1fr;gap:16px}
+  .qr-side{order:2}
+}
+@media(max-width:560px){
+  .wrap{width:calc(100% - 28px)}
+  .countdown{flex-wrap:wrap}
+  .cd-box{flex:1 0 40%}
+}
+</style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav>
-        <div class="logo">木白</div>
-        <ul id="navMenu">
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#shenzhen-zhongkao">深圳中考</a></li>
-            <li><a href="#tech-pathway">科创晋升路径</a></li>
-            <li><a href="#projects">项目想法</a></li>
-            <li><a href="#platforms">找到我</a></li>
-            <li><a href="#contact">留言</a></li>
-        </ul>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<!-- 统一顶栏 -->
+<header class="mb-sitebar">
+  <div class="mb-inner">
+    <a class="mb-brand" href="index.html">
+      <span class="mb-logo">木白</span>
+      <span class="mb-bt"><strong>深圳中考实时升学工具</strong><small>mubai.net.cn</small></span>
+    </a>
+    <nav class="mb-nav" aria-label="主导航">
+      <a href="#timeline">倒计时 · 时间轴</a>
+      <a href="#policy">政策通知</a>
+      <a href="#zhongkao">深圳中考</a>
+      <a href="#tech">科创路径</a>
+      <a href="#findme">找到我 · 作品墙</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero 区域 -->
-    <header class="hero">
-        <img src="avatar.jpg" alt="木白的头像" class="hero-avatar">
-        <h1>维森·木白</h1>
-        <p class="tagline">专注中小学升学规划与科创赛事辅导<br>这是我的个人空间，记录想法、分享作品、连接世界</p>
-        <div class="hero-buttons">
-            <a href="#shenzhen-zhongkao" class="btn btn-primary">深圳中考</a>
-            <a href="#tech-pathway" class="btn btn-primary">科创晋升路径</a>
-            <a href="#projects" class="btn btn-outline">项目想法</a>
-            <a href="#contact" class="btn btn-outline">给我留言</a>
+<main id="top" class="wrap">
+
+  <!-- ===== Hero + 倒计时 ===== -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">家长实时升学工具</div>
+        <h1>深圳中考<br>实时升学工具</h1>
+        <p class="lead">打开就知道：离中考还有多久、这个月该准备什么、最近有什么官方通知、深圳中考有哪些升学路径。帮初三家长少焦虑、不踩坑。决策由家长自己做，我们只提供有据可查的建议。</p>
+        <div class="chips">
+          <span class="chip">实时倒计时</span>
+          <span class="chip">初三月度时间轴</span>
+          <span class="chip">政策实时通知</span>
+          <span class="chip">深圳中考全景</span>
+          <span class="chip">科创升学路径</span>
         </div>
-    </header>
-
-    <!-- 关于我 -->
-    <section id="about">
-        <h2 class="section-title">关于我</h2>
-        <p class="section-subtitle">简单介绍一下自己</p>
-        <div class="about-content">
-            <p>你好，我是木白。一个对技术和创意充满热情的人，喜欢探索新事物，用代码把想法变成现实。</p>
-            <p>机械工程专业出身，多年科创教学经验，擅长单片机、3D 建模与硬件编程教学，专注中小学科创赛事辅导与深圳升学规划。</p>
-            <p>这个网站是我的个人空间，我会在这里分享我的项目想法、记录学习过程！</p>
-            <div class="about-highlights">
-                <div class="highlight-card">
-                    <div class="hl-icon">🏆</div>
-                    <div class="hl-title">国家一等奖</div>
-                    <div class="hl-desc">科创赛事带队</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="hl-icon">📚</div>
-                    <div class="hl-title">多年教学经验</div>
-                    <div class="hl-desc">独立开发课程</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="hl-icon">🛠️</div>
-                    <div class="hl-title">单片机 / 3D 建模</div>
-                    <div class="hl-desc">硬件编程教学</div>
-                </div>
-                <div class="highlight-card">
-                    <div class="hl-icon">📍</div>
-                    <div class="hl-title">深圳升学规划</div>
-                    <div class="hl-desc">本地政策精通</div>
-                </div>
-            </div>
-            <div class="tags">
-                <span class="tag">单片机</span>
-                <span class="tag">3D 建模</span>
-                <span class="tag">赛事辅导</span>
-                <span class="tag">升学规划</span>
-            </div>
+      </div>
+      <aside class="count-card">
+        <div class="label">距离 2027 深圳中考</div>
+        <div class="exam-date" id="examDate">预计日期：6 月下旬（以官方公布为准）</div>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">天</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">时</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-unit">分</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-unit">秒</div></div>
         </div>
-    </section>
-
-
-    <!-- 深圳中考 -->
-    <section id="shenzhen-zhongkao">
-        <h2 class="section-title">深圳中考</h2>
-        <p class="section-subtitle">2026年深圳中考数据与志愿填报全攻略</p>
-        <div class="subsection-grid">
-            <a href="shenzhen-high-schools/index.html" class="featured-schools">
-                <span class="featured-badge">2026年最新数据</span>
-                <h3>深圳高中信息</h3>
-                <p>覆盖深圳全部100所高中，包含录取分数线、指标生控制线（估算值，以官方公布为准）、学校地址、住宿情况、师资力量、班型设置、多元化课程，支持搜索、筛选、排序。</p>
-                <div class="featured-stats">
-                    <div class="stat-item"><span>学校</span><span>100所</span></div>
-                    <div class="stat-item"><span>区域</span><span>12个区域</span></div>
-                    <div class="stat-item"><span>数据</span><span>录取分数线</span></div>
-                    <div class="stat-item"><span>功能</span><span>搜索筛选</span></div>
-                </div>
-                <span class="featured-arrow">→</span>
-            </a>
-            <a href="articles/shenzhen-zhongkao-zhiyuan-guide.html" class="featured-competitions">
-                <span class="featured-badge">2026年最新</span>
-                <h3>中考志愿填报</h3>
-                <p>涵盖 AC/D 类分数线解读、名额分配降分通道、冲稳保三段填报策略与常见误区，含志愿草表 Excel 领取，帮助考生和家长科学合理填报志愿。</p>
-                <div class="featured-stats">
-                    <div class="stat-item"><span>解读</span><span>AC/D类</span></div>
-                    <div class="stat-item"><span>策略</span><span>冲稳保</span></div>
-                    <div class="stat-item"><span>降分</span><span>名额分配</span></div>
-                    <div class="stat-item"><span>资料</span><span>Excel表</span></div>
-                </div>
-                <span class="featured-arrow">→</span>
-            </a>
-            <a href="shenzhen-zizhao/index.html" class="featured-schools">
-                <span class="featured-badge">2026年最新</span>
-                <h3>深圳自招作战地图</h3>
-                <p>88所一类自招学校全数据，含自招方向、中考控制线、考核方式、录取情况。50所科创信息专项机会学校，11所未录满明细，政策要点及2025vs2026变化对比。</p>
-                <div class="featured-stats">
-                    <div class="stat-item"><span>学校</span><span>88所</span></div>
-                    <div class="stat-item"><span>计划</span><span>5156人</span></div>
-                    <div class="stat-item"><span>科创</span><span>50所专项</span></div>
-                    <div class="stat-item"><span>对比</span><span>2025vs2026</span></div>
-                </div>
-                <span class="featured-arrow">→</span>
-            </a>
-            <a href="whitelist-competitions/whitelist-competitions.html" class="featured-competitions">
-                <span class="featured-badge">2025-2028学年</span>
-                <h3>教育部白名单赛事</h3>
-                <p>涵盖教育部官方认可的全部47项白名单赛事，分自然科学素养类、人文综合素养类、艺术体育类三大类，包含赛事简介、主办单位、面向学段、报名时间、赛项设置及参赛建议，帮助学生和家长科学规划竞赛路径。</p>
-                <div class="featured-stats">
-                    <div class="stat-item"><span>赛事</span><span>47项全覆盖</span></div>
-                    <div class="stat-item"><span>学段</span><span>小学至高中</span></div>
-                    <div class="stat-item"><span>内容</span><span>报名指南</span></div>
-                    <div class="stat-item"><span>分析</span><span>参赛建议</span></div>
-                </div>
-                <span class="featured-arrow">→</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- 科创晋升路径 -->
-    <section id="tech-pathway">
-        <h2 class="section-title">科创·贯穿一生的晋升路径</h2>
-        <p class="section-subtitle">从小学启蒙到行业领军：竞赛线 · 升学线 · 科研线 · 创业线</p>
-        <a href="tech-pathway/index.html" class="featured-schools">
-            <span class="featured-badge">意义 · 路径 · 证据</span>
-            <h3>科创·贯穿一生的晋升路径总览</h3>
-            <p>以小学、初中、高中、本科、研究生、职业、领军七个阶段为轴，梳理每一步的核心动作与回报：竞赛与升学通道、科研深耕与职业三条主线，配套国家推力闭环图、个人回报阶梯图，以及政策、数据与趋势证据库（全部可溯源至官方原文）。</p>
-            <div class="featured-stats">
-                <div class="stat-item"><span>阶段</span><span>7个</span></div>
-                <div class="stat-item"><span>主线</span><span>4条</span></div>
-                <div class="stat-item"><span>图解</span><span>2张</span></div>
-                <div class="stat-item"><span>证据</span><span>官方可溯源</span></div>
-            </div>
-            <span class="featured-arrow">→</span>
-        </a>
-    </section>
-
-    <!-- 项目想法 -->
-    <section id="projects">
-        <h2 class="section-title">项目想法</h2>
-        <p class="section-subtitle">我正在思考和推进的一些事情</p>
-        <div class="projects-grid">
-            <a href="learning-tools/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #0a9e6e;">
-                <span class="status status-open">📚 学习</span>
-                <h3>学习平台/工具</h3>
-                <p>收录我日常使用的编程学习、学术检索、在线仿真和建模开发工具，涵盖从入门到进阶的完整工具链。点击查看 →</p>
-            </a>
-            <a href="tech-innovation/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #E8A87C;">
-                <span class="status status-idea">🛠️ 科创</span>
-                <h3>科创模块</h3>
-                <p>融合 STEAM 教育理念与 PBL 项目式教学，涵盖科创工程设计、机械基础与三维建模、编程基础与嵌入式开发、电学基础与硬件实操、小组科创综合项目实训五大模块，完整经历科创项目从设计、制作、调试到成果展示的全流程。点击查看 →</p>
-            </a>
-            <a href="inspirations/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #6C5CE7;">
-                <span class="status status-open">🚀 上线</span>
-                <h3>每日灵感打卡</h3>
-                <p>每天记录一个灵感或想法，支持标签筛选与回看统计，帮助养成持续思考和记录的习惯。点击查看 →</p>
-            </a>
-            <a href="opensource-projects/index.html" class="project-card" style="text-decoration:none;cursor:pointer;border-top:4px solid #2B6CD0;">
-                <span class="status status-open">📖 开源</span>
-                <h3>开源项目</h3>
-                <p>AI 桌宠机械狗、普通桌宠机械狗、遥控机械手等开源硬件项目，点击查看详情。</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- 找到我 -->
-    <section id="platforms">
-        <h2 class="section-title">找到我</h2>
-        <p class="section-subtitle">在以下平台可以关注或联系我</p>
-        <div class="platforms-grid">
-            <a href="https://www.douyin.com/user/MS4wLjABAAAAAbBqTn1EZs9ulohNi84vrMWP2A38H-AXUe7AegrUZ8xCqkfQ1wSAS8AYiHJT_D4W" target="_blank" class="platform-card">
-                <div class="icon">🎵</div>
-                <div class="name">抖音</div>
-                <div class="desc">抖音号：CB100</div>
-            </a>
-            <a href="/cdn-cgi/l/email-protection#2b131a1b1e1e12181b136b5a5a05484446" class="platform-card">
-                <div class="icon">📧</div>
-                <div class="name">邮箱</div>
-                <div class="desc"><span class="__cf_email__" data-cfemail="2c141d1c1919151f1c146c5d5d024f4341">[email&#160;protected]</span></div>
-            </a>
-            <a href="#wechat-modal" class="platform-card" onclick="document.getElementById('wechat-modal').style.display='flex'">
-                <div class="icon">💬</div>
-                <div class="name">微信</div>
-                <div class="desc">微信号：WDSW10086</div>
-            </a>
-        </div>
-    </section>
-
-    <!-- 留言区 -->
-    <section id="contact">
-        <h2 class="section-title">给我留言</h2>
-        <p class="section-subtitle">说点什么吧，我会看到的（留言仅我可见）</p>
-
-        <form class="comment-form" id="commentForm">
-            <div class="form-group">
-                <label for="name">你的名字</label>
-                <input type="text" id="name" placeholder="怎么称呼你？" required="">
-            </div>
-            <div class="form-group">
-                <label for="message">留言内容</label>
-                <textarea id="message" placeholder="想说点什么..." required=""></textarea>
-            </div>
-            <button type="submit">发送留言</button>
-        </form>
-
-        <div class="comment-success" id="commentSuccess" style="display:none;">
-            <p>✅ 感谢你的留言！我会认真阅读的。</p>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <p>© 2026 木白 · 用心制作 · <a href="#about">回到顶部</a></p>
-    </footer>
-
-    <!-- 回到顶部按钮 -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
-
-    <!-- Supabase JS 客户端 -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <script>
-        // ========== 移动端菜单 ==========
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-
-        // 点击导航链接后关闭菜单
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navMenu').classList.remove('active');
-            });
-        });
-
-        // ========== 回到顶部 ==========
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ========== Supabase 配置 ==========
-        // 把下面两个值替换成你自己的 Supabase 项目信息
-        const SUPABASE_URL = 'https://fhnxptyiosdkxruyaeca.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZobnhwdHlpb3Nka3hydXlhZWNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY1Mzk5MDQsImV4cCI6MjEwMjExNTkwNH0.w2Op0NNrQmmBbd9jNt4wXqzW4nVjpl5mE3bHAGQT8CQ';
-
-        // 初始化 Supabase 客户端
-        let supabaseClient = null;
-        let supabaseReady = false;
-
-        try {
-            if (SUPABASE_URL.includes('在此填入')) {
-                console.warn('Supabase 未配置，留言功能使用本地模式');
-            } else {
-                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-                supabaseReady = true;
-            }
-        } catch (err) {
-            console.error('Supabase 初始化失败:', err);
-        }
-
-        // ========== 留言功能（仅存储，不公开展示） ==========
-        const commentForm = document.getElementById('commentForm');
-        const commentSuccess = document.getElementById('commentSuccess');
-
-        // 表单提交：留言存入数据库，但不公开展示
-        commentForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const text = document.getElementById('message').value.trim();
-            if (!name || !text) return;
-
-            const submitBtn = commentForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = '发送中...';
-            submitBtn.disabled = true;
-
-            if (supabaseReady) {
-                try {
-                    const { error } = await supabaseClient
-                        .from('comments')
-                        .insert({ name: name, message: text, likes: 0 });
-
-                    if (error) throw error;
-                } catch (err) {
-                    console.error('发送留言失败:', err);
-                    alert('留言发送失败，请稍后重试');
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    return;
-                }
-            } else {
-                // 本地回退模式：存到 localStorage，仅站长本机可查
-                const saved = localStorage.getItem('mubai_comments');
-                const comments = saved ? JSON.parse(saved) : [];
-                comments.push({ id: Date.now(), name, text, time: new Date().toISOString() });
-                localStorage.setItem('mubai_comments', JSON.stringify(comments));
-            }
-
-            // 显示成功提示，隐藏表单
-            commentForm.style.display = 'none';
-            commentSuccess.style.display = 'block';
-
-            // 5 秒后恢复表单（方便继续留言）
-            setTimeout(() => {
-                commentForm.reset();
-                commentForm.style.display = '';
-                commentSuccess.style.display = 'none';
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 5000);
-        });
-    </script>
-
-    <!-- 微信二维码弹窗 -->
-    <div class="wechat-modal" id="wechat-modal" onclick="if(event.target===this)this.style.display='none'">
-        <div class="wechat-modal-content">
-            <button class="wechat-modal-close" onclick="document.getElementById('wechat-modal').style.display='none'">×</button>
-            <img src="wechat-qrcode.jpg" alt="微信二维码">
-            <h3>扫码加我微信</h3>
-            <p>微信号：WDSW10086</p>
-        </div>
+        <div class="count-foot">当前定位：<b>初三 · 2026–2027 学年</b><br>时间轴每月节点自动高亮，提示"现在该做什么"。</div>
+        <div class="disclaimer">⚠ 考试日期为<b>预计参考值</b>，并非官方发布。具体考试日期请以深圳市招生考试办公室公布为准。</div>
+      </aside>
     </div>
 
-</body></html>
+    <div class="miniapp-bar">
+      <span class="ma-badge">小程序</span>
+      <span class="ma-text"><b>木白择校助手</b> · 一键对比学校、测算录取概率，择校更省心</span>
+      <a class="ma-btn" href="#">去使用 →</a>
+    </div>
+  </section>
+
+  <!-- ===== 时间轴 ===== -->
+  <section class="section" id="timeline">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">01 / 初三全年时间轴</div>
+        <h2>深圳中考倒计时 · 初三全年该做什么，一眼看清</h2>
+        <p class="section-desc">时间条自动滚动并停在"当前月份"。每个节点标注：这个月该做什么，以及它对中考有什么用。鼠标悬停可暂停，也可用按钮手动查看。</p>
+      </div>
+      <div class="tl-controls">
+        <button id="tlPrev" type="button">‹ 上一个</button>
+        <button id="tlNow" type="button">回到当前</button>
+        <button id="tlNext" type="button">下一个 ›</button>
+      </div>
+    </div>
+    <div class="disclaimer" style="margin-bottom:12px">⚠ 以下月份节点为<b>参考往年深圳中考节奏整理</b>，非官方日程；各环节具体时间以深圳市招考办当年发布的官方通知为准。</div>
+    <div class="timeline-wrap">
+      <div class="timeline" id="timelineTrack"><!-- nodes injected by JS --></div>
+    </div>
+  </section>
+
+  <!-- ===== 三大核心栏目 ===== -->
+  <section class="section" id="row2">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">02 / 三大核心栏目</div>
+        <h2>政策 · 深圳中考全景 · 科创路径，并排呈现</h2>
+      </div>
+    </div>
+    <div class="row2">
+
+      <!-- A. 政策通知 -->
+      <article class="panel" id="policy">
+        <div class="p-head"><span class="p-icon icon-blue">📌</span><div><h3>政策通知 · 官方文件</h3><p class="p-sub">实时整合 · 近期影响深圳中考的官方信息</p></div></div>
+
+        <div class="doc">
+          <div class="doc-top"><span class="doc-title">教育部 2025—2028 学年中小学生全国性竞赛活动名单<span class="tag-new">已发布</span></span><span class="doc-date">2025-10-29</span></div>
+          <div class="doc-src">来源：教育部（经新华网等转载）</div>
+          <div class="doc-desc">共 47 项白名单赛事，分自然科学素养、人文综合素养、艺术体育三类。<a class="btn-line" href="whitelist-competitions/whitelist-competitions.html" style="margin:0">查看全文 →</a></div>
+        </div>
+
+        <div class="doc">
+          <div class="doc-top"><span class="doc-title">2027 深圳中考报名政策<span class="tag-wait">待发布</span></span><span class="doc-date">参考往年约 3 月</span></div>
+          <div class="doc-src">来源：深圳市招生考试办公室（以官方发布为准）</div>
+          <div class="doc-desc">报名条件、材料清单、非深户与深户差异。时间为往年规律参考，非官方日程。</div>
+        </div>
+
+        <div class="doc">
+          <div class="doc-top"><span class="doc-title">指标生（名额分配）实施办法<span class="tag-wait">待发布</span></span><span class="doc-date">以官方为准</span></div>
+          <div class="doc-src">来源：深圳市教育局（以官方发布为准）</div>
+          <div class="doc-desc">优质高中名额分配到校，是"低分进好校"的关键通道，需提前确认资格。</div>
+        </div>
+
+        <div class="placeholder-note">▲ 官方通知实时接入中：发布时间与原文链接将随官方发布同步更新，未发布项不填虚假日期。</div>
+      </article>
+
+      <!-- B. 深圳中考全景 -->
+      <article class="panel" id="zhongkao">
+        <div class="p-head"><span class="p-icon icon-green">🏫</span><div><h3>深圳中考 · 升学全景</h3><p class="p-sub">不止一条路，先看清所有路径再选</p></div></div>
+        <div class="path-lines">
+          <span class="path-line">正取</span><span class="path-line">名额分配·指标生</span><span class="path-line">自主招生</span><span class="path-line">3+2 中职</span><span class="path-line">五年一贯制</span>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>100</b><span>所高中信息</span></div>
+          <div class="stat"><b>88</b><span>所自招校</span></div>
+          <div class="stat"><b>50</b><span>科创信息专项</span></div>
+          <div class="stat"><b>11</b><span>所未录满</span></div>
+        </div>
+        <ul style="margin:0 0 8px;padding-left:18px;font-size:12.5px;color:#41544b">
+          <li>深圳高中信息库：学校梯队、招生范围与参考分数线</li>
+          <li>中考志愿填报：批次、梯度与冲稳保策略</li>
+          <li>各路径适用人群与门槛（正取 / 指标生 / 自招概况）</li>
+          <li>3+2 中职、五年一贯制等替代路径说明</li>
+        </ul>
+        <div class="link-list">
+          <a href="shenzhen-high-schools/index.html">深圳高中信息 →</a>
+          <a href="shenzhen-zizhao/index.html">自招作战地图 →</a>
+          <a href="articles/shenzhen-zhongkao-zhiyuan-guide.html">志愿填报指南 →</a>
+        </div>
+        <div class="smallprints">数据来源：本站整理，原始出处与统计口径见各栏目页；高中信息数据截止 2026.08。具体录取以深圳招考网官方公告为准。</div>
+      </article>
+
+      <!-- C. 科创路径 -->
+      <article class="panel" id="tech">
+        <div class="p-head"><span class="p-icon icon-gold">🔬</span><div><h3>科创升学路径 + 项目想法</h3><p class="p-sub">自主招生中的科创方向，深入拆解</p></div></div>
+        <div class="stat-row">
+          <div class="stat"><b>7</b><span>阶段路径</span></div>
+          <div class="stat"><b>50</b><span>科创专项校</span></div>
+          <div class="stat"><b>47</b><span>白名单赛事</span></div>
+        </div>
+        <p style="font-size:12.5px;color:#41544b;margin:0 0 10px">从小学启蒙到行业领军，覆盖竞赛线 · 升学线 · 科研线 · 创业线；项目式学习完整经历设计→制作→调试→展示。</p>
+        <div class="merge-mini">
+          <div><b>科创专项学校</b><br>50 所招生方向</div>
+          <div><b>白名单赛事</b><br>47 项规划与建议</div>
+          <div><b>STEAM + PBL</b><br>五大模块实训</div>
+          <div><b>项目想法</b><br>从灵感到成果</div>
+        </div>
+        <div class="link-list">
+          <a href="tech-pathway/index.html">科创晋升路径 →</a>
+          <a href="tech-innovation/index.html">科创模块 →</a>
+          <a href="whitelist-competitions/whitelist-competitions.html">白名单赛事 →</a>
+        </div>
+        <div class="smallprints">科创是自主招生中的一条路径，与中间"深圳中考全景"区分：此处聚焦科创方向的深入内容。</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== 找到我 · 作品墙（不加生硬大标题） ===== -->
+  <section class="section" id="findme">
+    <div class="row3">
+
+      <article class="panel">
+        <div class="p-head"><span class="p-icon icon-blue">🔗</span><div><h3>找到我</h3><p class="p-sub">关于木白 · 联系与咨询</p></div></div>
+        <div class="about-mini"><b>关于木白：</b>机械工程出身，多年科创教学经验，擅长单片机、3D 建模与硬件编程，专注中小学科创赛事辅导与深圳升学规划。网站先帮你解决问题，认识我是顺带的事。</div>
+        <div class="fm-grid">
+          <div class="platforms">
+            <div class="plat"><div class="pname">微信</div><div class="pval">WDSW10086 · 真人咨询 / 一对一答疑</div></div>
+            <div class="plat"><div class="pname">抖音</div><div class="pval">CB100 · 视频更新</div></div>
+            <div class="plat"><div class="pname">微信公众号</div><div class="pval">木白升学 · 官方入口与互动</div></div>
+          </div>
+          <div class="qr-side">
+            <img class="qr-plain" src="wechat-qrcode.jpg" alt="微信二维码">
+            <div class="qr-cap">扫码加微信<br>获取一对一升学答疑</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="p-head"><span class="p-icon icon-gold">🖼️</span><div><h3>作品展示墙</h3><p class="p-sub">赛事 / 项目 / 探校实拍集中展示</p></div></div>
+        <div class="wall-empty">
+          <div class="we-icon">🖼️</div>
+          <b>作品集整理中 · 敬请期待</b>
+          <span>后续将在这里集中展示学生科创作品、白名单赛事、探校实拍等内容。</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  木白 · 深圳中考实时升学工具 · 2026-10-30<br>
+  <span class="fp">本站为信息整合与建议性质，不替代官方发布，也不替家长做决策。所有数据均标注来源或参考属性；录取、报名、考试时间等以深圳市招生考试办公室、深圳市教育局等官方公告为准。</span>
+</footer>
+
+<script>
+/* 倒计时目标：2027 深圳中考（预计 6/26，以官方为准，可改此常量） */
+var EXAM_DATE = new Date('2027-06-26T09:00:00+08:00');
+function tick(){
+  var now = new Date(), diff = EXAM_DATE - now;
+  if(diff < 0){ diff = 0; }
+  var d = Math.floor(diff/86400000);
+  var h = Math.floor(diff%86400000/3600000);
+  var m = Math.floor(diff%3600000/60000);
+  var s = Math.floor(diff%60000/1000);
+  function pad(n){ return (n<10?'0':'')+n; }
+  document.getElementById('cd-d').textContent = d;
+  document.getElementById('cd-h').textContent = pad(h);
+  document.getElementById('cd-m').textContent = pad(m);
+  document.getElementById('cd-s').textContent = pad(s);
+}
+tick(); setInterval(tick, 1000);
+
+/* 初三时间轴（参考往年节奏） */
+var NODES = [
+  {date:'2026-09-15', month:'2026.09', title:'初三启航', items:['适应节奏，制定全年规划','了解中考政策与升学路径','建立目标学校清单'], purpose:'明确目标校与路径，避免后期盲目'},
+  {date:'2026-10-15', month:'2026.10', title:'政策窗口', items:['关注报名/指标生/自招政策','准备期中考试','初步了解科创专项校'], purpose:'提前锁定资格，不错过政策节点'},
+  {date:'2026-11-15', month:'2026.11', title:'期中定位', items:['期中成绩定位目标校','物化实验操作备考启动','科创项目 / 竞赛规划'], purpose:'用成绩校准目标，科创开始布局'},
+  {date:'2026-12-15', month:'2026.12', title:'期末冲刺', items:['期末复习','关注学校开放日 / 宣讲','体育考试项目选定'], purpose:'期末是模考前最重要定位'},
+  {date:'2027-01-15', month:'2027.01', title:'一模前夜', items:['期末考试（一模定位）','寒假学习规划','体育日常训练'], purpose:'一模成绩对接指标生与自招参考'},
+  {date:'2027-02-15', month:'2027.02', title:'寒假突破', items:['查漏补缺提分','中考报名材料准备','自招 / 特长意向'], purpose:'假期是提分与材料准备黄金期'},
+  {date:'2027-03-15', month:'2027.03', title:'中考报名', items:['中考报名（参考往年3月中下旬）','体育 / 实验操作备考','志愿填报初步了解'], purpose:'报名信息决定考试与录取资格'},
+  {date:'2027-04-15', month:'2027.04', title:'体考 · 实验', items:['体育中考（参考往年4月）','理化生实验操作考试','自主招生报名启动'], purpose:'体考实验一分不丢，自招通道开启'},
+  {date:'2027-05-15', month:'2027.05', title:'二模冲刺', items:['二模考试','英语听说考试','志愿填报准备 / 高中开放日'], purpose:'二模+听说定档，志愿方案成型'},
+  {date:'2027-06-15', month:'2027.06', title:'中考临门', items:['中考（预计6月下旬）','考后志愿填报','等待录取结果'], purpose:'最终一搏，志愿梯度决定录取'}
+];
+var track = document.getElementById('timelineTrack');
+var now = new Date(), currentIdx = 0;
+NODES.forEach(function(n, i){
+  var nd = new Date(n.date+'T00:00:00+08:00');
+  if(nd <= now){ currentIdx = i; }
+  var el = document.createElement('div');
+  el.className = 'node';
+  el.innerHTML = '<span class="node-badge">当前阶段</span>'+
+    '<div class="node-month">'+n.month+'</div>'+
+    '<div class="node-title">'+n.title+'</div>'+
+    '<ul>'+n.items.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul>'+
+    '<div class="node-purpose"><b>对中考的用处：</b>'+n.purpose+'</div>';
+  track.appendChild(el);
+});
+var nodeEls = Array.prototype.slice.call(track.children);
+function markCurrent(){
+  nodeEls.forEach(function(el,i){
+    el.classList.toggle('current', i===currentIdx);
+    el.classList.toggle('past', i<currentIdx);
+  });
+}
+function scrollToIdx(i, smooth){
+  i = Math.max(0, Math.min(nodeEls.length-1, i));
+  currentIdx = i; markCurrent();
+  var el = nodeEls[i];
+  var left = el.offsetLeft - (track.clientWidth/2) + (el.clientWidth/2);
+  track.scrollTo({left:left, behavior: smooth===false?'auto':'smooth'});
+}
+markCurrent();
+requestAnimationFrame(function(){ setTimeout(function(){ scrollToIdx(currentIdx,false); }, 60); });
+var autoTimer=null, paused=false;
+function startAuto(){ stopAuto(); autoTimer=setInterval(function(){ if(paused) return; scrollToIdx((currentIdx+1)%nodeEls.length,true); },3500); }
+function stopAuto(){ if(autoTimer){clearInterval(autoTimer);autoTimer=null;} }
+startAuto();
+track.addEventListener('mouseenter',function(){paused=true;});
+track.addEventListener('mouseleave',function(){paused=false;});
+document.getElementById('tlPrev').addEventListener('click',function(){scrollToIdx(currentIdx-1,true);});
+document.getElementById('tlNext').addEventListener('click',function(){scrollToIdx(currentIdx+1,true);});
+document.getElementById('tlNow').addEventListener('click',function(){scrollToIdx(currentIdx,true);});
+</script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
