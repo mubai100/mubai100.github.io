@@ -51,7 +51,7 @@ body{
 }
 .mb-bt strong{ display:block; font-size:14px; line-height:1.1; letter-spacing:.02em; }
 .mb-bt small{ display:block; font-size:10px; color:#b9d9cd; letter-spacing:.08em; margin-top:2px; }
-.mb-nav{ display:flex; gap:2px; overflow:auto; scrollbar-width:none; }
+.mb-nav{ display:flex; gap:2px; overflow-x:auto; overflow-y:hidden; scrollbar-width:none; min-width:0; -webkit-overflow-scrolling:touch; }
 .mb-nav::-webkit-scrollbar{ display:none; }
 .mb-nav a{
   white-space:nowrap; color:#d7e7e1; font-size:13px; padding:6px 10px;
@@ -77,5 +77,9 @@ nav:not(.page-toc){ top:52px !important; }
 
 @media (max-width:640px){
   .mb-bt small{ display:none; }
+  .mb-bt strong{ font-size:13px; }
   .mb-nav a{ font-size:12px; padding:5px 8px; }
+}
+@media (max-width:430px){
+  .mb-bt{ display:none; }
 }

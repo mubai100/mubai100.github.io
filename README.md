@@ -1,7 +1,8 @@
-# 木白 · 深圳中考实时升学工具 — 网站资料包 v1
+# 木白 · 深圳中考实时升学工具 — 网站资料包 v1.1
 
-> 版本：v1（2026-10-30）　域名：mubai.net.cn
+> 版本：v1.1（2026-10-30 晚修订）　域名：mubai.net.cn
 > 用途：把预览版主页正式落地，并让全站页面统一风格。可直接替换你 GitHub Pages 仓库中的文件后发布。
+> v1.1 在 v1 基础上按反馈做了 6 处调整，见文末「七、v1.1 修订记录」。
 
 ---
 
@@ -107,24 +108,55 @@ git push
 
 ---
 
-## 六、文件清单
+## 六、文件清单（v1.1）
 
 ```
 mubai-site-v1/
-├─ index.html                     ← 新版主页（重做）
-├─ assets/css/site.css            ← 全站统一风格（新增）
-├─ assets/js/site.js              ← 回到顶部 / 导航高亮（新增）
-├─ shenzhen-high-schools/index.html   ← 已加统一顶栏（内容未改）
-├─ shenzhen-zizhao/index.html         ← 已加统一顶栏（内容未改）
-├─ tech-pathway/index.html            ← 已加统一顶栏（内容未改）
-├─ tech-innovation/index.html         ← 已加统一顶栏（内容未改）
-├─ whitelist-competitions/whitelist-competitions.html ← 已加统一顶栏（内容未改）
-├─ articles/shenzhen-zhongkao-zhiyuan-guide.html      ← 已加统一顶栏（内容未改）
-├─ campus-gallery/index.html          ← 已加统一顶栏
-├─ inspirations/index.html            ← 已加统一顶栏
-├─ learning-tools/index.html          ← 已加统一顶栏
-├─ opensource-projects/index.html     ← 已加统一顶栏
-├─ avatar.jpg / wechat-qrcode.jpg / wechat-search-banner.*  ← 原图
-├─ CNAME / robots.txt / sitemap.xml   ← 原配置
-└─ README-更新说明.md                 ← 本文件
+├─ index.html                          ← 新版主页（重做，v1.1 再调整）
+├─ assets/css/site.css                 ← 全站统一风格（新增，v1.1 修窄屏溢出）
+├─ assets/js/site.js                   ← 回到顶部 / 导航高亮（新增）
+├─ assets/img/path-flow.svg            ← 【新增】五条升学路径分流图
+├─ assets/img/tech-stairs.svg          ← 【新增】科创成长七阶段图
+├─ assets/img/wechat-qr.png            ← 【新增】裁好的正方形微信二维码
+├─ shenzhen-high-schools/index.html    ← 已加统一顶栏（正文未改）
+├─ shenzhen-zizhao/index.html          ← 已加统一顶栏（正文未改）
+├─ tech-pathway/index.html             ← 已加统一顶栏（正文未改）
+├─ tech-innovation/index.html          ← 已加统一顶栏（正文未改）
+├─ whitelist-competitions/whitelist-competitions.html ← 已加统一顶栏（正文未改）
+├─ articles/shenzhen-zhongkao-zhiyuan-guide.html      ← 已加统一顶栏（正文未改）
+├─ campus-gallery/index.html           ← 已加统一顶栏
+├─ inspirations/index.html             ← 已加统一顶栏
+├─ learning-tools/index.html           ← 已加统一顶栏
+├─ opensource-projects/index.html      ← 已加统一顶栏
+├─ avatar.jpg / wechat-qrcode.jpg / wechat-search-banner.*  ← 原图（未改动）
+├─ CNAME / robots.txt / sitemap.xml    ← 原配置（未改动）
+└─ README.md                           ← 本文件
 ```
+
+> 只上传改动的话，只需 `index.html`、`README.md`、`assets/` 整个目录，以及 10 个子页 HTML。
+
+---
+
+## 七、v1.1 修订记录（2026-10-30 晚）
+
+按你的反馈改了 6 处，全部只动主页与公共样式，**子页正文数据零改动**：
+
+| # | 位置 | v1 的问题 | v1.1 的改法 |
+|---|---|---|---|
+| 1 | 倒计时下方小程序条 | 写着「木白择校助手」，右侧是「去使用 →」的假链接 | 改为「**择校助手**」，右侧换成状态标签「**正在设计中 · 敬请期待**」，明确不可点击 |
+| 2 | 左上角标题区 | 顶栏与 H1 重复出现「实时升学工具」类字样 | 顶栏品牌改为 `木白 + mubai.net.cn / 深圳中考升学信息站`，删除 H1 上方那行「家长实时升学工具」 |
+| 3 | 中间「深圳中考 · 升学全景」 | 篇幅大但没重点，底部三个入口是小文字链，看不清 | 新增**五条升学路径分流图**（正取 / 指标生 / 自招 / 3+2 / 五年一贯制）；入口改为**大卡片**（图标 + 标题 + 一句说明 + 箭头） |
+| 4 | 右侧「科创升学路径」 | 同样只有小文字链，无视觉重点 | 新增**科创成长七阶段图**；入口同样改为大卡片 |
+| 5 | 找到我 · 二维码 | 原图是 600×886 的竖版名片海报，二维码只占中间一块，缩到 150px 后很小、看不清；点不开 | 从原图**精确裁出二维码本体**（394×394）存为方形 `wechat-qr.png`；显示尺寸 172px；**点击弹出大图**（约 340px，支持 ESC / 点空白关闭）；无边框 |
+| 6 | 全站顶栏（公共样式） | 手机上 5 个导航项不换行，把页面撑宽，内容被横向裁切 | `site.css` 给 `.mb-nav` 加 `min-width:0` + 横向滚动；≤430px 隐藏品牌文字，窄屏不再溢出 |
+
+### 关于两张图（重要）
+
+- 这两张是**信息图（SVG 矢量图）**，不是照片：把原本一大段文字改成"一眼看懂"的结构，避免凭空放资料图误导家长。
+- 图下都标了「示意，非官方分类 / 非官方晋升路径」。
+- **想换成真实照片很简单**：把照片放到 `assets/img/`，然后改 `index.html` 里对应 `<figure class="cover">` 的 `<img src="...">` 即可，样式会自动适配。
+
+### 已知待办
+
+- 子页**内页配色**仍是原来的（白名单页偏蓝等），留给 v2 统一。
+- 倒计时日期 `2027-06-26` 仍为**预计参考值**，官方公布后改 `index.html` 中 `EXAM_DATE` 一行。

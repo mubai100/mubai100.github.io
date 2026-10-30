@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 238" width="360" height="238" role="img" aria-label="深圳中考五条升学路径分流示意图">
+  <title>深圳中考五条升学路径分流示意</title>
+  <rect width="360" height="238" fill="#fbfcfb"/>
+  <defs>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+      .st{font-size:11.5px;font-weight:700;fill:#172923}
+      .sd{font-size:8.8px;fill:#5b6c65}
+    </style>
+  </defs>
+
+  <!-- 起点 -->
+  <rect x="2" y="94" width="86" height="50" rx="11" fill="#0d5c4b"/>
+  <text class="t" x="45" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">深圳中考</text>
+  <text class="t" x="45" y="131" text-anchor="middle" font-size="8.6" fill="#b9d9cd">成绩 · 志愿 · 资格</text>
+
+  <!-- 连接线 -->
+  <g fill="none" stroke="#b9cec4" stroke-width="1.4">
+    <path d="M88 119 C118 119 114 25 144 25"/>
+    <path d="M88 119 C118 119 114 71 144 71"/>
+    <path d="M88 119 C118 119 114 117 144 117"/>
+    <path d="M88 119 C118 119 114 163 144 163"/>
+    <path d="M88 119 C118 119 114 209 144 209"/>
+  </g>
+
+  <!-- 路径 1 正取 -->
+  <rect x="148" y="8" width="208" height="34" rx="9" fill="#ffffff" stroke="#d9e5df"/>
+  <rect x="149.5" y="12" width="3.5" height="26" rx="2" fill="#17836b"/>
+  <text class="t st" x="162" y="23">正取（统一录取）</text>
+  <text class="t sd" x="162" y="35">按分数与志愿统一投档</text>
+
+  <!-- 路径 2 指标生 -->
+  <rect x="148" y="54" width="208" height="34" rx="9" fill="#ffffff" stroke="#d9e5df"/>
+  <rect x="149.5" y="58" width="3.5" height="26" rx="2" fill="#0d5c4b"/>
+  <text class="t st" x="162" y="69">名额分配（指标生）</text>
+  <text class="t sd" x="162" y="81">校内竞争，低分进好校</text>
+
+  <!-- 路径 3 自主招生 -->
+  <rect x="148" y="100" width="208" height="34" rx="9" fill="#ffffff" stroke="#d9e5df"/>
+  <rect x="149.5" y="104" width="3.5" height="26" rx="2" fill="#aa7b2f"/>
+  <text class="t st" x="162" y="115">自主招生（含科创专项）</text>
+  <text class="t sd" x="162" y="127">一二类，需提前报名与考核</text>
+
+  <!-- 路径 4 3+2 -->
+  <rect x="148" y="146" width="208" height="34" rx="9" fill="#ffffff" stroke="#d9e5df"/>
+  <rect x="149.5" y="150" width="3.5" height="26" rx="2" fill="#35647a"/>
+  <text class="t st" x="162" y="161">3+2 中职</text>
+  <text class="t sd" x="162" y="173">中职与高职贯通培养</text>
+
+  <!-- 路径 5 五年一贯制 -->
+  <rect x="148" y="192" width="208" height="34" rx="9" fill="#ffffff" stroke="#d9e5df"/>
+  <rect x="149.5" y="196" width="3.5" height="26" rx="2" fill="#35647a"/>
+  <text class="t st" x="162" y="207">五年一贯制</text>
+  <text class="t sd" x="162" y="219">五年制高职，初中起点</text>
+</svg>
