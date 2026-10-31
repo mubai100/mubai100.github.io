@@ -535,8 +535,8 @@
                 <a href="https://www.cnki.net/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
                         <img class="tool-logo" alt="中国知网" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=cnki.net&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/cnki.net.ico';}">
+                             src="https://www.cnki.net/favicon.ico"
+                             data-fb="https://www.google.com/s2/favicons?domain=cnki.net&sz=128|https://icons.duckduckgo.com/ip3/cnki.net.ico">
                         <span class="tool-emoji">📑</span>
                     </div>
                     <span class="tool-badge web">在线 · 部分付费</span>
@@ -646,8 +646,8 @@
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
                         <img class="tool-logo" alt="小熊猫编程" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=royqh.net&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/royqh.net.ico';}">
+                             src="https://royqh.net/redpandacpp/favicon.ico"
+                             data-fb="https://www.google.com/s2/favicons?domain=royqh.net&sz=128|https://icons.duckduckgo.com/ip3/royqh.net.ico|https://royqh.net/favicon.ico">
                         <span class="tool-emoji">🐼</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费开源</span>
@@ -657,7 +657,7 @@
                         <span>C/C++</span><span>IDE</span><span>国产</span><span>入门</span>
                     </div>
                     <div class="tool-actions">
-                        <a class="tool-link" href="https://royqh.net/devcpp/download" target="_blank" rel="noopener">官网下载 →</a>
+                        <a class="tool-link" href="https://royqh.net/redpandacpp/" target="_blank" rel="noopener">官网下载 →</a>
                         <a class="tool-ghost" href="../index.html#findme">公众号获取</a>
                     </div>
                 </div>
@@ -684,8 +684,8 @@
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
                         <img class="tool-logo" alt="Visual Studio Code" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=visualstudio.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/visualstudio.com.ico';}">
+                             src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=128"
+                             data-fb="https://icons.duckduckgo.com/ip3/code.visualstudio.com.ico|https://code.visualstudio.com/favicon.ico">
                         <span class="tool-emoji">🔵</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费开源</span>
@@ -722,8 +722,8 @@
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
                         <img class="tool-logo" alt="天问 Block" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=twen51.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/twen51.com.ico';}">
+                             src="https://www.twen51.com/favicon.ico"
+                             data-fb="https://www.google.com/s2/favicons?domain=twen51.com&sz=128|https://icons.duckduckgo.com/ip3/twen51.com.ico">
                         <span class="tool-emoji">🤖</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费</span>
@@ -827,6 +827,20 @@
         });
     });
 })();
+
+// 工具 Logo 多源兜底：依次尝试 data-fb 中的候选地址，全部失败再显示 emoji
+document.querySelectorAll('img.tool-logo[data-fb]').forEach(function(img){
+    var list = (img.getAttribute('data-fb') || '').split('|').filter(Boolean);
+    var i = 0;
+    img.addEventListener('error', function(){
+        if (i < list.length) { img.src = list[i++]; }
+        else {
+            img.style.display = 'none';
+            var e = img.nextElementSibling;
+            if (e) e.style.display = 'flex';
+        }
+    });
+});
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"e7dec9ee3cca42bcaab82d4b32297f98","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script src="../assets/js/site.js" defer></script>
