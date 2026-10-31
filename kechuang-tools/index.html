@@ -51,24 +51,6 @@
             line-height: 1.6;
         }
 
-        /* 导航栏 */
-        nav:not(.page-toc) {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 2rem;
-        }
-        nav .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav .back-btn { text-decoration: none; color: var(--primary); font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
-        nav .back-btn:hover { color: var(--kc); }
-
         /* Hero */
         .page-hero {
             background: linear-gradient(135deg, #143b5a 0%, #b5852f 100%);
@@ -343,7 +325,6 @@
 
         /* 响应式 */
         @media (max-width: 768px) {
-            nav:not(.page-toc) { padding: 0.8rem 1rem; }
             .page-hero { padding: 6rem 1.5rem 3rem; }
             .page-hero h1 { font-size: 1.8rem; }
             .container { padding: 2rem 1rem; }
@@ -455,13 +436,7 @@
     <button class="toc-toggle" aria-label="目录">☰</button>
     <div class="toc-overlay"></div>
 
-    <!-- 导航栏 -->
-    <nav>
-        <a href="../index.html" class="logo">木白</a>
-        <a href="../index.html" class="back-btn">← 返回首页</a>
-    </nav>
-
-    <!-- Hero -->
+<!-- Hero -->
     <header class="page-hero">
         <h1>🧰 科创工具导航</h1>
         <p>为动手实践与科创项目精选的常用工具合集：在线网站即开即用，专业软件支持官网下载，也可在公众号获取打包好的安装包。</p>
@@ -486,9 +461,7 @@
 
                 <a href="https://phet.colorado.edu/zh_CN/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="PhET" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=phet.colorado.edu&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/phet.colorado.edu.ico';}">
+                        <img class="tool-logo" alt="PhET" loading="lazy" src="icons/phet.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🔬</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费</span>
@@ -502,9 +475,7 @@
 
                 <a href="https://www.tinkercad.com/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Tinkercad" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=tinkercad.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/tinkercad.com.ico';}">
+                        <img class="tool-logo" alt="Tinkercad" loading="lazy" src="icons/tinkercad.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🔧</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费</span>
@@ -518,9 +489,7 @@
 
                 <a href="https://c.runoob.com/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="菜鸟工具" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=c.runoob.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/runoob.com.ico';}">
+                        <img class="tool-logo" alt="菜鸟工具" loading="lazy" src="icons/runoob.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">📖</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费</span>
@@ -534,9 +503,7 @@
 
                 <a href="https://www.cnki.net/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="中国知网" loading="lazy"
-                             src="https://www.cnki.net/favicon.ico"
-                             data-fb="https://www.google.com/s2/favicons?domain=cnki.net&sz=128|https://icons.duckduckgo.com/ip3/cnki.net.ico">
+                        <img class="tool-logo" alt="中国知网" loading="lazy" src="icons/cnki.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">📑</span>
                     </div>
                     <span class="tool-badge web">在线 · 部分付费</span>
@@ -550,9 +517,7 @@
 
                 <a href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="IEEE Xplore" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=ieee.org&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/ieee.org.ico';}">
+                        <img class="tool-logo" alt="IEEE Xplore" loading="lazy" src="icons/ieee.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">📐</span>
                     </div>
                     <span class="tool-badge web">在线 · 部分付费</span>
@@ -566,9 +531,7 @@
 
                 <a href="https://lastminuteengineers.com/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Last Minute Engineers" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=lastminuteengineers.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/lastminuteengineers.com.ico';}">
+                        <img class="tool-logo" alt="Last Minute Engineers" loading="lazy" src="icons/lastminute.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🛠️</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费</span>
@@ -582,9 +545,7 @@
 
                 <a href="https://www.csdn.net/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="CSDN" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=csdn.net&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/csdn.net.ico';}">
+                        <img class="tool-logo" alt="CSDN" loading="lazy" src="icons/csdn.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">✍️</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费</span>
@@ -598,9 +559,7 @@
 
                 <a href="https://www.jlc.com/" target="_blank" rel="noopener" class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="嘉立创" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=jlc.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/jlc.com.ico';}">
+                        <img class="tool-logo" alt="嘉立创" loading="lazy" src="icons/jlc.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🔩</span>
                     </div>
                     <span class="tool-badge web">在线 · 免费注册</span>
@@ -626,9 +585,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Fusion 360" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=autodesk.com&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/autodesk.com.ico';}">
+                        <img class="tool-logo" alt="Fusion 360" loading="lazy" src="icons/autodesk.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🧊</span>
                     </div>
                     <span class="tool-badge app">软件 · 教育免费</span>
@@ -645,9 +602,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="小熊猫编程" loading="lazy"
-                             src="https://royqh.net/redpandacpp/favicon.ico"
-                             data-fb="https://www.google.com/s2/favicons?domain=royqh.net&sz=128|https://icons.duckduckgo.com/ip3/royqh.net.ico|https://royqh.net/favicon.ico">
+                        <img class="tool-logo" alt="小熊猫编程" loading="lazy" src="icons/xiongmao.svg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🐼</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费开源</span>
@@ -664,9 +619,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Arduino IDE" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=arduino.cc&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/arduino.cc.ico';}">
+                        <img class="tool-logo" alt="Arduino IDE" loading="lazy" src="icons/arduino.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🌿</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费开源</span>
@@ -683,9 +636,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Visual Studio Code" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=128"
-                             data-fb="https://icons.duckduckgo.com/ip3/code.visualstudio.com.ico|https://code.visualstudio.com/favicon.ico">
+                        <img class="tool-logo" alt="Visual Studio Code" loading="lazy" src="icons/vscode.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🔵</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费开源</span>
@@ -702,9 +653,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="Mixly 米思齐" loading="lazy"
-                             src="https://www.google.com/s2/favicons?domain=mixly.org&sz=128"
-                             onerror="if(this.dataset.fb){this.style.display='none';this.nextElementSibling.style.display='flex';}else{this.dataset.fb=1;this.src='https://icons.duckduckgo.com/ip3/mixly.org.ico';}">
+                        <img class="tool-logo" alt="Mixly 米思齐" loading="lazy" src="icons/mixly.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🧩</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费</span>
@@ -721,9 +670,7 @@
 
                 <div class="tool-card">
                     <div class="tool-logo-wrap">
-                        <img class="tool-logo" alt="天问 Block" loading="lazy"
-                             src="https://www.twen51.com/favicon.ico"
-                             data-fb="https://www.google.com/s2/favicons?domain=twen51.com&sz=128|https://icons.duckduckgo.com/ip3/twen51.com.ico">
+                        <img class="tool-logo" alt="天问 Block" loading="lazy" src="icons/tianwen.png" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <span class="tool-emoji">🤖</span>
                     </div>
                     <span class="tool-badge app">软件 · 免费</span>
@@ -828,19 +775,6 @@
     });
 })();
 
-// 工具 Logo 多源兜底：依次尝试 data-fb 中的候选地址，全部失败再显示 emoji
-document.querySelectorAll('img.tool-logo[data-fb]').forEach(function(img){
-    var list = (img.getAttribute('data-fb') || '').split('|').filter(Boolean);
-    var i = 0;
-    img.addEventListener('error', function(){
-        if (i < list.length) { img.src = list[i++]; }
-        else {
-            img.style.display = 'none';
-            var e = img.nextElementSibling;
-            if (e) e.style.display = 'flex';
-        }
-    });
-});
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"e7dec9ee3cca42bcaab82d4b32297f98","r":1,"spa":2}' crossorigin="anonymous"></script>
 <script src="../assets/js/site.js" defer></script>
