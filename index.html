@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="木白 · 深圳中考实时升学工具：实时倒计时、初三全年时间轴、政策通知、深圳中考升学全景、科创升学路径与作品墙。">
+<meta name="description" content="木白 · 深圳中考实时升学工具：实时倒计时、初三全年时间轴、政策通知、深圳中考升学全景、科创升学路径与可动手制作的科创项目。">
 <title>木白 · 深圳中考实时升学工具</title>
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
@@ -174,10 +174,25 @@ h2{font-size:24px;line-height:1.35;margin:0;letter-spacing:-.02em}
 .qr-modal-d{font-size:12.5px;color:var(--sub);margin-top:4px}
 .qr-modal-x{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;border:0;background:#fff;color:var(--green);font-size:17px;box-shadow:0 4px 14px rgba(0,0,0,.18);display:grid;place-items:center}
 .qr-modal-x:hover{background:var(--soft)}
-.wall-empty{border:1px dashed #c7d6ce;border-radius:12px;padding:40px 18px;text-align:center;color:var(--sub);background:#fafcfb}
-.wall-empty .we-icon{font-size:26px;opacity:.5;margin-bottom:8px}
-.wall-empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
-.wall-empty span{font-size:12px}
+.kc-intro{font-size:12.5px;color:var(--sub);margin:0 0 14px;line-height:1.6}
+.kc-list{display:flex;flex-direction:column;gap:12px}
+.kc-card{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;transition:border-color .2s,box-shadow .2s,transform .2s}
+.kc-card:hover{border-color:var(--green2);box-shadow:0 8px 20px rgba(13,92,75,.1);transform:translateY(-2px)}
+.kc-img{width:86px;height:64px;object-fit:cover;border-radius:9px;flex:none;border:1px solid var(--line);background:#f2f5f3}
+.kc-body{flex:1;min-width:0}
+.kc-ico{width:86px;height:64px;border-radius:9px;flex:none;display:grid;place-items:center;font-size:30px;background:var(--soft);border:1px solid var(--line)}
+.kc-body h4{font-size:14.5px;margin:0 0 3px;color:var(--ink);line-height:1.3}
+.kc-learn{font-size:11.5px;color:var(--sub);margin:0 0 7px;line-height:1.45}
+.kc-meta{display:flex;gap:7px;flex-wrap:wrap}
+.kc-meta span{font-size:10.5px;color:var(--green);background:var(--soft);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.kc-ar{font-size:16px;color:var(--green2);flex:none;opacity:.5;transition:transform .2s,opacity .2s}
+.kc-card:hover .kc-ar{opacity:1;transform:translateX(3px)}
+.kc-more{display:flex;align-items:center;gap:12px;border:1px dashed var(--green2);border-radius:12px;padding:11px 12px;background:var(--soft);color:var(--green);text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
+.kc-more:hover{background:#eaf4ef;transform:translateY(-2px);box-shadow:0 8px 20px rgba(13,92,75,.1)}
+.kc-more-ico{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;font-size:18px;background:#fff;border:1px solid var(--line)}
+.kc-more-txt{font-size:13.5px;font-weight:600;flex:1;min-width:0;line-height:1.3}
+.kc-more-txt small{display:block;font-size:10.5px;font-weight:400;color:var(--sub);margin-top:2px}
+.kc-more:hover .kc-ar{opacity:1;transform:translateX(3px)}
 
 footer{padding:24px 0 40px;color:#7a8a83;font-size:11.5px;line-height:1.8}
 footer .fp{color:#8a9992}
@@ -208,7 +223,7 @@ footer .fp{color:#8a9992}
       <a href="#policy">政策通知</a>
       <a href="#zhongkao">深圳中考</a>
       <a href="#tech">科创路径</a>
-      <a href="#findme">找到我 · 作品墙</a>
+      <a href="#findme">找到我 · 科创项目</a>
     </nav>
   </div>
 </header>
@@ -411,11 +426,32 @@ footer .fp{color:#8a9992}
       </article>
 
       <article class="panel">
-        <div class="p-head"><span class="p-icon icon-gold">🖼️</span><div><h3>作品展示墙</h3><p class="p-sub">赛事 / 项目 / 探校实拍集中展示</p></div></div>
-        <div class="wall-empty">
-          <div class="we-icon">🖼️</div>
-          <b>作品集整理中 · 敬请期待</b>
-          <span>后续将在这里集中展示学生科创作品、白名单赛事、探校实拍等内容。</span>
+        <div class="p-head"><span class="p-icon icon-green">🤖</span><div><h3>科创项目</h3><p class="p-sub">动手做 · 学硬件 / AI / 机械</p></div></div>
+        <p class="kc-intro">挑一个项目跟着做：从机械爪入门，到会对话的 AI 机械狗。点开看完整制作资料与开源文件。</p>
+        <div class="kc-list">
+          <a class="kc-card" href="opensource-projects/index.html">
+            <img class="kc-img" src="opensource-projects/images/ai-robot-dog.jpg" alt="AI 桌宠机械狗">
+            <div class="kc-body">
+              <h4>AI 桌宠机械狗</h4>
+              <p class="kc-learn">能学到：ESP32-S3 · 小智 AI 语音 · MCP 控制四足行走</p>
+              <div class="kc-meta"><span>难度 ★★★★☆</span><span>复刻 ≈100 元</span></div>
+            </div>
+            <span class="kc-ar">→</span>
+          </a>
+          <a class="kc-card" href="opensource-projects/index.html">
+            <img class="kc-img" src="opensource-projects/images/robotic-arm.jpg" alt="遥控机械手">
+            <div class="kc-body">
+              <h4>遥控机械手（机械爪）</h4>
+              <p class="kc-learn">能学到：Arduino · 四自由度机械臂 · 舵机与装配</p>
+              <div class="kc-meta"><span>难度 ★★☆☆☆</span><span>复刻 ≈70 元</span></div>
+            </div>
+            <span class="kc-ar">→</span>
+          </a>
+          <a class="kc-more" href="opensource-projects/index.html">
+            <span class="kc-more-ico">📂</span>
+            <span class="kc-more-txt">查看更多项目<small>星球大战 · 悬浮时钟 等 5 个</small></span>
+            <span class="kc-ar">→</span>
+          </a>
         </div>
       </article>
 

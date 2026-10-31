@@ -169,6 +169,14 @@
             background: var(--bg-light);
         }
 
+        .project-card .project-img.ph {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            background: var(--bg-light);
+        }
+
         .project-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.6rem;
@@ -554,7 +562,7 @@
     <!-- 项目列表 -->
     <div class="container">
         <h2 class="section-title" id="projects-list">项目列表</h2>
-        <p class="section-subtitle">共 3 个开源项目，持续更新中</p>
+        <p class="section-subtitle">共 5 个开源项目，持续更新中</p>
 
         <div class="projects-grid">
 
@@ -646,6 +654,67 @@
                     💬 加微信获取完整资料 →
                 </div>
             </div>
+
+            <!-- 星球大战小游戏 -->
+            <div class="project-card">
+                <img class="project-img" src="images/starwars-project.png" alt="星球大战小游戏 成品" loading="lazy">
+                <span class="status">📖 开源</span>
+                <span class="cost-badge">💰 复刻成本约 30 元</span>
+                <h3>星球大战小游戏</h3>
+                <p class="project-desc">基于 <span class="hl">Arduino Nano</span> 的 0.96 寸 OLED 小游戏，玩法为死星与 X-Wing 对战，搭载 <span class="hl-accent">Adafruit SSD1306 / GFX</span> 图形库与 <span class="hl-bg">无源蜂鸣器音效</span>，3 颗按键控制移动与开火。</p>
+                <ul class="features-list">
+                    <li><strong>OLED 图形</strong>：128×64 像素动画、精灵图与分数显示</li>
+                    <li><strong>输入控制</strong>：3 颗按键（移动 / 开火），INPUT_PULLUP 接法</li>
+                    <li><strong>音效</strong>：tone() 驱动蜂鸣器播放星战旋律</li>
+                    <li><strong>全开源</strong>：.ino 源码 + Adafruit 库 + 连线图 / 材料清单</li>
+                    <li><strong>学习方向</strong>：游戏循环、图形编程、库管理</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>Arduino Nano</span>
+                    <span>0.96" OLED</span>
+                    <span>3×按键</span>
+                    <span>无源蜂鸣器</span>
+                    <span>Adafruit_GFX</span>
+                </div>
+                <div class="project-meta">
+                    <span>🎯 难度：★★★☆☆</span>
+                    <span>📅 状态：📖 开源</span>
+                </div>
+                <div class="repo-link" onclick="document.getElementById('wechat-modal').classList.add('show')">
+                    💬 加微信获取完整资料 →
+                </div>
+            </div>
+
+            <!-- 悬浮时钟 -->
+            <div class="project-card">
+                <img class="project-img" src="images/hollow-clock-project.png" alt="悬浮时钟 成品" loading="lazy">
+                <span class="status">📖 开源</span>
+                <span class="cost-badge">💰 复刻成本约 90 元</span>
+                <h3>悬浮时钟（Hollow Clock）</h3>
+                <p class="project-desc">开源 <span class="hl-accent">Hollow Clock</span> 悬浮时钟：3D 打印外壳 + <span class="hl">28BYJ-48</span> 步进电机驱动，分针与时针"悬浮"旋转。基于 <span class="hl-bg">AccelStepper</span> 库精确走时，附完整 3D 模型与调好的程序。</p>
+                <ul class="features-list">
+                    <li><strong>悬浮效果</strong>：指针由底部步进电机经齿轮传动，视觉上"悬浮"</li>
+                    <li><strong>电机控制</strong>：28BYJ-48 + ULN2003，AccelStepper 平滑加减速</li>
+                    <li><strong>3D 打印</strong>：提供 STL / 3MF 模型，可自打或淘宝代打</li>
+                    <li><strong>全开源</strong>：.ino 程序 + 3D 模型 + 原版教程</li>
+                    <li><strong>学习方向</strong>：步进电机、3D 装配、时钟逻辑</li>
+                </ul>
+                <div class="tech-stack">
+                    <span>28BYJ-48</span>
+                    <span>ULN2003</span>
+                    <span>Arduino</span>
+                    <span>AccelStepper</span>
+                    <span>3D打印</span>
+                </div>
+                <div class="project-meta">
+                    <span>🎯 难度：★★★☆☆</span>
+                    <span>📅 状态：📖 开源</span>
+                </div>
+                <div class="repo-link" onclick="document.getElementById('wechat-modal').classList.add('show')">
+                    💬 加微信获取完整资料 →
+                </div>
+            </div>
+
 
         </div>
 
